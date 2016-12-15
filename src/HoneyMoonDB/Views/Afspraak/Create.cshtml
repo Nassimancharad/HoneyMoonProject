@@ -2,13 +2,16 @@
 
 @{
     ViewData["Title"] = "Create";
-   }
-
+    //Layout = "";
+}
 <head>
     <link rel="stylesheet" href="~/css/bas.css">
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>>
 
 <h2>Create</h2>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
@@ -17,6 +20,9 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
 
 <div class="row image " style="box-shadow: -10px -10px 20px -5px #ebebeb;">
 
