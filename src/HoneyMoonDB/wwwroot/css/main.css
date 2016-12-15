@@ -166,18 +166,17 @@ body {
 * END afspraakselect *
 **********************/
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 
 /*********************
 BEGIN   ONBEKEND
 **********************/
 .row .footerbg {
     background-color: #ffe4e1;
-}
-
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
 }
 
 .pcolor {
