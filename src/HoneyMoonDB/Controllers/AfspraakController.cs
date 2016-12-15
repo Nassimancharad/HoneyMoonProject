@@ -143,7 +143,7 @@ namespace HoneyMoonDB.Controllers
             return RedirectToAction("Index");
         }
 
-        private bool AfspraakExists(int id)
+        public bool AfspraakExists(int id)
         {
             return HoneyMoonDb.Afspraak.Any(e => e.AfspraakId == id);
         }
@@ -156,10 +156,12 @@ namespace HoneyMoonDB.Controllers
         {
             return View();
         }
+
         public IActionResult AfspraakStap1B()
         {
             return View();
         }
+
         public IActionResult AfspraakStap2()
         {
             return View();

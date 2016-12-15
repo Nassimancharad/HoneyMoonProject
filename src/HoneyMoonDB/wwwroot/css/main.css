@@ -1,5 +1,4 @@
 ﻿/*BEGIN TODO: DELTE CLASSES*/
-
 .yellowBorder > [class*='col-'] {
     border-color: yellow;
     border-style: solid;
@@ -9,8 +8,24 @@
     border-color: yellow;
     border-style: solid;
 }
+
+.redBorder {
+    border-color: red !important;
+    border-style: solid;
+}
+
+.row {
+    margin-bottom: 25px;
+}
+
+.yellowBorder {
+    border: solid yellow;
+}
 /*END TODO: DELTE CLASSES*/
 
+/*********************
+***  BEGIN general ***
+**********************/
 body {
     background-color: rgb(252, 232, 231);
 }
@@ -19,72 +34,73 @@ body {
     background-color: #fff;
 }
 
-.row {
-   margin-bottom: 25px;
+.flex-container {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
 }
 
-    .row .header {
-        background-color: #fac9c4;
-        /* height: 50px; */
-    }
-
-        .row .header .col-sm-1 {
-            border-style: solid;
-            border-color: red;
-            min-height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-.right-aligned {
-    text-align: right;
-}
-
-.redBorder {
-    border-color: red !important;
-    border-style: solid;
-}
-
-.row-centered {
-    text-align: center;
-}
-
-.col-centered {
-    display: inline-table;
-    float: none;
-    /* reset the text-align */
-    text-align: left;
-    /* inline-block space fix */
-    margin-right: -4px;
-}
-
-.whiteSpace {
-    margin-right: 20px;
-}
-
-.no-gutter > [class*='col-'] {
-    padding-right: 0;
+.no-gutter {
     padding-left: 0;
+    padding-right: 0;
+}
+/*********************
+***   END general  ***
+**********************/
+
+/*********************
+***  BEGIN header  ***
+**********************/
+.header {
+    border: solid green;
+    height: 50px;
+    background-color: #fac9c4;
 }
 
-.sponsor > [class*='col-'] {
-    margin-left: 10px;
+.flex-header {
+    align-items: center;
+}
+/*********************
+***   END header   ***
+**********************/
+
+/*********************
+***  BEGIN footer  ***
+**********************/
+.footer-container {
+    height: 100%; /*    -----------------      */
+    align-items: stretch;
+    justify-content: center;
 }
 
-/* BEGIN number circles */
-.clearfix{
+.footer-gutter {
+    margin-left: 50px;
+}
+
+.no-gutter {
+    padding-left: 0;
+    padding-right: 0;
+}
+/*********************
+***   END footer   ***
+**********************/
+
+/***********************
+* BEGIN number circles *
+************************/
+.clearfix {
     font: 18px Arial, Sans-serif;
     margin-top: 10px;
 }
 
-.clearfix:hover .numberCircle {
-    background: #f0597c;
-}
+    .clearfix:hover .numberCircle {
+        background: #f0597c;
+    }
 
-.clearfix:hover .thot {
-    color: #f0597c;
-}
+    .clearfix:hover .thot {
+        color: #f0597c;
+    }
 
 .numberCircle {
     width: 30px;
@@ -101,15 +117,30 @@ body {
 
 .thot {
     padding-left: 10px;
-    float:left;
+    float: left;
     line-height: 30px;
 }
-/* END number circles */
+/*********************
+* END number circles *
+**********************/
 
+/*********************
+***   BEGIN caret  ***
+**********************/
 .caret {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 15px solid #f0597c;
+}
+/*********************
+***    END caret   ***
+**********************/
+
+/***********************
+* BEGIN afspraakselect *
+************************/
+.afspraakSoort {
+    margin-top: 35px;
 }
 
 .textUp {
@@ -117,36 +148,47 @@ body {
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    top:10%;
-    left:10%;
+    top: 10%;
+    left: 10%;
     position: absolute;
 }
 
-.afspraakSoort {
-    margin-top: 35px;
+.flex-afspraak-select {
+    height: 100%;
+    align-items: stretch;
+    justify-content: center;
 }
 
-		@media all and (max-width: 1200px) {
-      .right-aligned {
-        text-align: left;
-      }
-    }
+.afspraak-select-gutter {
+    margin-left: 20px;
+}
+/*********************
+* END afspraakselect *
+**********************/
 
-		
-		 .row .footerbg {
-			background-color:#ffe4e1;
-		}
-				
-		
-		.vcenter {
-			display: inline-block;
-			vertical-align: middle;
-			float: none;
-		}
-		
-		.pcolor {
-		background-color:white;
-		height:50px;
-		padding-top: 10px;
-		}
-      
+
+/*********************
+BEGIN   ONBEKEND
+**********************/
+.row .footerbg {
+    background-color: #ffe4e1;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.pcolor {
+    background-color: white;
+    height: 50px;
+    padding-top: 10px;
+}
+
+.whiteSpace {
+    margin-right: 20px;
+}
+/*********************
+EIND    ONBEKEND
+**********************/
