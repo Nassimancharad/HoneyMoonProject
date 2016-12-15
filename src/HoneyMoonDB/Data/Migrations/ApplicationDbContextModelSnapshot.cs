@@ -23,6 +23,8 @@ namespace HoneyMoonDB.Data.Migrations
 
                     b.Property<string>("Email");
 
+                    b.Property<string>("HerhaalEmail");
+
                     b.Property<string>("Naam");
 
                     b.Property<bool>("Nieuwsbrief");
