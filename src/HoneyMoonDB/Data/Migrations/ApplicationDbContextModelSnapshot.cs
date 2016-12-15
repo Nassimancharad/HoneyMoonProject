@@ -11,225 +11,230 @@ namespace HoneyMoonDB.Data.Migrations
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.1")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+        { }
+            //modelBuilder
+            //    .HasAnnotation("ProductVersion", "1.0.1")
+            //    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HoneyMoonDB.Models.Afspraak", b =>
-                {
-                    b.Property<int>("AfspraakId")
-                        .ValueGeneratedOnAdd();
+            //modelBuilder.Entity("HoneyMoonDB.Models.Afspraak", b =>
+            //    {
+            //        b.Property<int>("AfspraakId")
+            //            .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Email");
+            //        b.Property<string>("Email")
+            //            .IsRequired();
 
-                    b.Property<string>("Naam");
+            //        b.Property<string>("HerhaalEmail")
+            //            .IsRequired();
 
-                    b.Property<bool>("Nieuwsbrief");
+            //        b.Property<string>("Naam")
+            //            .IsRequired();
 
-                    b.Property<int>("Telefoonnummer");
+            //        b.Property<bool>("Nieuwsbrief");
 
-                    b.Property<DateTime>("Tijd");
+            //        b.Property<int>("TelNr");
 
-                    b.Property<DateTime>("TrouwDatum");
+            //        b.Property<DateTime>("Tijd");
 
-                    b.HasKey("AfspraakId");
+            //        b.Property<DateTime>("TrouwDatum");
 
-                    b.ToTable("Afspraak");
-                });
+            //        b.HasKey("AfspraakId");
 
-            modelBuilder.Entity("HoneyMoonDB.Models.ApplicationUser", b =>
-                {
-                    b.Property<string>("Id");
+            //        b.ToTable("Afspraak");
+            //    });
 
-                    b.Property<int>("AccessFailedCount");
+            //modelBuilder.Entity("HoneyMoonDB.Models.ApplicationUser", b =>
+            //    {
+            //        b.Property<string>("Id");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+            //        b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Email")
-                        .HasAnnotation("MaxLength", 256);
+            //        b.Property<string>("ConcurrencyStamp")
+            //            .IsConcurrencyToken();
 
-                    b.Property<bool>("EmailConfirmed");
+            //        b.Property<string>("Email")
+            //            .HasAnnotation("MaxLength", 256);
 
-                    b.Property<bool>("LockoutEnabled");
+            //        b.Property<bool>("EmailConfirmed");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd");
+            //        b.Property<bool>("LockoutEnabled");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasAnnotation("MaxLength", 256);
+            //        b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<string>("NormalizedUserName")
-                        .HasAnnotation("MaxLength", 256);
+            //        b.Property<string>("NormalizedEmail")
+            //            .HasAnnotation("MaxLength", 256);
 
-                    b.Property<string>("PasswordHash");
+            //        b.Property<string>("NormalizedUserName")
+            //            .HasAnnotation("MaxLength", 256);
 
-                    b.Property<string>("PhoneNumber");
+            //        b.Property<string>("PasswordHash");
 
-                    b.Property<bool>("PhoneNumberConfirmed");
+            //        b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("SecurityStamp");
+            //        b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<bool>("TwoFactorEnabled");
+            //        b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("UserName")
-                        .HasAnnotation("MaxLength", 256);
+            //        b.Property<bool>("TwoFactorEnabled");
 
-                    b.HasKey("Id");
+            //        b.Property<string>("UserName")
+            //            .HasAnnotation("MaxLength", 256);
 
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+            //        b.HasKey("Id");
 
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex");
+            //        b.HasIndex("NormalizedEmail")
+            //            .HasName("EmailIndex");
 
-                    b.ToTable("AspNetUsers");
-                });
+            //        b.HasIndex("NormalizedUserName")
+            //            .IsUnique()
+            //            .HasName("UserNameIndex");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
-                {
-                    b.Property<string>("Id");
+            //        b.ToTable("AspNetUsers");
+            //    });
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
+            //    {
+            //        b.Property<string>("Id");
 
-                    b.Property<string>("Name")
-                        .HasAnnotation("MaxLength", 256);
+            //        b.Property<string>("ConcurrencyStamp")
+            //            .IsConcurrencyToken();
 
-                    b.Property<string>("NormalizedName")
-                        .HasAnnotation("MaxLength", 256);
+            //        b.Property<string>("Name")
+            //            .HasAnnotation("MaxLength", 256);
 
-                    b.HasKey("Id");
+            //        b.Property<string>("NormalizedName")
+            //            .HasAnnotation("MaxLength", 256);
 
-                    b.HasIndex("NormalizedName")
-                        .HasName("RoleNameIndex");
+            //        b.HasKey("Id");
 
-                    b.ToTable("AspNetRoles");
-                });
+            //        b.HasIndex("NormalizedName")
+            //            .HasName("RoleNameIndex");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+            //        b.ToTable("AspNetRoles");
+            //    });
 
-                    b.Property<string>("ClaimType");
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
+            //    {
+            //        b.Property<int>("Id")
+            //            .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ClaimValue");
+            //        b.Property<string>("ClaimType");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired();
+            //        b.Property<string>("ClaimValue");
 
-                    b.HasKey("Id");
+            //        b.Property<string>("RoleId")
+            //            .IsRequired();
 
-                    b.HasIndex("RoleId");
+            //        b.HasKey("Id");
 
-                    b.ToTable("AspNetRoleClaims");
-                });
+            //        b.HasIndex("RoleId");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+            //        b.ToTable("AspNetRoleClaims");
+            //    });
 
-                    b.Property<string>("ClaimType");
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
+            //    {
+            //        b.Property<int>("Id")
+            //            .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ClaimValue");
+            //        b.Property<string>("ClaimType");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+            //        b.Property<string>("ClaimValue");
 
-                    b.HasKey("Id");
+            //        b.Property<string>("UserId")
+            //            .IsRequired();
 
-                    b.HasIndex("UserId");
+            //        b.HasKey("Id");
 
-                    b.ToTable("AspNetUserClaims");
-                });
+            //        b.HasIndex("UserId");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider");
+            //        b.ToTable("AspNetUserClaims");
+            //    });
 
-                    b.Property<string>("ProviderKey");
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
+            //    {
+            //        b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderDisplayName");
+            //        b.Property<string>("ProviderKey");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+            //        b.Property<string>("ProviderDisplayName");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
+            //        b.Property<string>("UserId")
+            //            .IsRequired();
 
-                    b.HasIndex("UserId");
+            //        b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.ToTable("AspNetUserLogins");
-                });
+            //        b.HasIndex("UserId");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId");
+            //        b.ToTable("AspNetUserLogins");
+            //    });
 
-                    b.Property<string>("RoleId");
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserRole<string>", b =>
+            //    {
+            //        b.Property<string>("UserId");
 
-                    b.HasKey("UserId", "RoleId");
+            //        b.Property<string>("RoleId");
 
-                    b.HasIndex("RoleId");
+            //        b.HasKey("UserId", "RoleId");
 
-                    b.HasIndex("UserId");
+            //        b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
-                });
+            //        b.HasIndex("UserId");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId");
+            //        b.ToTable("AspNetUserRoles");
+            //    });
 
-                    b.Property<string>("LoginProvider");
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserToken<string>", b =>
+            //    {
+            //        b.Property<string>("UserId");
 
-                    b.Property<string>("Name");
+            //        b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Value");
+            //        b.Property<string>("Name");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+            //        b.Property<string>("Value");
 
-                    b.ToTable("AspNetUserTokens");
-                });
+            //        b.HasKey("UserId", "LoginProvider", "Name");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
-                        .WithMany("Claims")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+            //        b.ToTable("AspNetUserTokens");
+            //    });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("HoneyMoonDB.Models.ApplicationUser")
-                        .WithMany("Claims")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
+            //    {
+            //        b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
+            //            .WithMany("Claims")
+            //            .HasForeignKey("RoleId")
+            //            .OnDelete(DeleteBehavior.Cascade);
+            //    });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("HoneyMoonDB.Models.ApplicationUser")
-                        .WithMany("Logins")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
+            //    {
+            //        b.HasOne("HoneyMoonDB.Models.ApplicationUser")
+            //            .WithMany("Claims")
+            //            .HasForeignKey("UserId")
+            //            .OnDelete(DeleteBehavior.Cascade);
+            //    });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
+            //    {
+            //        b.HasOne("HoneyMoonDB.Models.ApplicationUser")
+            //            .WithMany("Logins")
+            //            .HasForeignKey("UserId")
+            //            .OnDelete(DeleteBehavior.Cascade);
+            //    });
 
-                    b.HasOne("HoneyMoonDB.Models.ApplicationUser")
-                        .WithMany("Roles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-        }
+            //modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserRole<string>", b =>
+            //    {
+            //        b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
+            //            .WithMany("Users")
+            //            .HasForeignKey("RoleId")
+            //            .OnDelete(DeleteBehavior.Cascade);
+
+            //        b.HasOne("HoneyMoonDB.Models.ApplicationUser")
+            //            .WithMany("Roles")
+            //            .HasForeignKey("UserId")
+            //            .OnDelete(DeleteBehavior.Cascade);
+            //    });
+       // }
     }
 }

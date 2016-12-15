@@ -8,8 +8,8 @@ using HoneyMoonDB.Data;
 namespace HoneyMoonDB.Data.Migrations
 {
     [DbContext(typeof(HoneyMoonDbContext))]
-    [Migration("20161214135055_Initial")]
-    partial class Initial
+    [Migration("20161215152606_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,13 +22,18 @@ namespace HoneyMoonDB.Data.Migrations
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Naam");
+                    b.Property<string>("HerhaalEmail")
+                        .IsRequired();
+
+                    b.Property<string>("Naam")
+                        .IsRequired();
 
                     b.Property<bool>("Nieuwsbrief");
 
-                    b.Property<int>("Telefoonnummer");
+                    b.Property<int>("TelNr");
 
                     b.Property<DateTime>("Tijd");
 
