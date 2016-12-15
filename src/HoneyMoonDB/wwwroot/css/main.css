@@ -1,0 +1,152 @@
+﻿/*BEGIN TODO: DELTE CLASSES*/
+
+.yellowBorder > [class*='col-'] {
+    border-color: yellow;
+    border-style: solid;
+}
+
+.redBorder > [class*='col-'] {
+    border-color: yellow;
+    border-style: solid;
+}
+/*END TODO: DELTE CLASSES*/
+
+body {
+    background-color: rgb(252, 232, 231);
+}
+
+.container {
+    background-color: #fff;
+}
+
+.row {
+   margin-bottom: 25px;
+}
+
+    .row .header {
+        background-color: #fac9c4;
+        /* height: 50px; */
+    }
+
+        .row .header .col-sm-1 {
+            border-style: solid;
+            border-color: red;
+            min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+.right-aligned {
+    text-align: right;
+}
+
+.redBorder {
+    border-color: red !important;
+    border-style: solid;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-table;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+}
+
+.whiteSpace {
+    margin-right: 20px;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.sponsor > [class*='col-'] {
+    margin-left: 10px;
+}
+
+/* BEGIN number circles */
+.clearfix{
+    font: 18px Arial, Sans-serif;
+    margin-top: 10px;
+}
+
+.clearfix:hover .numberCircle {
+    background: #f0597c;
+}
+
+.clearfix:hover .thot {
+    color: #f0597c;
+}
+
+.numberCircle {
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: rgb(209,210,212);
+    color: #fff;
+    line-height: 30px;
+    float: left;
+}
+
+.thot {
+    padding-left: 10px;
+    float:left;
+    line-height: 30px;
+}
+/* END number circles */
+
+.caret {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #f0597c;
+}
+
+.textUp {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    top:10%;
+    left:10%;
+    position: absolute;
+}
+
+.afspraakSoort {
+    margin-top: 35px;
+}
+
+		@media all and (max-width: 1200px) {
+      .right-aligned {
+        text-align: left;
+      }
+    }
+
+		
+		 .row .footerbg {
+			background-color:#ffe4e1;
+		}
+				
+		
+		.vcenter {
+			display: inline-block;
+			vertical-align: middle;
+			float: none;
+		}
+		
+		.pcolor {
+		background-color:white;
+		height:50px;
+		padding-top: 10px;
+		}
+      
