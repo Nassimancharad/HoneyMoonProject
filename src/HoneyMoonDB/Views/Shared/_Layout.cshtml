@@ -1,45 +1,34 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Honeymoon Shop (HOMEPAGE)</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/main.css">
 </head>
 
-
 <body>
     <div class="container">
 
-        <div class="row">
-            <div class="header">
-                <div class="col-sm-1">
-                    <p style="font-size:ad lib;small;color:black;border-radius;"><b>WEBSITE</b></p>
-                </div>
-                <div class="col-sm-1">
-                    <p style="font-size:ad lib;small;color:#DE5D83;border-radius;"><b>WEBSHOP</b></p>
-                </div>
-                <!-- <div class="col-sm-6"> -->
-                <!-- </div> -->
-                <div class="col-sm-2 col-sm-offset-6 right-aligned">
-                    <p><b>T</b>(010) 4126143</p>
-                </div>
-                <div class="col-sm-2 pcolor">
-                    <div>
-                        Wat zoek je?
-                        <img STYLE="position:absolute; margin-left: 20px; margin-top: -10px" class="img-zoeken" src="https://s24.postimg.org/4eajfdgo5/HM_foto3_zoeken.png" alt="first image up" />
-                    </div>
-                </div>
+        <!-- BEGIN HEADER -->
+        <div class="row header flex-container flex-header text-center">
+            <div class="col-md-2 yellowBorder">
+                <strong>Hallo</strong>
+            </div>
+            <div class="col-md-2 yellowBorder">
+                <strong>Webshop</strong>
+            </div>
+            <div class="col-md-2 col-md-offset-4 text-right yellowBorder">
+                <strong>T (010) 4126143</strong>
+            </div>
+            <div class="col-md-2 yellowBorder">
+                <strong>Wat zoek je?</strong>
             </div>
         </div>
+        <!-- END HEADER -->
 
-        <!-- <div class="row"> -->
-
+        <!-- BEGIN NAVBAR -->
         <div class="row image ">
-
             <div class="col-sm-12 par">
                 <div class="col-sm-2 vcenter2">
                     <h1 style="position:absolutea margin-left: 0px; font-size: 45px; font-family:hoefler text;color:white;border-radius;"><class ="brand">Honeymoon Shop®</h1>
@@ -58,89 +47,92 @@
                     <button style="position:absolute; margin-left: 0px; padding: 10px; background-color:#F0597c;color:white"><b>AFSPRAKEN MAKEN</b></button>
                 </div>
             </div>
-
-
-
         </div>
+        <!-- END NAVBAR -->
+
         @RenderBody()
+        
         <!-- BEGIN FOOTER -->
-
-        <div class="row row-centered">
-            <div class="footerbg">
-                <div class="col-sm-9 col-centered yellowBorder">
-                    <img class="img-responsive" src="https://s30.postimg.org/jakilkj35/HM_foto2_300px.png" alt="first image">
+        <footer>
+            <div class="row flex-container footer-container">
+                <div class="col-md-3 no-gutter yellowBorder">
+                    <img class="img-responsive center-block" src="http://placehold.it/255x155" alt="first image">
+                </div>
+                <div class="col-md-3 no-gutter footer-gutter yellowBorder">
+                    <img class="img-responsive center-block" src="http://placehold.it/255x155" alt="second image">
+                </div>
+                <div class="col-md-3 no-gutter footer-gutter yellowBorder">
+                    <img class="img-responsive center-block" src="http://placehold.it/255x155" alt="third image">
                 </div>
             </div>
-        </div>
 
-        <div class="row text-center">
-            <div class="footerbg">
-                <div>
-                    Korte Hoogstraat 4, 3011 GL Rotterdam <strong>email</strong> info@honeymoonshop.nl <abbr title="Phone"><strong>Tel:</strong></abbr> (010) 412 61 43 <strong>Whatsapp</strong> (06) 25 19 99 27
-                    <p><strong>Openingstijden MA</strong> 12.00-17.30  <strong>DI t/m VR</strong> 09.30-17.30 <strong>ZA</strong> 09:30-18.00  <strong>DI t/m VR</strong> 11.00-17.00</p>
-                </div>
-
+            <div class="row text-center">
+                <address>
+                    Korte Hoogstraat 4, 3011 GL Rotterdam <strong>email</strong> info@honeymoonshop.nl <strong>Tel:</strong> (010) 412 61 43 <strong>Whatsapp</strong> (06) 25 19 99 27
+                </address>
+                <p>
+                    <strong>Openingstijden MA</strong> 12.00-17.30
+                    <strong>DI t/m VR</strong> 09.30-17.30
+                    <strong>ZA</strong> 09:30-18.00
+                    <strong>DI t/m VR</strong> 11.00-17.00
+                </p>
             </div>
-        </div>
 
-        <div class="row row-centered">
-            <div class="footerbg">
-                <div class="col-sm-2 col-centered">
-                    <img src="https://s23.postimg.org/bwxbbduq3/HM_foto1_100px.png" alt="first image">
+            <div class="row no-gutter flex-container footer-container">
+                <div class="col-md-2 no-gutter yellowBorder">
+                    <img src="http://placehold.it/150x50" alt="sponsor 1">
+                </div>
+                <div class="col-md-2 no-gutter footer-gutter yellowBorder">
+                    <img src="http://placehold.it/50x50" alt="sponsor 2">
                 </div>
             </div>
-        </div>
 
-
-        <div class="row row-centered">
-            <div class="footerbg">
-                <div class="col-sm-3 col-centered yellowBorder">
-                    <div style="font-size:ad lib;color:#DE5D83;border-radius;">
-                        <h4><b>WINKEL</b></h4>
-                    </div>
+            <div class="row flex-container footer-container">
+                <div class="col-md-3 yellowBorder">
+                    <h4>Winkel</h4>
+                    <a href=""> Over de Honeymoon shop</a>
+                    <a href=""> Servicepunten</a>
+                    <a href="">Routebeschrijving</a>
+                    <a href="">Beurzen en evenementen</a>
+                    <a href="">Vacatures</a>
+                    <a href="">Verkoopvoorwaarden</a>
                     <p>
-                        Over de Honeymoon shop</br>
-                        Servicepunten</br>
+                        Over de Honeymoon shop<br>
+                        Servicepunten<br>
                         Routebeschrijving
-                    </p>
-                    Beurzen en evenementen</br>
-                    Vacatures</br>
-                    Verkoopvoorwaarden</br>
-                    CBW erkend</br>
-                    Contact</br>
-                    </p>
-                </div>
-                <div class="col-sm-3 col-centered yellowBorder">
-                    <div style="font-size:ad lib;color:#DE5D83;border-radius;">
-                        <h4><b>SERVICE</b></h4>
-                    </div>
-                    <p>
-                        Beoordelingen</br>
-                        Dressfinder</br>
-                        Gratis trouwmagazine</br>
-                        Nieuwsbrief</br>
-                        Veel gestelde vragen</br>
-                        CBW erkend</br>
-                        Reinigen van trouwjurk</br>
-                        10 redenen om je afspraak te maken</br>
-                        The Perfect Match</br>
+                        Beurzen en evenementen<br>
+                        Vacatures<br>
+                        Verkoopvoorwaarden<br>
+                        CBW erkend<br>
+                        Contact<br>
                     </p>
                 </div>
-                <div class="col-sm-3 col-centered yellowBorder">
-                    <div style="font-size:ad lib;color:#DE5D83;border-radius;">
-                        <h4><b>ACTIES</b></h4>
-                    </div>
+                <div class="col-md-3 yellowBorder">
+                    <h4>Service</h4>
                     <p>
-                        The Grand Wedding Show</br>
-                        Summer Sale</br>
-                        Trouwjurken onder de 1000 euro</br>
-                        Trouwjurken voor de volslanke bruid</br>
+                        Beoordelingen<br>
+                        Dressfinder<br>
+                        Gratis trouwmagazine<br>
+                        Nieuwsbrief<br>
+                        Veel gestelde vragen<br>
+                        CBW erkend<br>
+                        Reinigen van trouwjurk<br>
+                        10 redenen om je afspraak te maken<br>
+                        The Perfect Match<br>
+                    </p>
+                </div>
+                <div class="col-md-3 yellowBorder">
+                    <h4>Acties</h4>
+                    <p>
+                        The Grand Wedding Show<br>
+                        Summer Sale<br>
+                        Trouwjurken onder de 1000 euro<br>
+                        Trouwjurken voor de volslanke bruid<br>
                     </p>
                 </div>
             </div>
 
-        </div>
-
+        </footer>
         <!-- END FOOTER -->
 
     </div>
