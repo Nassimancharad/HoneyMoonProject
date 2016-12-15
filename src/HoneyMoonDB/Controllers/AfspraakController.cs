@@ -166,6 +166,10 @@ namespace HoneyMoonDB.Controllers
         {
             return View();
         }
+        public IActionResult navbar()
+        {
+            return View();
+        }
 
     }
 }
