@@ -147,20 +147,20 @@ namespace HoneyMoonDB.Controllers
         {
             return HoneyMoonDb.Afspraak.Any(e => e.AfspraakId == id);
         }
-        private IActionResult AfspraakSelect()
+        public IActionResult AfspraakSelect()
         {
             return View();
         }
 
-        private IActionResult AfspraakStap1A()
+        public IActionResult AfspraakStap1A()
         {
             return View();
         }
-        private IActionResult AfspraakStap1B()
+        public IActionResult AfspraakStap1B()
         {
             return View();
         }
-        private IActionResult AfspraakStap2()
+        public IActionResult AfspraakStap2()
         {
             return View();
         }
