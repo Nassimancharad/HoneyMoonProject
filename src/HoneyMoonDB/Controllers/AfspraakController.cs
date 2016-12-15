@@ -53,12 +53,12 @@ namespace HoneyMoonDB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AfspraakId,Email,Naam,Nieuwsbrief,Telefoonnummer,Tijd,TrouwDatum")] Afspraak afspraak)
+        public IActionResult Create([Bind("AfspraakId,Email,Naam,Nieuwsbrief,Telefoonnummer,Tijd,TrouwDatum,HerhaalEmail ")] Afspraak afspraak)
         {
             if (ModelState.IsValid)
             {
                 HoneyMoonDb.Add(afspraak);
-                await HoneyMoonDb.SaveChangesAsync();
+                HoneyMoonDb.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(afspraak);

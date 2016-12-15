@@ -1,14 +1,17 @@
-@model HoneyMoonDB.Models.Afspraak
+
 
 @{
     ViewData["Title"] = "Create";
     //Layout = "";
 }
-<head>
+
+@model HoneyMoonDB.Models.Afspraak
+
+@*<head>
     <link rel="stylesheet" href="~/css/bas.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-</head>>
+</head>>*@
 
 <h2>Create</h2>
 
@@ -18,7 +21,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
 }
 
 
@@ -32,7 +35,44 @@
         <img class="img-responsive" src="https://s27.postimg.org/70d5celsz/afspraak_progressie_2.png" alt="first image up" style="display: block;" />
     </div>
     <div class="col-sm-5" style="background-color:white; font-size: 17px;">
-        <form asp-action="Create">
+        <br />
+        <form asp-controller="Afspraak" asp-action="Create" method="post">
+
+            <div class="form-group">
+                <label asp-for="Naam"></label>
+                <input asp-for="Naam" class="form-control" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrouwDatum"></label>
+                <input asp-for="TrouwDatum" class="form-control" />
+                <span asp-validation-for="TrouwDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefoonnummer"></label>
+                <input asp-for="Telefoonnummer" class="form-control" />
+                <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HerhaalEmail"></label>
+                <input asp-for="HerhaalEmail" class="form-control" />
+                <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="nieuwsbriefcheck"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    
+    @*<form asp-action="Create">
             <br>
             <p><b><h3>Stap 2, Gegevens invullen</h3></b></p>
             <br>
@@ -71,43 +111,9 @@
             <button type="submit" value="Create" class="btn btn-default" >submit</button>
 
             
-        </form>
+        </form>*@
 
-         @*<br>
-        <p><b><h3>Stap 2, Gegevens invullen</h3></b></p>
-        <br>
-        <p>
-            <strong>Voor- en achternaam*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>Trouwdatum*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>Telefoonnummer</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>E-mailadres*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>Herhaal e-mailadres*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <input type="checkbox" name="nieuwsbriefcheck"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop
-        <br>
-        <br>
-        <br>
-        <a style="color:white; padding:15px; background-color:#f0597c">
-            <b>NAAR STAP 3</b>
-        </a>*@
+        
     </div>
     <div class="col-sm-6 vcenter" style="text-align:left; background-color:#f0597c;">
         <br>
