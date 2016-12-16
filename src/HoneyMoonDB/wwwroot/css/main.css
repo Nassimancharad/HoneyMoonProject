@@ -1,4 +1,5 @@
 ﻿/*BEGIN TODO: DELTE CLASSES*/
+/*
 .yellowBorder > [class*='col-'] {
     border-color: yellow;
     border-style: solid;
@@ -21,7 +22,7 @@
 
 .yellowBorder {
     border: solid yellow;
-}
+}*/
 /*END TODO: DELTE CLASSES*/
 
 /*********************
@@ -29,6 +30,11 @@
 **********************/
 body {
     background-color: rgb(252, 232, 231);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.row {
+    margin-bottom: 25px;
 }
 
 .container {
@@ -59,9 +65,9 @@ body {
 ***  BEGIN header  ***
 **********************/
 .header {
-    border: solid green; /*TODO: DELETE*/
     height: 50px;
     background-color: #fac9c4;
+    margin-bottom: 0;
 }
 
 .flex-header {
@@ -222,7 +228,7 @@ EIND    ONBEKEND
 **** BEGIN navbar ****
 **********************/
 .navbar-default {
-    background: black;
+    background: inherit;
     color: white;
     border: none;
     border-radius: 0;
@@ -231,6 +237,8 @@ EIND    ONBEKEND
     /* BEGIN navbar title (brand) */
     .navbar-default .navbar-brand {
         color: #fff;
+        font-family: 'Libre Baskerville', serif;
+        font-size: 30px;
     }
 
         .navbar-default .navbar-brand:hover,
@@ -284,3 +292,8 @@ EIND    ONBEKEND
         color: #F0597c;
         transition: 0.2s;
     }
+
+.testImage {
+    background: url('http://placehold.it/1000x600');
+    height: 600px;
+}
