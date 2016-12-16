@@ -31,6 +31,7 @@
 body {
     background-color: rgb(252, 232, 231);
     font-family: 'Montserrat', sans-serif;
+
 }
 
 .row {
@@ -54,6 +55,11 @@ body {
 .reg-mark {
     font-size: 8px;
     vertical-align: super;
+}
+.merk{
+    font-size: 20px;
+    font-family: 'Libre Baskerville', serif;
+    
 }
 /*********************
 ***   END general  ***
@@ -267,6 +273,7 @@ EIND    ONBEKEND
 .navbar-default .flex-container {
     align-items: center;
 }
+
 /*********************
 ***** END navbar *****
 **********************/
