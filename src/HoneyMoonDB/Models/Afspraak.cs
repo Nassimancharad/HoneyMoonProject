@@ -5,10 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HoneyMoonDB.Models
-{
-    public class Afspraak
-    {
+namespace HoneyMoonDB.Models {
+    public class Afspraak {
         public int AfspraakId { get; set; }
 
         [Required(ErrorMessage = "Naam is verplicht")]
@@ -33,10 +31,10 @@ namespace HoneyMoonDB.Models
         [Display(Name = "E-mailadres*")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "E-mailadres herhalen is verplicht")]
-        [EmailAddress(ErrorMessage = "Voer een geldige e-mail in")]
-        [Display(Name = "E-mailadres herhalen*")]
-        [Compare("Email", ErrorMessage = "E-mailadres is niet hetzelfde")]
+        //[Required(ErrorMessage = "E-mailadres herhalen is verplicht")]
+        //[EmailAddress(ErrorMessage = "Voer een geldige e-mail in")]
+         [Display(Name = "E-mailadres herhalen*")]
+         [Compare("Email", ErrorMessage = "E-mailadres is niet hetzelfde")]
         //[NotMapped]
         public string HerhaalEmail { get; set; }
 
