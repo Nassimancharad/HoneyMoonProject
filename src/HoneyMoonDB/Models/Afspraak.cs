@@ -33,8 +33,8 @@ namespace HoneyMoonDB.Models {
 
         //[Required(ErrorMessage = "E-mailadres herhalen is verplicht")]
         //[EmailAddress(ErrorMessage = "Voer een geldige e-mail in")]
-        //[Display(Name = "E-mailadres herhalen*")]
-        //[Compare("Email", ErrorMessage = "E-mailadres is niet hetzelfde")]
+         [Display(Name = "E-mailadres herhalen*")]
+         [Compare("Email", ErrorMessage = "E-mailadres is niet hetzelfde")]
         //[NotMapped]
         public string HerhaalEmail { get; set; }
 

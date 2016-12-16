@@ -149,6 +149,7 @@ namespace HoneyMoonDB.Controllers
         }
         public IActionResult AfspraakSelect()
         {
+           
             return View();
         }
 
@@ -166,10 +167,10 @@ namespace HoneyMoonDB.Controllers
         {
             return View();
         }
-        public IActionResult navbar()
+
+        public IActionResult AfspraakVoltooid()
         {
             return View();
         }
-
     }
 }
