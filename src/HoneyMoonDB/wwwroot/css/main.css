@@ -35,10 +35,8 @@ body {
 
 .row {
     margin-bottom: 25px;
-}
-
-.container {
-    background-color: #fff;
+    margin-left:0px;
+    margin-right:0px;
 }
 
 .flex-container {
@@ -296,4 +294,13 @@ EIND    ONBEKEND
 .testImage {
     background: url('http://placehold.it/1000x600');
     height: 600px;
+    margin-bottom: 0;
+}
+
+.test-color {
+    background-color: white;
+}
+
+footer {
+    margin-top: 25px;
 }
