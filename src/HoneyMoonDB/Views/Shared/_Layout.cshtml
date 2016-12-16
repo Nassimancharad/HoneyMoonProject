@@ -47,14 +47,14 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right text-uppercase flex-container yellowBorder">
-                            <li><a href="#"><strong>Home</strong></a></li>
                             <!-- <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li> -->
-                            <li><a href="#"><strong>Bruid</strong></a></li>
-                            <li><a href="#"><strong>Bruidegom</strong></a></li>
-                            <li><a href="#"><strong>De winkel</strong></a></li>
-                            <li><a href="#"><strong>Blog</strong></a></li>
-                            <li><a href="#"><strong>Contact</strong></a></li>
-                            <button type="button" class="btn-standard text-uppercase"><strong>Afspraak maken</strong></button>
+                            <li><a asp-action="#" asp-controller="#"><strong>Home</strong></a></li>
+                            <li><a asp-action="#" asp-controller="#"><strong>Bruid</strong></a></li>
+                            <li><a asp-action="#" asp-controller="#"><strong>Bruidegom</strong></a></li>
+                            <li><a asp-action="#" asp-controller="#"><strong>De winkel</strong></a></li>
+                            <li><a asp-action="#" asp-controller="#"><strong>Blog</strong></a></li>
+                            <li><a asp-action="#" asp-controller="#"><strong>Contact</strong></a></li>
+                            <button onclick="location.href='@Url.Action("AfspraakSelect", "Afspraak")'" type="button" class="btn-standard text-uppercase"><strong>Afspraak maken</strong></button>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
