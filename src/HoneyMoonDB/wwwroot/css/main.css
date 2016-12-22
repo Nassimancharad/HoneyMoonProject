@@ -1,5 +1,4 @@
 ﻿/*BEGIN TODO: DELTE CLASSES*/
-/*
 .yellowBorder > [class*='col-'] {
     border-color: yellow;
     border-style: solid;
@@ -22,7 +21,7 @@
 
 .yellowBorder {
     border: solid yellow;
-}*/
+}
 /*END TODO: DELTE CLASSES*/
 
 /*********************
@@ -31,13 +30,23 @@
 body {
     background-color: rgb(252, 232, 231);
     font-family: 'Montserrat', sans-serif;
+}
 
+.background-default {
+    background-color: white;
+}
+
+.background-1 {
+    background-color: white;
 }
 
 .row {
-    margin-bottom: 25px;
     margin-left:0px;
     margin-right:0px;
+}
+
+.container {
+    padding: 0;
 }
 
 .flex-container {
@@ -56,10 +65,29 @@ body {
     font-size: 8px;
     vertical-align: super;
 }
-.merk{
+.merk {
     font-size: 20px;
     font-family: 'Libre Baskerville', serif;
-    
+}
+
+.btn-standard {
+    width: 150px;
+    height: 35px;
+    background-color: #F0597c;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none; /*NODIG?*/
+    display: inline-block; /*NODIG?*/
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-standard:hover {
+    background-color: white;
+    color: #F0597c;
+    transition: 0.2s;
 }
 /*********************
 ***   END general  ***
@@ -74,6 +102,16 @@ body {
     margin-bottom: 0;
 }
 
+.header a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #F0597c;
+    transition: 0.1s;
+}
+
 .flex-header {
     align-items: center;
 }
@@ -84,6 +122,10 @@ body {
 /*********************
 ***  BEGIN footer  ***
 **********************/
+footer {
+    margin-top: 25px;
+}
+
 .footer-container {
     height: 100%; /*    -----------------      */
     align-items: stretch;
@@ -94,10 +136,6 @@ body {
     margin-left: 50px;
 }
 
-.no-gutter {
-    padding-left: 0;
-    padding-right: 0;
-}
 /*********************
 ***   END footer   ***
 **********************/
@@ -153,7 +191,7 @@ body {
 **********************/
 
 /***********************
-* BEGIN afspraakselect *
+* BEGIN AfspraakMaken *
 ************************/
 .afspraakSoort {
     margin-top: 35px;
@@ -178,21 +216,38 @@ body {
 .afspraak-select-gutter {
     margin-left: 20px;
 }
-/*********************
-* END afspraakselect *
-**********************/
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+form p input {
+    width: 100%;
+    height: 35px;
 }
+
+.form-container {
+    justify-content: center;
+}
+
+.controle-scherm {
+    background-color: #f0597c;
+}
+
+.controle-scherm-gegevens {
+    padding-left: 35px;
+}
+/*********************
+* END AfspraakMaken *
+**********************/
 
 /*********************
 BEGIN   ONBEKEND
 **********************/
 .row .footerbg {
     background-color: #ffe4e1;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 .pcolor {
@@ -231,6 +286,11 @@ EIND    ONBEKEND
 /*********************
 **** BEGIN navbar ****
 **********************/
+.navbar {
+    position: relative;
+    margin-bottom: 0px;
+}
+
 .navbar-default {
     background: inherit;
     color: white;
@@ -253,6 +313,7 @@ EIND    ONBEKEND
 
     .navbar-default .navbar-nav > li > a {
         color: #fff;
+        transition: 0.2s;
     }
 
         .navbar-default .navbar-nav > li > a:hover,
@@ -274,40 +335,11 @@ EIND    ONBEKEND
     align-items: center;
 }
 
+.navbar > .container-fluid {
+    position: absolute;
+    width: 100%;
+}
+
 /*********************
 ***** END navbar *****
 **********************/
-
-.btn-standard {
-    width: 150px;
-    height: 35px;
-    background-color: #F0597c;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none; /*NODIG?*/
-    display: inline-block; /*NODIG?*/
-    font-size: 12px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-    .btn-standard:hover {
-        background-color: white;
-        color: #F0597c;
-        transition: 0.2s;
-    }
-
-.testImage {
-    background: url('http://placehold.it/1000x600');
-    height: 600px;
-    margin-bottom: 0;
-}
-
-.test-color {
-    background-color: white;
-}
-
-footer {
-    margin-top: 25px;
-}

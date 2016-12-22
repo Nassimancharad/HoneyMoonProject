@@ -14,7 +14,7 @@ namespace HoneyMoonDB.Data.Migrations
                 columns: table => new
                 {
                     AfspraakId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Email = table.Column<string>(nullable: true),
                     HerhaalEmail = table.Column<string>(nullable: true),
                     Naam = table.Column<string>(nullable: true),

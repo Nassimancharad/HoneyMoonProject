@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    ViewData["BackgroundStyle"] = "background-default";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,26 +15,27 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container @ViewBag.BackgroundStyle">
 
         <!-- BEGIN HEADER -->
         <div class="row header flex-container flex-header text-center text-uppercase">
             <div class="col-md-1 yellowBorder">
-                <strong>Website</strong>
+                <a asp-action="Index" asp-controller="Home"><strong>Website</strong></a>
             </div>
             <div class="col-md-1 yellowBorder">
-                <strong>Webshop</strong>
+                <a asp-action="Index" asp-controller="Home"><strong>Webshop</strong></a>
             </div>
             <div class="col-md-2 col-md-offset-6 text-right yellowBorder">
-                <strong>T (010) 4126143</strong>
+                <strong>T</strong> (010) 4126143
             </div>
             <div class="col-md-2 yellowBorder">
                 <strong>Wat zoek je?</strong>
             </div>
         </div>
         <!-- END HEADER -->
+
         <!-- BEGIN NAVBAR -->
-        <div class="row testImage">
+        <div class="row"> <!-- IMAGE IN THE BACKGROUND testImage -->
             <nav class="navbar navbar-default flex-navbar">
                 <!-- REMOVE 'row' for mobile display-->
                 <div class="container-fluid">
@@ -42,23 +47,25 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand text-uppercase" href="#">Honeymoon Shop<span class="reg-mark">&reg;</span></a>
+                        <div class="navbar-brand text-uppercase" href="#">Honeymoon Shop<span class="reg-mark">&reg;</span></div>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right text-uppercase flex-container yellowBorder">
                             <!-- <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li> -->
-                            <li><a asp-action="home" asp-controller="home"><strong>Home</strong></a></li>
-                            <li><a asp-action="#" asp-controller="#"><strong>Bruid</strong></a></li>
-                            <li><a asp-action="#" asp-controller="#"><strong>Bruidegom</strong></a></li>
-                            <li><a asp-action="#" asp-controller="#"><strong>De winkel</strong></a></li>
-                            <li><a asp-action="#" asp-controller="#"><strong>Blog</strong></a></li>
-                            <li><a asp-action="#" asp-controller="#"><strong>Contact</strong></a></li>
-                            <button onclick="location.href='@Url.Action("AfspraakSelect", "Afspraak")'" type="button" class="btn-standard text-uppercase"><strong>Afspraak maken</strong></button>
+                            <li><a asp-action="Index" asp-controller="Home"><strong>Home</strong></a></li>
+                            <li><a asp-action="Index" asp-controller="Bruid"><strong>Bruid</strong></a></li>
+                            <li><a asp-action="Index" asp-controller="Bruidegom"><strong>Bruidegom</strong></a></li>
+                            <li><a asp-action="Index" asp-controller="Winkel"><strong>De winkel</strong></a></li>
+                            <li><a asp-action="Index" asp-controller="Blog"><strong>Blog</strong></a></li>
+                            <li><a asp-action="Index" asp-controller="Contact"><strong>Contact</strong></a></li>
+                            <button onclick="location.href='@Url.Action("AfspraakMaken", "Afspraak")'" type="button" class="btn-standard text-uppercase"><strong>Afspraak maken</strong></button>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
+                <!--<img class="img-responsive testImage" src="https://www.placehold.it/1400x800" alt="Image behind navbar" />-->
+                <img class="img-responsive testImage" src="@ViewBag.NavBarBG" />
             </nav>
         </div>
         <!-- END NAVBAR -->
@@ -102,45 +109,39 @@
             <div class="row flex-container footer-container">
                 <div class="col-md-3 yellowBorder">
                     <h4>Winkel</h4>
-                    <a href=""> Over de Honeymoon shop</a>
-                    <a href=""> Servicepunten</a>
-                    <a href="">Routebeschrijving</a>
-                    <a href="">Beurzen en evenementen</a>
-                    <a href="">Vacatures</a>
-                    <a href="">Verkoopvoorwaarden</a>
-                    <p>
-                        Over de Honeymoon shop<br>
-                        Servicepunten<br>
-                        Routebeschrijving
-                        Beurzen en evenementen<br>
-                        Vacatures<br>
-                        Verkoopvoorwaarden<br>
-                        CBW erkend<br>
-                        Contact<br>
-                    </p>
+                    <ul>
+                        <li><a href="#"> Over de Honeymoon shop </a></li>
+                        <li><a href="#"> Servicepunten </a></li>
+                        <li><a href="#">Routebeschrijving</a></li>
+                        <li><a href="#">Beurzen en evenementen</a></li>
+                        <li><a href="#">Vacatures</a></li>
+                        <li><a href="#">Verkoopvoorwaarden</a></li>
+                        <li><a href="#">CBW erkend</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3 yellowBorder">
                     <h4>Service</h4>
-                    <p>
-                        Beoordelingen<br>
-                        Dressfinder<br>
-                        Gratis trouwmagazine<br>
-                        Nieuwsbrief<br>
-                        Veel gestelde vragen<br>
-                        CBW erkend<br>
-                        Reinigen van trouwjurk<br>
-                        10 redenen om je afspraak te maken<br>
-                        The Perfect Match<br>
-                    </p>
+                    <ul>
+                        <li><a href="#"> Beoordelingen </a></li>
+                        <li><a href="#"> Dressfinder</a></li>
+                        <li><a href="#">Gratis trouwmagazine</a></li>
+                        <li><a href="#">Nieuwsbrief</a></li>
+                        <li><a href="#">Veel gestelde vragen</a></li>
+                        <li><a href="#">CBW erkend</a></li>
+                        <li><a href="#">Reinigen van trouwjurk</a></li>
+                        <li><a href="#">10 redenen om je afspraak te maken</a></li>
+                        <li><a href="#">The Perfect Match</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3 yellowBorder">
                     <h4>Acties</h4>
-                    <p>
-                        The Grand Wedding Show<br>
-                        Summer Sale<br>
-                        Trouwjurken onder de 1000 euro<br>
-                        Trouwjurken voor de volslanke bruid<br>
-                    </p>
+                    <ul>
+                        <li><a href="#">The Grand Wedding Show</a></li>
+                        <li><a href="#">Summer Sale</a></li>
+                        <li><a href="#">Trouwjurken onder de 1000 euro</a></li>
+                        <li><a href="#">Trouwjurken voor de volslanke bruid</a></li>
+                    </ul>
                 </div>
             </div>
 
