@@ -2,119 +2,57 @@
     ViewData["Title"] = "Tijd Selecteren";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/bas.css">
-</head>>
-<div class="row image " style="box-shadow: -10px -10px 20px -5px #ebebeb;">
+<style>
 
-    <div class="col-sm-1">
-        <br>
-        <br>
-        <img class="img-responsive" src="https://s29.postimg.org/noc6gyyx3/afspraak_progressie.png" alt="first image up" style="display: block;" />
-    </div>
-    <div class="col-sm-5" style="background-color:white; font-size: 17px;">
-        <br>
-        <p><b><h3>Stap 1, Datum en tijd selecteren</h3></b></p>
-        <br>
-        <p>
-            Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!
-        </p>
-        <br>
-        <p>
-            Openingstijden:
-        </p>
-        <p>
-            <b style="margin-right:7.5%;">MA</b>	<b>12:00-17:30</b>
-            <br>
-            <b style="margin-right:4%;">DI-VR</b><b>09:30-17:30</b>
-            <br>
-            <b style="margin-right:8.5%;">ZA</b> <b>09:30-18:00</b>
-            <br>
-            <b style="margin-right:8%;">ZO</b> <b>11:00-17:00</b>
-            <br>
-            <br>
-        </p>
-        *Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.
-        <p>
-            <br>
-            <br>
-            <a style="color:white; padding:15px; background-color:#f0597c">
-                <b>NAAR STAP 2</b>
-            </a>
-    </div>
-    <div class="col-sm-6 vcenter" style="text-align:left; background-color:#f0597c;">
-        <br>
-        <h3 style="color:white;">❤ Selecteer een tijdstip:</h3>
-        <br>
-        <div class="month">
-            <ul>
-                <li class="prev" ">❮</li>
-                <li class="next">❯</li>
-                <li style="text-align:center">
-                    DO 15 Augustus
-                    <span style="font-size:20px">2016</span>
-                </li>
-            </ul>
+    .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #000;
+    }
+
+</style>
+
+<div class="row flex-container form-container">
+    <div class="col-md-5 yellowBorder">
+        <h3>Stap 1, Datum en tijd selecteren</h3>
+        <p>Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!</p>
+        <div class="openingstijden" style="padding-bottom:10px">
+            <span>Openingstijden:</span>
+            <table>
+                <tr>
+                    <td>MA</td>
+                    <td class="tijden">12:00-17:30</td>
+                </tr>
+                <tr>
+                    <td>DI-VR</td>
+                    <td class="tijden">09:30-17:30</td>
+                </tr>
+                <tr>
+                    <td>ZA</td>
+                    <td class="tijden">09:30-18:00</td>
+                </tr>
+                <tr>
+                    <td>ZO</td>
+                    <td class="tijden">11:00-17:00</td>
+                </tr>
+            </table>
         </div>
-        <br>
-        <br>
-        <ul style="color: white; font-size: 18px;">
-            <li style="">
-                <input type="radio" id="f-option" name="selector">
-                <label for="f-option">09:30 uur</label>
-
-                <div class="check"></div>
-            </li>
-
-            <li>
-                <input type="radio" id="s-option" name="selector">
-                <label for="s-option">12:30 uur</label>
-
-                <div class="check"><div class="inside"></div></div>
-            </li>
-
-            <li>
-                <input type="radio" id="t-option" name="selector">
-                <label for="t-option">15:30 uur</label>
-
-                <div class="check"><div class="inside"></div></div>
-            </li>
-        </ul>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p style="color: white; font-size:18px;">
-            <img src="https://s23.postimg.org/5u22cqyez/arrow_2.png"> Terug naar datum selecteren
-        </p>
-        <br>
-        <br>
-        <p style="text-align:right; color: white; font-size:18px;">
-
+        <p>*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
+        <form action="GegevensInvullen">
+            <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></button>
+        </form>
     </div>
 
-
-    <div class="row image ">
-        <div class="col-sm-12">
-
-
+    <div class="col-md-5 controle-scherm yellowBorder" style="color: white;">
+        <div class="controle-scherm-gegevens">
+            <h3>Selecteer een tijdstip:</h3>
+            <a href="DatumSelecteren"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 1 om datum te wijzigen</span></a>
         </div>
     </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<div class="row row-centered">
-    <div class="col-sm-12">
-        <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up" style="display: block; margin-left: auto; margin-right: auto;" />
-    </div>
+<div class="row">
+    <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
 </div>
-<br>
-<br>
-<br>
-<br>

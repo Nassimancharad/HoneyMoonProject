@@ -1,13 +1,39 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Gegevens invullen";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
+@model HoneyMoonDB.Models.Afspraak
+
+<style>
+    .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #000;
+    }
+</style>
+
+
+
+<div class="row flex-container form-container">
+    <div class="col-md-5 yellowBorder">
+        <h3>Stap 3, Gegevens controleren</h3>
+        <p>Controleer al je gegevens voor je pasafspraak bij HoneymoonShop aan Korte Hoogstraat 4, te Rotterdam</p>
+
+        <form action="">
+            <button type="submit" class="btn-standard text-uppercase" style="width:200px; margin-top:200px;"><strong>Afspraak bevestigen</strong></button>
+        </form>
     </div>
-</body>
-</html>
+
+    <div class="col-md-5 controle-scherm yellowBorder">
+        <div class="controle-scherm-gegevens" style="color: white;">
+            <h3>Controleer je gegevens:</h3>
+            <a href="GegevensInvullen"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 2 om je gegevens te wijzigen</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
+</div>

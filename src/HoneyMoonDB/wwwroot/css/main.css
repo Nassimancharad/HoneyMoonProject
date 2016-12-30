@@ -1,4 +1,6 @@
-﻿/*BEGIN TODO: DELTE CLASSES*/
+﻿
+/*BEGIN TODO: DELTE CLASSES*/
+/*
 .yellowBorder > [class*='col-'] {
     border-color: yellow;
     border-style: solid;
@@ -22,11 +24,17 @@
 .yellowBorder {
     border: solid yellow;
 }
+*/
 /*END TODO: DELTE CLASSES*/
 
 /*********************
 ***  BEGIN general ***
 **********************/
+
+.row {
+    margin-bottom: 25px;
+}
+
 body {
     background-color: rgb(252, 232, 231);
     font-family: 'Montserrat', sans-serif;
@@ -88,6 +96,14 @@ body {
     background-color: white;
     color: #F0597c;
     transition: 0.2s;
+}
+
+td { 
+    font-weight: bold;
+}
+
+.tijden{
+    padding-left: 10px;
 }
 /*********************
 ***   END general  ***

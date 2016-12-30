@@ -1,110 +1,70 @@
 ﻿@{
-    ViewData["Title"] = "Gegegevens invullen";
+    ViewData["Title"] = "Gegevens invullen";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/bas.css">
-</head>>
+@model HoneyMoonDB.Models.Afspraak
 
-<div class="row image " style="box-shadow: -10px -10px 20px -5px #ebebeb;">
+@section Scripts {
+    @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
+}
 
-    <div class="col-sm-1">
-        <br>
-        <br>
-        <img class="img-responsive" src="https://s27.postimg.org/70d5celsz/afspraak_progressie_2.png" alt="first image up" style="display: block;" />
-    </div>
-    <div class="col-sm-5" style="background-color:white; font-size: 17px;">
-        <br>
-        <p><b><h3>Stap 2, Gegevens invullen</h3></b></p>
-        <br>
-        <p>
-            <strong>Voor- en achternaam*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>Trouwdatum*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>Telefoonnummer</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>E-mailadres*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <p>
-            <strong>Herhaal e-mailadres*</strong>
-            <br>
-            <input type="text" name="voor-en-achternaam">
-        </p>
-        <input type="checkbox" name="nieuwsbriefcheck"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop
-        <br>
-        <br>
-        <br>
-        <a style="color:white; padding:15px; background-color:#f0597c">
-            <b>NAAR STAP 3</b>
-        </a>
-    </div>
-    <div class="col-sm-6 vcenter" style="text-align:left; background-color:#f0597c;">
-        <br>
-        <h3 style="color:white;">❤ Gekozen tijd en datum:</h3>
-        <br>
-        <div class="month">
-            <ul>
-                <li class="prev" "></li>
-                <li class="next"></li>
-                <li style="text-align:center">
-                    DO 15 Augustus
-                    <span style="font-size:20px">2016</span>
-                    <span style="font-size:20px">om 09:30 U</span>
-                </li>
-            </ul>
-        </div>
-        <br>
-        <p style="font-size: 18px; color: white;">
-            Vul je persoonlijke gegevens in om de pasafspraak compleet te maken.
+<style>
+    .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
 
-        </p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p style="color: white; font-size:18px;">
-            <img src="https://s23.postimg.org/5u22cqyez/arrow_2.png"> Terug naar stap 1 om datum te wijzigen
-        </p>
-        <br>
-        <p style="text-align:right; color: white; font-size:18px;">
+    .navbar-default .navbar-brand {
+        color: #000;
+    }
+</style>
 
+
+
+<div class="row flex-container form-container">
+    @*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+    <div class="col-md-5 yellowBorder">
+        <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
+            <p>
+                <label asp-for="Naam"></label>
+                <input asp-for="Naam">
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="TrouwDatum"></label>
+                <input asp-for="TrouwDatum">
+                <span asp-validation-for="TrouwDatum" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="Telefoonnummer"></label>
+                <input asp-for="Telefoonnummer">
+                <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="Email"></label>
+                <input asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="HerhaalEmail"></label>
+                <input asp-for="HerhaalEmail">
+                <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
+            </p>
+            <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
+            <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 3</strong></button>
+        </form>
     </div>
 
-
-    <div class="row image ">
-        <div class="col-sm-12">
-
-
+    <div class="col-md-5 controle-scherm yellowBorder">
+        <div class="controle-scherm-gegevens" style="color: white;">
+            <h3>Gekozen tijd en datum:</h3>
+            <p>Vul je persoonlijke gegevens in <br> om de pasafspraak compleet te maken.</p>
+            <a href="DatumSelecteren"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 1 om datum te wijzigen</span></a>
         </div>
     </div>
 </div>
 
-
-<br>
-<br>
-<br>
-<br>
-<div class="row row-centered">
-    <div class="col-sm-12">
-        <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up" style="display: block; margin-left: auto; margin-right: auto;" />
-    </div>
+<div class="row">
+    <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
 </div>
-<br>
-<br>
-<br>
-<br>
