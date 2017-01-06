@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-HoneyMoonDB-16de170f-8cc3-4bc1-8941-830a72c8679d",
 
   "dependencies": {
@@ -41,10 +41,12 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Microsoft.AspNetCore.Session": "1.0.1",
+    "MailKit": "1.10.1"
   },
 
   "tools": {
