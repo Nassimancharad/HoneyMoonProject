@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HoneyMoonDB.Data;
 using HoneyMoonDB.Models;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace HoneyMoonDB.Controllers {
 
@@ -45,18 +47,26 @@ namespace HoneyMoonDB.Controllers {
         // POST: Afspraak/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Nieuwsbrief,Telefoonnummer,Tijd,TrouwDatum,HerhaalEmail ")] Afspraak afspraak) {
+        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Nieuwsbrief,Telefoonnummer,Tijd,TrouwDatum,HerhaalEmail ")] Afspraak afspraak)
+        {
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 //HoneyMoonDb.Add(afspraak);
                 //HoneyMoonDb.SaveChanges();
+                HttpContext.Session.SetString("Naam", afspraak.Naam);
+                HttpContext.Session.SetString("TrouwDatum", afspraak.TrouwDatum.ToString());
+                HttpContext.Session.SetInt32("TelNr", afspraak.Telefoonnummer);
+                HttpContext.Session.SetString("Email", afspraak.Email);
                 return RedirectToAction("GegevensBevestigen");
             }
             return View(afspraak);
         }
-
+        
         // GET: Afspraak/Edit/5
         public async Task<IActionResult> Edit(int? id) {
 
@@ -143,8 +153,17 @@ namespace HoneyMoonDB.Controllers {
             return View();
         }
 
-        public IActionResult GegevensBevestigen() {
-            return View();
+        public IActionResult GegevensBevestigen(Afspraak afspraak) {
+
+            afspraak = new Afspraak()
+            {
+                Naam = HttpContext.Session.GetString("Naam"),
+                TrouwDatum = DateTime.Parse(HttpContext.Session.GetString("TrouwDatum")),
+                Telefoonnummer = (int)HttpContext.Session.GetInt32("TelNr"),
+                Email = HttpContext.Session.GetString("Email")
+            };
+
+            return View(afspraak);
         }
 
         public IActionResult AfspraakVoltooid() {
