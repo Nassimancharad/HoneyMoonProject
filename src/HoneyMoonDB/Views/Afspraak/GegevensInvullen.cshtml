@@ -21,10 +21,9 @@
 
 
 <div class="row flex-container form-container">
-    @*<div>
-        <a asp-action="Index">Back to List</a>
-    </div>*@
-    <div class="col-md-5 yellowBorder">
+   
+    <div class="col-md-4 yellowBorder" style="-webkit-box-shadow: -1px 1px 10px; box-shadow:1px 1px 10px rgba(136, 136, 136, 1);">
+        <h4>Stap 3, Gegevens invullen</h4>
         <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
             <p>
                 <label asp-for="Naam"></label>
@@ -52,18 +51,34 @@
                 <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
             </p>
             <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
-            <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 3</strong></button>
+            <button type="submit" class="btn-standard text-uppercase" style="margin-bottom: 25px"><strong>Naar stap 3</strong></button>
         </form>
     </div>
 
-    <div class="col-md-5 controle-scherm yellowBorder">
+    <div class="col-md-4 controle-scherm yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
         <div class="controle-scherm-gegevens" style="color: white;">
             <h3>Gekozen tijd en datum:</h3>
             <p>Vul je persoonlijke gegevens in <br> om de pasafspraak compleet te maken.</p>
-            <a href="DatumSelecteren"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 1 om datum te wijzigen</span></a>
+            <a href="DatumSelecteren">
+                <div class="back" style="display:flex; background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
+                background-size: 100% 100%;
+                height: 15px;
+                width: 15px;
+                margin-top: 11px;
+                margin-right:5px;
+                ">
+                </div>
+                <div>
+                    <span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 1 om datum te wijzigen</span>
+                </div>
+
+            </a>
         </div>
     </div>
-</div>
+    </div>
+
+
+
 
 <div class="row">
     <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">

@@ -31,6 +31,13 @@
 ***  BEGIN general ***
 **********************/
 
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.col-md-4 controle-scherm yellowBorder{
+    box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1);
+
+}
 .row {
     margin-bottom: 25px;
 }
@@ -90,6 +97,7 @@ body {
     font-size: 12px;
     cursor: pointer;
     transition: 0.2s;
+    margin-bottom:7px;
 }
 
 .btn-standard:hover {
@@ -244,10 +252,11 @@ form p input {
 
 .controle-scherm {
     background-color: #f0597c;
+   
 }
 
 .controle-scherm-gegevens {
-    padding-left: 35px;
+   
 }
 /*********************
 * END AfspraakMaken *

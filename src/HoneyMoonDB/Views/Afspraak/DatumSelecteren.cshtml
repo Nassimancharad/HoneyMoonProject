@@ -17,7 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="~/css/Kalender.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     @*<script>
         $( function() {
@@ -46,8 +46,8 @@
 </style>
 
 <div class="row flex-container form-container">
-    <div class="col-md-5 yellowBorder">
-        <h3>Stap 1, Datum en tijd selecteren</h3>
+    <div class="col-md-4 yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
+        <h4>Stap 1, Datum en tijd selecteren</h4>
         <p>Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!</p>
         <div class="openingstijden" style="padding-bottom:10px">
             <span>Openingstijden:</span>
@@ -73,25 +73,58 @@
         <p>*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.<p>
     </div>
 
-    <div class="col-md-5 controle-scherm yellowBorder">
+    <div class="col-md-4 controle-scherm yellowBorder"style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
         <div class="controle-scherm-gegevens" style="color: white;">
-            <h3>Selecteer een datum:</h3>
-            <p>Vul je persoonlijke gegevens in <br> om de pasafspraak compleet te maken.</p>
-            
+            <div class="Titel" style="display:flex">
+
+                <div style="background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
+                background-size: 100% 100%;
+                height: 15px;
+                width: 15px;
+                margin-top: 11px;
+                margin-right:5px;
+                ">
+
+
+                </div>
+                <h4>Selecteer een datum:</h4>
+
+            </div>
+
+
+
+
             <div id="calendar"></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
             <script>
-	            $('#calendar').datepicker({
-	                inline: true,
-	                firstDay: 1,
-		            showOtherMonths: true,
-		            dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
-		            minDate: 0
-	            });
+                $('#calendar').datepicker({
+                    inline: true,
+                    firstDay: 1,
+                    showOtherMonths: true,
+                    dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
+                    minDate: 0
+                });
             </script>
 
-            <a href="TijdSelecteren"><span style="bottom: 20px; right:75px; position:absolute; text-decoration:none; color: white; margin-top:20px;">Tijd selecteren</span></a>
+            <a href="TijdSelecteren">
+                <div class="volgende" style="display:flex; padding-top: 40px;">
+                    <div class="nextArrow" style="background-image :url(http://oi65.tinypic.com/2yuzmro.jpg); 
+    background-size: 100% 100%;
+    bottom: 19px;
+    width: 50px;
+    height: 22px;
+    position: absolute;
+    margin-left: 310px;
+    margin-top: 5px;">
+
+                    </div>
+                    <div>
+                        <span style="bottom: 20px; right:75px; position:absolute; text-decoration:none; color: white; margin-top:20px;">Selecteer een tijd</span>
+                    </div>
+                </div> 
+            </a>
+         
         </div>
     </div>
 </div>
