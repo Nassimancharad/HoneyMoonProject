@@ -9,6 +9,7 @@ using HoneyMoonDB.Data;
 using HoneyMoonDB.Models;
 using System.Text;
 using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
 
 namespace HoneyMoonDB.Controllers {
 
@@ -51,9 +52,9 @@ namespace HoneyMoonDB.Controllers {
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Nieuwsbrief,Telefoonnummer,Tijd,TrouwDatum,HerhaalEmail ")] Afspraak afspraak)
+        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Nieuwsbrief,Telefoonnummer,Tijd,TrouwDatum,HerhaalEmail,AfspraakDatum ")] Afspraak afspraak)
         {
-
+            
             if (ModelState.IsValid)
             {
                 //HoneyMoonDb.Add(afspraak);
@@ -62,6 +63,7 @@ namespace HoneyMoonDB.Controllers {
                 HttpContext.Session.SetString("TrouwDatum", afspraak.TrouwDatum.ToString());
                 HttpContext.Session.SetInt32("TelNr", afspraak.Telefoonnummer);
                 HttpContext.Session.SetString("Email", afspraak.Email);
+                HttpContext.Session.SetString("AfspraakDatum", afspraak.AfspraakDatum.ToString());
                 return RedirectToAction("GegevensBevestigen");
             }
             return View(afspraak);
@@ -160,7 +162,8 @@ namespace HoneyMoonDB.Controllers {
                 Naam = HttpContext.Session.GetString("Naam"),
                 TrouwDatum = DateTime.Parse(HttpContext.Session.GetString("TrouwDatum")),
                 Telefoonnummer = (int)HttpContext.Session.GetInt32("TelNr"),
-                Email = HttpContext.Session.GetString("Email")
+                Email = HttpContext.Session.GetString("Email"),
+                AfspraakDatum = DateTime.Parse(HttpContext.Session.GetString("AfspraakDatum"))
             };
 
             return View(afspraak);

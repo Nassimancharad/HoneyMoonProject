@@ -41,10 +41,13 @@ namespace HoneyMoonDB.Models {
         [Compare("Email", ErrorMessage = "E-mailadres is niet hetzelfde")]
         //[NotMapped]
         public string HerhaalEmail { get; set; }
-
+        
         public bool Nieuwsbrief { get; set; }
 
         public DateTime Tijd { get; set; }
+
+        public DateTime AfspraakDatum { get; set; }
+
     }
 
 }

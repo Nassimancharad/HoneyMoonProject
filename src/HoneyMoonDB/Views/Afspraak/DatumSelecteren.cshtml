@@ -81,6 +81,7 @@
             <div id="calendar"></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            
             <script>
 	            $('#calendar').datepicker({
 	                inline: true,
@@ -93,11 +94,15 @@
 		                var month = $("#calendar").datepicker('getDate').getMonth() + 1;
 		                var year = $("#calendar").datepicker('getDate').getFullYear();
 		                var fullDate = day + "-" + month + "-" + year;
-		                alert(fullDate);
+		                //var hidden = document.getElementById('hidden').value
+		                //hidden = fullDate;
+		                //alert(hidden);
+		                localStorage.setItem("fullDate", fullDate);
 		            }
 	            });
+	            
             </script>
-
+            
             <a href="TijdSelecteren"><span style="bottom: 20px; right:75px; position:absolute; text-decoration:none; color: white; margin-top:20px;">Tijd selecteren</span></a>
         </div>
     </div>

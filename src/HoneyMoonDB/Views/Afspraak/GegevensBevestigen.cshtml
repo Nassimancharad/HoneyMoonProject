@@ -45,7 +45,9 @@
             <div class="form-group">
                 <label asp-for="Email"></label>:  @Model.Email
             </div>
-                    
+            <div class="form-group">
+                <label asp-for="AfspraakDatum"></label>:  @Model.AfspraakDatum.ToString("dd/MM/yyyy")
+            </div>  
                 
                 <a href="GegevensInvullen"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 2 om je gegevens te wijzigen</span></a>
 </div>
