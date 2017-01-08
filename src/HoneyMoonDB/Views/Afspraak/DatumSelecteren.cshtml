@@ -87,7 +87,14 @@
 	                firstDay: 1,
 		            showOtherMonths: true,
 		            dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
-		            minDate: 0
+		            minDate: 0,
+		            onSelect: function () {
+		                var day = $("#calendar").datepicker('getDate').getDate();
+		                var month = $("#calendar").datepicker('getDate').getMonth() + 1;
+		                var year = $("#calendar").datepicker('getDate').getFullYear();
+		                var fullDate = day + "-" + month + "-" + year;
+		                alert(fullDate);
+		            }
 	            });
             </script>
 
