@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using HoneyMoonDB.Data;
 
-namespace HoneyMoonDB.Data.Migrations
+namespace HoneyMoonDB.Migrations
 {
     [DbContext(typeof(HoneyMoonDbContext))]
-    [Migration("20161214135055_Initial")]
-    partial class Initial
+    partial class HoneyMoonDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -22,17 +21,19 @@ namespace HoneyMoonDB.Data.Migrations
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Email");
+                    b.Property<DateTime>("AfspraakDatum");
+
+                    b.Property<string>("Email")
+                        .IsRequired();
 
                     b.Property<string>("HerhaalEmail");
 
-                    b.Property<string>("Naam");
+                    b.Property<string>("Naam")
+                        .IsRequired();
 
                     b.Property<bool>("Nieuwsbrief");
 
                     b.Property<int>("Telefoonnummer");
-
-                    b.Property<DateTime>("Tijd");
 
                     b.Property<DateTime>("TrouwDatum");
 

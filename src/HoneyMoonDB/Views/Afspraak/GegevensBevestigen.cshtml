@@ -17,22 +17,37 @@
 
 
 <div class="row flex-container form-container">
-    <div class="col-md-5 yellowBorder">
-        <h3>Stap 3, Gegevens controleren</h3>
+    <div class="col-md-4 yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
+        <h4>Stap 3, Gegevens controleren</h4>
         <p>Controleer al je gegevens voor je pasafspraak bij HoneymoonShop aan Korte Hoogstraat 4, te Rotterdam</p>
 
         <form action="AfspraakVoltooid">
-            <button type="submit" class="btn-standard text-uppercase" style="width:200px; margin-top:200px;"><strong>Afspraak bevestigen</strong></button>
+            <button type="submit" class="btn-standard text-uppercase" style="width:200px;margin-bottom: 180px; margin-top: 20px;"><strong>Afspraak bevestigen</strong></button>
         </form>
     </div>
 
-    <div class="col-md-5 controle-scherm yellowBorder">
+    <div class="col-md-4 controle-scherm yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
         <div class="controle-scherm-gegevens" style="color: white;">
-            <h3>Controleer je gegevens:</h3>
-                
-                    
+            <div class="Titel" style="color:white; display:flex; margin-top:15px;">
+
+                <div style="background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
+                background-size: 100% 100%;
+                height: 15px;
+                width: 15px;
+                margin-top: 11px;
+                margin-right:5px;
+                ">
+
+
+                </div>
+                <h4>Controleer je gegevens:</h4>
+
+            </div>
+
+
+
             <br>
-            
+
             <div class="form-group">
                 <label asp-for="Naam"></label>:  @Model.Naam
             </div>
@@ -45,10 +60,27 @@
             <div class="form-group">
                 <label asp-for="Email"></label>:  @Model.Email
             </div>
-                    
-                
-                <a href="GegevensInvullen"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 2 om je gegevens te wijzigen</span></a>
-</div>
+            <div class="form-group">
+                <label asp-for="AfspraakDatum"></label>:  @Model.AfspraakDatum.ToString("dd/MM/yyyy")
+            </div>
+
+            <a href="GegevensInvullen">
+                <div class="Back" style="display:flex;">
+                    <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg);
+    background-size: 100% 100%;
+   bottom: 20px;
+    width: 50px;
+    height: 22px;
+    position:absolute">
+
+                    </div>
+                    <div class"backText">
+                        <span style="bottom: 20px;font-size:13px;margin-left:60px; position:absolute; text-decoration:none; color: white;">Terug naar stap 2 om je gegevens te wijzigen</span>
+                    </div>
+                </div>
+
+            </a>
+        </div>
     </div>
 </div>
 

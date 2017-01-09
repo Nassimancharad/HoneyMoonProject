@@ -2,6 +2,8 @@
     ViewData["Title"] = "Datum Selecteren";
 }
 
+@model HoneyMoonDB.Models.Afspraak
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,17 +111,19 @@
                         var month = $("#calendar").datepicker('getDate').getMonth() + 1;
                         var year = $("#calendar").datepicker('getDate').getFullYear();
                         var fullDate = day + "-" + month + "-" + year;
-                        
-                    }
+                        localStorage.setItem("fullDate", fullDate);
+                       
+                    }   
                 });
+                
+                    
             </script>
-                <form asp-controller="Afspraak" asp-action="DatumSelecteren" method="post">
-                 
-                    </form>
 
-                <a href="TijdSelecteren">
-                    <div class="volgende" style="display:flex; padding-top: 40px;">
-                        <div class="nextArrow" style="background-image :url(http://oi65.tinypic.com/2yuzmro.jpg);
+                
+
+            <a href="TijdSelecteren">
+                <div class="volgende" style="display:flex; padding-top: 40px;">
+                    <div class="nextArrow" style="background-image :url(http://oi65.tinypic.com/2yuzmro.jpg);
     background-size: 100% 100%;
     bottom: 19px;
     width: 50px;
@@ -128,12 +132,12 @@
     margin-left: 310px;
     margin-top: 5px;">
 
-                        </div>
-                        <div>
-                            <span style="bottom: 20px; right:75px; position:absolute; text-decoration:none; color: white; margin-top:20px;">Selecteer een tijd</span>
-                        </div>
                     </div>
-                </a>
+                    <div>
+                        <span style="bottom: 20px; right:75px; position:absolute; text-decoration:none; color: white; margin-top:20px;">Selecteer een tijd</span>
+                    </div>
+                </div>
+            </a>
 
 </div>
     </div>

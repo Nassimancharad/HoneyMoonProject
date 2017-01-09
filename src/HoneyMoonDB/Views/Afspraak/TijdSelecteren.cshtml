@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Tijd Selecteren";
 }
-
+@model HoneyMoonDB.Models.Afspraak
 <style>
 
     .navbar-default .navbar-nav > li > a {
@@ -40,9 +40,11 @@
             </table>
         </div>
         <p>*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
-        <form action="GegevensInvullen">
-            <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></button>
-        </form>
+        <a href="GegevensInvulen">
+            <div>
+                <p type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></p>
+            </div>
+        </a>
     </div>
 
     <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: 1px 1px 10px 0px rgba(136, 136, 136, 1"">
@@ -72,10 +74,29 @@
                  color: white;
                  ">
                 <span class="ui-datepicker-day">15</span>
-                <span class="ui-datepicker-month">January</span>&nbsp;<span class="ui-datepicker-year">2017</span>
+                <span class="ui-datepicker-month">January</span>
+                 &nbsp;
+                <span class="ui-datepicker-year">2017</span>
             </div>
-           
-            <a href="DatumSelecteren">
+            
+            <div>
+                <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
+                    <p>
+                        <input asp-for="AfspraakDatum" type="text">
+                    </p>
+                </form>
+            </div>
+            
+            <script>
+                window.onload = function () {
+                    var hiddenDate2 = localStorage.getItem("fullDate");
+                    document.getElementById('AfspraakDatum').value = hiddenDate2;
+                    alert(localStorage.getItem("fullDate"));
+                }
+
+            </script>
+
+            <a href="DatumSelecteren" >
                 <div class="Back" style="display:flex;">
                     <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg); 
     background-size: 100% 100%;

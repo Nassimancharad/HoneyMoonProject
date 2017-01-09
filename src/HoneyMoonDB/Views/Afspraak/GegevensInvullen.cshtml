@@ -51,6 +51,17 @@
                 <input asp-for="HerhaalEmail">
                 <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
             </p>
+            
+            @*<p>
+                <input asp-for="AfspraakDatum" type="hidden">
+            </p>*@
+            <script>
+                window.onload = function () {
+                    var hiddenDate = localStorage.getItem("fullDate");
+                    document.getElementById('AfspraakDatum').value = hiddenDate;
+                }
+
+            </script>
             <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
             <button type="submit" class="btn-standard text-uppercase" style="margin-bottom: 25px"><strong>Naar stap 3</strong></button>
         </form>

@@ -44,7 +44,10 @@ namespace HoneyMoonDB.Models {
 
         public bool Nieuwsbrief { get; set; }
 
-        public DateTime Tijd { get; set; }
-    }
+        //public DateTime Tijd { get; set; }
+        [ForeignKey("Datum")]
+        public virtual DateTime AfspraakDatum { get; set; }
+
+    }    
 
 }
