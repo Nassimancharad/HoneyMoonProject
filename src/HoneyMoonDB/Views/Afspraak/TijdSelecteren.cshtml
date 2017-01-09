@@ -44,12 +44,23 @@
             <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></button>
         </form>
     </div>
-
+@model HoneyMoonDB.Models.Afspraak
     <div class="col-md-5 controle-scherm yellowBorder" style="color: white;">
         <div class="controle-scherm-gegevens">
             <h3>Selecteer een tijdstip:</h3>
+            <form asp-controller="Afspraak" asp-action="DatumSelecteren" method="post">
+                <input asp-for="AfspraakDatum" type="text">
+                @*<button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 3</strong></button>*@
+            </form>
+            <script>
+                window.onload = function () {
+                    var hiddenDate2 = localStorage.getItem("fullDate");
+                    document.getElementById('AfspraakDatum').value = hiddenDate2;
+                }
+
+            </script>
             <a href="DatumSelecteren"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 1 om datum te wijzigen</span></a>
-        </div>
+</div>
     </div>
 </div>
 
