@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Tijd Selecteren";
 }
-@model HoneyMoonDB.Models.Afspraak
+
 <style>
 
     .navbar-default .navbar-nav > li > a {
@@ -15,8 +15,8 @@
 </style>
 
 <div class="row flex-container form-container">
-    <div class="col-md-4 yellowBorder"style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
-        <h4>Stap 1, Datum en tijd selecteren</h4>
+    <div class="col-md-5 yellowBorder">
+        <h3>Stap 1, Datum en tijd selecteren</h3>
         <p>Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!</p>
         <div class="openingstijden" style="padding-bottom:10px">
             <span>Openingstijden:</span>
@@ -40,79 +40,27 @@
             </table>
         </div>
         <p>*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
-        <a href="GegevensInvulen">
-            <div>
-                <p type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></p>
-            </div>
-        </a>
+        <form action="GegevensInvullen">
+            <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></button>
+        </form>
     </div>
-
-    <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: 1px 1px 10px 0px rgba(136, 136, 136, 1"">
+@model HoneyMoonDB.Models.Afspraak
+    <div class="col-md-5 controle-scherm yellowBorder" style="color: white;">
         <div class="controle-scherm-gegevens">
-            <div class="Titel" style="color:white; display:flex;">
-
-                <div style="background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
-                background-size: 100% 100%;
-                height: 15px;
-                width: 15px;
-                margin-top: 11px;
-                margin-right:5px;
-                ">
-
-
-                </div>
-                <h4>Selecteer een tijdstip:</h4>
-
-            </div>
-            <div class="ui-datepicker-title" style="
-                 margin: auto;
-                 width: 290px;
-                 text-align: center;
-                 font-size: medium;
-                 background-color: rgb(242, 115, 144);
-                 padding: 5px;
-                 color: white;
-                 ">
-                <span class="ui-datepicker-day">15</span>
-                <span class="ui-datepicker-month">January</span>
-                 &nbsp;
-                <span class="ui-datepicker-year">2017</span>
-            </div>
-            
-            <div>
-                <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
-                    <p>
-                        <input asp-for="AfspraakDatum" type="text">
-                    </p>
-                </form>
-            </div>
-            
+            <h3>Selecteer een tijdstip:</h3>
+            <form asp-controller="Afspraak" asp-action="DatumSelecteren" method="post">
+                <input asp-for="AfspraakDatum" type="text">
+                @*<button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 3</strong></button>*@
+            </form>
             <script>
                 window.onload = function () {
                     var hiddenDate2 = localStorage.getItem("fullDate");
                     document.getElementById('AfspraakDatum').value = hiddenDate2;
-                    alert(localStorage.getItem("fullDate"));
                 }
 
             </script>
-
-            <a href="DatumSelecteren" >
-                <div class="Back" style="display:flex;">
-                    <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg); 
-    background-size: 100% 100%;
-   bottom: 20px;
-    width: 50px;
-    height: 22px;
-    position:absolute">
-
-                    </div>
-                    <div class"backText">
-                        <span style="bottom: 20px;margin-left:60px; position:absolute; text-decoration:none; color: white;">Terug naar datum wijzigen</span>
-                    </div>
-                </div>
-            
-            </a>
-        </div>
+            <a href="DatumSelecteren"><span style="bottom: 20px; position:absolute; text-decoration:none; color: white;">Terug naar stap 1 om datum te wijzigen</span></a>
+</div>
     </div>
 </div>
 
