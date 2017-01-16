@@ -131,11 +131,11 @@ namespace HoneymoonShop.Controllers
                 foreach (string url in model.PictureURLS) {
                     _context.Images.Add(new Image() { DressId = newDress.DressId, DressURL = url });
                 }
-                _context.DressCategories.Add(new DressCategory()
-                {
-                    DressId = newDress.DressId,
-                    CategoryId = 1
-                });
+                //_context.DressCategories.Add(new DressCategory()
+                //{
+                //    DressId = newDress.DressId,
+                //    CategoryId = 1
+                //});
                 foreach (int propertie in Styles)
                 {
                     _context.DressProperties.Add(new DressProperty()
