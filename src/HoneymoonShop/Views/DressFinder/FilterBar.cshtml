@@ -1,0 +1,117 @@
+﻿@model HoneymoonShop.Model.DressModels.SuperModel
+@using System.Reflection
+@using HoneymoonShop.Model.DressModels.FilterMenu
+@using HoneymoonShop.Model.DressModels
+@using HoneymoonShop.CustomHtmlHelper
+
+<br />
+@using (Html.BeginForm("Add", "DressFinder", FormMethod.Post, Model.Parameters))
+{
+    if (Model != null && Model.Parameters != null)
+    {
+        foreach (var prop in Model.Parameters.GetType().GetProperties())
+        {
+            @Html.Hidden(prop.Name, prop.GetValue(Model.Parameters))
+            ;
+        }
+    }
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="HeadLine">Filter op:</div>
+        </div>
+        <div class="row"> <!--BrandList-->
+            <a data-toggle="collapse" href="#brandList" class="MenuName toggleMenu"> <div id="HeadTitle"> Merk <span class="caret-down"></span></div>  </a>
+            <div id="brandList" class="panel-collapse collapse">
+                <div class="scrollbar" id="style-1">
+                    @Html.EditorFor(x => x.Brands)
+                </div>
+            </div> 
+        </div> 
+      
+        <div class="row">
+            <!--StyleList-->
+            <a data-toggle="collapse" href="#StyleList" class="MenuName toggleMenu"> <div id="HeadTitle"> Stijl jurk <span class="caret-down"></span></div>  </a>
+            <div id="StyleList" class="panel-collapse collapse">
+                <div class="scrollbar" id="style-1">
+                    @Html.EditorFor(x => x.Styles)
+                </div>
+            </div>
+        </div> 
+        
+        <div class="row">
+            <!--PriceRange-->
+            <a data-toggle="collapse" href="#Price" class="MenuName toggleMenu"> <div id="HeadTitle"> Prijs <span class="caret-down"></span></div>  </a>
+            <div id="Price" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <input id="priceslider" data-slider-id="priceSlider" name="priceRange" type="text" class="span2" value=""
+                           data-slider-min="@Model.MinPrice" data-slider-max="@Model.MaxPrice"
+                           data-slider-step="10" data-slider-value="[@Model.SelectedMinPrice,@Model.SelectedMaxPrice]" />
+                    <br />
+                    <div class="col-md-3 col-xs-2">
+                        <b>€@Model.MinPrice</b>
+                    </div>
+                    <div class="col-md-9 col-xs-10 text-right">
+                        <b>€@Model.MaxPrice</b>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div> 
+        
+        
+        <!--Filters verfijnen section------------------------------------------------------------------------------------->
+        <div class="row">
+            <div id="HeadLine">Filters verfijnen:</div>
+        </div>
+        <div class="row">
+            <!--NeckLineList-->
+            <a data-toggle="collapse" href="#NeklijnList" class="MenuName toggleMenu"> <div id="HeadTitle"> Neklijn <span class="caret-down"></span></div>  </a>
+            <div id="NeklijnList" class="panel-collapse collapse">
+                <div class="scrollbar" id="style-1">
+                    @Html.EditorFor(x => x.Necklines)
+                </div>
+            </div>
+        </div> 
+        
+        <div class="row">
+            <!--SilhouettesList-->
+            <a data-toggle="collapse" href="#SilhouettesList" class="MenuName toggleMenu"> <div id="HeadTitle"> Silhouette <span class="caret-down"></span></div>  </a>
+            <div id="SilhouettesList" class="panel-collapse collapse">
+                <div class="scrollbar" id="style-1">
+                    @Html.EditorFor(x => x.Silhouettes)
+                </div>
+            </div>
+        </div> 
+        
+        <div class="row">
+            <!--ColorList-->
+            <a data-toggle="collapse" href="#ColorList" class="MenuName toggleMenu"> <div id="HeadTitle"> Kleur <span class="caret-down"></span></div>  </a>
+            <div id="ColorList" class="panel-collapse collapse">
+                @Html.EditorFor(x => x.Colors)
+            </div>
+        </div> 
+        <div class="row"> <input class="button" id="filterBtn" type="submit" value="Search"></div>
+       
+    </div>
+  
+   
+ 
+        
+        
+ 
+
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#priceslider").slider({});
+
+        $('.toggleMenu').click(function () {
+            $("span", this).toggleClass("caret-up");
+        });
+    });
+
+    
+</script>

@@ -1,0 +1,35 @@
+﻿@model HoneymoonShop.Model.AppointmentModels.Appointment
+<div id="formContainer">
+    <h2>Stap 2, Gegevens invullen</h2>
+    <form asp-action="Stap3" asp-controller="Appointment" method="get" id="infoForm">
+        <input asp-for="AppointmentTime" value="@Model.AppointmentTime"/>
+        <div class="form-group">
+            <label asp-for="Name">Voor- en achternaam</label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WeddingDate">Trouwdatum</label>
+            <input asp-for="WeddingDate" class="form-control"/>
+            <span asp-validation-for="WeddingDate"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber">Telefoonnummer</label>
+            <input asp-for="PhoneNumber" class="form-control"/>
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">E-mailadres</label>
+            <input asp-for="Email" class="form-control"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">E-mailadres herhalen</label>
+            <input asp-for="Email" class="form-control"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="text-uppercase form-control">Naar stap 3</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@using System.Threading.Tasks
+@model HoneymoonShop.Model.DressModels.SuperModel
+
+<h3 class="text-uppercase">Categorieen:</h3>
+@{
+    foreach (Category cat in Model.Categories)
+    {
+        
+        <div class="category">
+            @{
+                if (cat.CategoryId == Model.CurrentCategory)
+                {
+                    <a href="/Dressfinder/browse?Category=@cat.CategoryId" class="activeCategory">@cat.Name</a>
+                }
+                else
+                {
+                    <a href="/Dressfinder/browse?Category=@cat.CategoryId">@cat.Name</a>
+                }
+            }
+        </div>
+    }
+}
+
+<div class="category">
+    @{
+        if (Model.CurrentCategory == -1)
+        {
+            <a href="/Dressfinder/browse" class="activeCategory">Alle jurken bekijken</a>
+        }
+        else
+        {
+            <a href="/Dressfinder/browse">Alle jurken bekijken</a>
+        }
+    }    
+</div>

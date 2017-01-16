@@ -1,0 +1,10 @@
+﻿body {
+    background-color: #FCE8E7;
+}
+
+#appointmentBlock {
+    box-shadow: -16px 0px 32px #f7f7f7; 
+    height: 600px;
+    margin: 200px 100px;
+}
+

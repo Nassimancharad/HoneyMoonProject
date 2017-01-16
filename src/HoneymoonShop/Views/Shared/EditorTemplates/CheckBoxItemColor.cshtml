@@ -1,0 +1,19 @@
+﻿@model HoneymoonShop.Model.DressModels.FilterMenu.CheckBoxItemColor
+@using HoneymoonShop.CustomHtmlHelper;
+
+<div class="row filterRow">
+    <div class="col-md-1 col-sm-1 col-xs-1 roundedDiv">
+        <div class="roundedOne">
+            @Html.HiddenFor(x => x.color)
+            @Html.CheckBoxFor(x => x.IsChecked)
+            @Html.LabelFor(x => x.IsChecked, " ")
+        </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+        @HtmlHelpers.CC(Model.color)
+    </div>
+    <div class="nextToCheck col-md-11 col-sm-11 col-xs-11">
+        @Model.Display
+    </div>
+    
+</div>

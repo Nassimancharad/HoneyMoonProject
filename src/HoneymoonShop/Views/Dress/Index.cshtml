@@ -1,0 +1,85 @@
+﻿<!--Selected dress-->
+@using HoneymoonShop.Controllers;
+@model HoneymoonShop.Model.DressModels.Dress
+
+@section CustomStyle {
+    <link rel="stylesheet" href="~/css/Specifics/selectedDress.css" />
+    <script type="text/javascript" src="~/js/dress.js"></script>
+}
+<div class="row" id="viewContainer">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12" id="returnLinkCol">
+                <a class="returnLink" href="javascript:void(0)" onclick="history.back();">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> <u>Terug naar overzicht</u>
+                </a>
+            </div>
+        </div>
+        <div class="row dressRow "> <!-- Dress row-->
+            <div class="col-xs-12 col-md-2 dressGallery">
+                <div class="row">
+                    @{ 
+                        int count = 0;
+                        foreach (var inputImage in Model.Images)
+                        {
+
+                            count++;
+                            string classes = "col-md-12 col-xs-4 dressThumbnail";
+                            if (count == 2) { classes += " middleThumbnail"; }
+                            <div style="background-image: url(@inputImage.DressURL)" class="@classes">
+                            
+                            </div>
+
+                        }
+                    }
+                </div>
+
+            </div>
+
+
+            <div class="col-xs-12 col-md-7" id="mainDress"> <!-- Middle Main image column-->
+                <img class="img-responsive" id="fullDressImage" src="@Model.GetMainImageUrl()" alt="@Model.Name">
+            </div>
+
+            <div class="col-xs-12 col-md-3"> <!-- righter description column-->
+                <h3>
+                    @Model.Name <br/> <small>artikel nr. @Model.DressId</small>
+                </h3>
+
+                <p>@Model.Description</p>
+                <p> Merk: <span class="dressDetail"> @Model.BrandName</span> </p>
+                <p>
+                    Kenmerken: <span class="dressDetail">
+                            @foreach (var property in Model.Properties)
+                            {
+                                @: @property.Property.Name,
+                            }
+                        </span>
+                </p>
+                <p>Prijsindicatie: € @Model.PriceIndication.ToString("N2")</p>
+                <p>
+                    Beschikbare kleuren: @foreach (Enum value in Enum.GetValues(typeof(Color)))
+                                         {
+                                             if (Model.Colors.HasFlag(value))
+                                             {
+                                                 <a href="#" class="@value.ToString() circle"></a>
+                                             }
+                                         }
+
+                </p>
+                <br/>
+                <p>Kom deze jurk passen!</p>
+                <a class="btn button">PASAFSPRAAK MAKEN</a>
+            </div>
+            <!--Einde bovenste row!-->
+    
+            </div>
+        @if(Model.Jewelry.Any()) {
+            @Html.Partial("_VergelijkbareSieraden", Model.Jewelry)
+        }
+        <br/>
+        <br/>
+
+        @Html.Partial("_SimilarDresses", ViewData["Similar"])
+    </div>    
+</div>

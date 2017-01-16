@@ -1,0 +1,207 @@
+﻿/* Reset */
+.ui-datepicker,
+.ui-datepicker table,
+.ui-datepicker tr,
+.ui-datepicker td,
+.ui-datepicker th {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-spacing: 0;
+}
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+/* Calendar Wrapper */
+.ui-datepicker {
+	display: none;
+	width: 100%;
+	padding: 35px;
+	cursor: default;
+    padding-top: 20px;
+
+	text-transform: uppercase;
+	font-family: Tahoma;
+	font-size: 12px;
+
+	background: #f0597c;	
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	/*-webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+	-moz-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+	box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);*/
+}
+
+/* Calendar Header */
+.ui-datepicker-header {
+	position: relative;
+	padding-bottom: 10px;
+
+}
+
+.ui-datepicker-title {
+     text-align: center;
+     font-size: medium;
+     background-color: rgb(242, 115, 144);
+     padding: 5px;
+}
+
+/* Month */
+.ui-datepicker-month {
+	position: relative;
+	padding-right: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+.ui-datepicker-month:before {
+	display: block;
+	position: absolute;
+	top: 5px;
+	right: 0;
+	width: 5px;
+	height: 5px;
+	content: '';
+
+	
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* Year */
+.ui-datepicker-year {
+	padding-left: 8px;
+	color: white;
+	font-weight: bold;
+}
+
+/* Prev Next Month */
+.ui-datepicker-prev,
+.ui-datepicker-next {
+	position: absolute;
+	top: -2px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.ui-datepicker-prev {
+	left: 0;
+	padding-left: 0;
+}
+
+.ui-datepicker-next {
+	right: 0;
+	padding-right: 0;
+}
+img{
+     width: 100%;
+    height: auto;
+}
+.ui-datepicker-prev span{
+    display: block;
+	width: 5px;
+	height: 5px;
+	text-indent: -9999px;
+     
+	background-image: url(http://oi65.tinypic.com/2qcqyk9.jpg);
+    background-size: 100% 100%;
+    margin-bottom: 10px;
+    border-bottom-width: 50px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 3px;
+}
+.ui-datepicker-next span{
+	display: block;
+	width: 5px;
+	height: 5px;
+	text-indent: -9999px;
+     width:22px;
+    background-size: 100% 100%;
+    margin-bottom: 10px;
+    border-bottom-width: 50px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 3px;
+    margin-left:-6px;
+	background-image: url(http://oi67.tinypic.com/29f83dx.jpg);
+   
+}
+
+.ui-datepicker-prev span { background-position: 0px 0px; }
+
+.ui-datepicker-next span { background-position: -5px 0px; }
+
+.ui-datepicker-prev-hover span { 
+
+    background-size: 100% 100%;
+    margin-bottom: 10px;
+    border-bottom-width: 50px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 3px;
+    background-image: url(http://oi65.tinypic.com/swy7bn.jpg);
+}
+
+.ui-datepicker-next-hover span { 
+    width:22px;
+    background-size: 100% 100%;
+    margin-bottom: 10px;
+    border-bottom-width: 50px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 3px;
+    margin-left:-6px;
+    background-image: url(http://oi68.tinypic.com/9t0ajn.jpg);
+}
+
+/* Calendar "Days" */
+.ui-datepicker-calendar th {
+	padding-top: 15px;
+	padding-bottom: 10px;
+	
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+
+.ui-datepicker-calendar td {
+	padding: 0 7px;
+	color: white;
+	text-align: center;
+	line-height: 26px;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+	display: block;
+	width: 26px;
+	outline: none;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+	
+	border: 1px solid transparent;
+}
+
+/* Day Active State*/
+.ui-datepicker-calendar .ui-state-active {
+    width: 29px;   
+    border-radius: 100%;
+    border: 2px solid;
+    color: white !important
+}
+
+/* Other Months Days*/
+.ui-datepicker-other-month .ui-state-default { color: #565656; font-weight: bold; }
+
+.ui-state-disabled .ui-state-default { color: #565656 !important
+} 

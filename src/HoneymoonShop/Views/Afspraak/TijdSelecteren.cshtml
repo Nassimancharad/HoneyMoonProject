@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Tijd Selecteren";
+}
+@model HoneyMoonDB.Models.Afspraak
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="~/css/Kalender.css">
+    
+    <style>
+        .navbar-default .navbar-nav > li > a {
+            color: #000;
+        }
+
+        .navbar-default .navbar-brand {
+            color: #000;
+        }
+    </style>
+</head>
+<div class="row flex-container form-container">
+    <div class="col-md-5 yellowBorder" style="box-shadow: -1px 1px 10px 0px #888888">
+
+      
+        <div class="col-md-3 Cirkels" style="text-align:center; margin-top:30px;">
+            <div class="ThisCirkel">1</div>
+            <div class="ThisStep">Datum en tijd selecteren</div>
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="NextCirkel">2</div>
+            <div class="NextStep">Gegevens invullen</div>
+            <div class="Streep"></div><br />
+            <div class="NextCirkel">3</div>
+            <div class="NextStep">Gegevens controleren</div>
+        </div>
+        <div class="col-md-9 FormGegevens" style="margin-top:30px;">
+            <h4>Stap 1, Datum en tijd selecteren</h4>
+            <p>Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!</p>
+            <div class="openingstijden" style="padding-bottom:10px">
+                <span>Openingstijden:</span>
+                <table>
+                    <tr>
+                        <td>MA</td>
+                        <td class="tijden">12:00-17:30</td>
+                    </tr>
+                    <tr>
+                        <td>DI-VR</td>
+                        <td class="tijden">09:30-17:30</td>
+                    </tr>
+                    <tr>
+                        <td>ZA</td>
+                        <td class="tijden">09:30-18:00</td>
+                    </tr>
+                    <tr>
+                        <td>ZO</td>
+                        <td class="tijden">11:00-17:00</td>
+                    </tr>
+                </table>
+            </div>
+            <p>*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
+            <a href="GegevensInvullen">
+                <div>
+                    <p type="submit" class="btn-standard text-uppercase"><strong>Naar stap 2</strong></p>
+                </div>
+            </a>
+        </div>
+        </div>
+
+    <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: 1px 1px 10px 0px #888888">
+
+        <div class="controle-scherm-gegevens">
+            <div class="Titel" style="color:white; display:flex;">
+
+                <div style="background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
+                background-size: 100% 100%;
+                height: 15px;
+                width: 15px;
+                margin-top: 11px;
+                margin-right:5px;
+                ">
+
+
+                </div>
+                <h4>Selecteer een tijdstip:</h4>
+
+            </div>
+            <div class="ui-datepicker-title" style="margin: auto;
+                 width: 290px;
+                 text-align: center;
+                 font-size: medium;
+                 background-color: rgb(242, 115, 144);
+                 padding: 5px;
+                 color: white;
+                 ">
+
+                
+                    <div>
+                        <span id="AfspraakDagNaam"> </span>
+                        <span id="AfspraakDag"> </span>
+                        <span id="AfspraakMaand"></span>
+                        <span id="AfspraakYear"></span>
+                        <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next">
+                           
+                        </a>
+                    </div>
+                    <script>
+                        window.onload = function () {
+                            var AfspraakDagNaam = localStorage.getItem("dagnaam");
+                            var hiddenDateDay = localStorage.getItem("day");
+                            var hiddenDateMonth = localStorage.getItem("month");
+                            var hiddenDateYear = localStorage.getItem("year");
+                            document.getElementById('AfspraakDagNaam').innerText = AfspraakDagNaam;
+                            document.getElementById('AfspraakDag').innerText = hiddenDateDay;
+                            document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
+                            document.getElementById('AfspraakYear').innerText = hiddenDateYear;
+
+                          
+                        }
+
+                    </script>
+                
+                @*<span class="ui-datepicker-day">15</span>
+                    <span class="ui-datepicker-month">January</span>
+                    &nbsp;
+                    <span class="ui-datepicker-year">2017</span>*@
+            </div>
+
+            <a href="DatumSelecteren">
+                <div class="Back" style="display:flex;">
+                    <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg);
+                        background-size: 100% 100%;
+                       bottom: 20px;
+                        width: 50px;
+                        height: 22px;
+                        position:absolute">
+
+                    </div>
+                    <div class"backText">
+                        <span style="bottom: 20px;margin-left:60px; position:absolute; text-decoration:none; color: white;">Terug naar datum wijzigen</span>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
+</div>

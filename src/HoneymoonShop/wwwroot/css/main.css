@@ -1,0 +1,440 @@
+﻿
+/*BEGIN TODO: DELTE CLASSES*/
+/*
+.yellowBorder > [class*='col-'] {
+    border-color: yellow;
+    border-style: solid;
+}
+
+.redBorder > [class*='col-'] {
+    border-color: yellow;
+    border-style: solid;
+}
+
+.redBorder {
+    border-color: red !important;
+    border-style: solid;
+}
+
+.row {
+    margin-bottom: 25px;
+    border: solid green;
+}
+
+.yellowBorder {
+    border: solid yellow;
+}
+*/
+/*END TODO: DELTE CLASSES*/
+
+/*********************
+***  BEGIN general ***
+**********************/
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.col-md-4 controle-scherm yellowBorder{
+    box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1);
+
+}
+.row {
+    margin-bottom: 25px;
+}
+
+body {
+    background-color: rgb(252, 232, 231);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background-default {
+    background-color: white;
+}
+
+.background-1 {
+    background-color: white;
+}
+
+.row {
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.container {
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+}
+
+.no-gutter {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.reg-mark {
+    font-size: 8px;
+    vertical-align: super;
+}
+.merk {
+    font-size: 20px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.btn-standard {
+    width: 150px;
+    height: 35px;
+    background-color: #F0597c;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none; /*NODIG?*/
+    display: inline-block; /*NODIG?*/
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom:7px;
+    padding: 7px;
+}
+
+.btn-standard:hover {
+    background-color: white;
+    color: #F0597c;
+    transition: 0.2s;
+}
+
+td { 
+    font-weight: bold;
+}
+
+.tijden{
+    padding-left: 10px;
+}
+/*********************
+***   END general  ***
+**********************/
+
+/*********************
+***  BEGIN header  ***
+**********************/
+.header {
+    height: 50px;
+    background-color: #fac9c4;
+    margin-bottom: 0;
+}
+
+.header a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #F0597c;
+    transition: 0.1s;
+}
+
+.flex-header {
+    align-items: center;
+}
+/*********************
+***   END header   ***
+**********************/
+
+/*********************
+***  BEGIN footer  ***
+**********************/
+footer {
+    margin-top: 25px;
+}
+
+.footer-container {
+    height: 100%; /*    -----------------      */
+    align-items: stretch;
+    justify-content: center;
+}
+
+.footer-gutter {
+    margin-left: 50px;
+}
+
+/*********************
+***   END footer   ***
+**********************/
+
+/***********************
+* BEGIN number circles *
+************************/
+.clearfix {
+    font: 18px Arial, Sans-serif;
+    margin-top: 10px;
+}
+
+    .clearfix:hover .numberCircle {
+        background: #f0597c;
+    }
+
+    .clearfix:hover .thot {
+        color: #f0597c;
+    }
+
+.numberCircle {
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: rgb(209,210,212);
+    color: #fff;
+    line-height: 30px;
+    float: left;
+}
+
+.thot {
+    padding-left: 10px;
+    float: left;
+    line-height: 30px;
+}
+/*********************
+* END number circles *
+**********************/
+
+/*********************
+***   BEGIN caret  ***
+**********************/
+.caret {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #f0597c;
+}
+/*********************
+***    END caret   ***
+**********************/
+
+/***********************
+* BEGIN AfspraakMaken *
+************************/
+.afspraakSoort {
+    margin-top: 35px;
+}
+
+.textUp {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    top: 10%;
+    left: 10%;
+    position: absolute;
+}
+
+.flex-afspraak-select {
+    height: 100%;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.afspraak-select-gutter {
+    margin-left: 20px;
+}
+
+form p input {
+    width: 100%;
+    height: 35px;
+}
+
+.form-container {
+    justify-content: center;
+}
+
+.controle-scherm {
+    background-color: #f0597c;
+   
+}
+
+.controle-scherm-gegevens {
+   
+}
+/*********************
+* END AfspraakMaken *
+**********************/
+
+/*********************
+BEGIN   ONBEKEND
+**********************/
+.row .footerbg {
+    background-color: #ffe4e1;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.pcolor {
+    background-color: white;
+    height: 50px;
+    padding-top: 10px;
+}
+
+.whiteSpace {
+    margin-right: 20px;
+}
+/*********************
+EIND    ONBEKEND
+**********************/
+/*
+.btn-standard {
+    background-color: #F0597c;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; 
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}*/
+
+
+.voltooid-container {
+    height: 100%; /*    -----------------      */
+    align-items: stretch;
+    justify-content: center;
+}
+
+/*********************
+**** BEGIN navbar ****
+**********************/
+.navbar {
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.navbar-default {
+    background: inherit;
+    color: white;
+    border: none;
+    border-radius: 0;
+}
+
+    /* BEGIN navbar title (brand) */
+    .navbar-default .navbar-brand {
+        color: #fff;
+        font-family: 'Libre Baskerville', serif;
+        font-size: 30px;
+    }
+
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: inherit;
+        }
+    /* END navbar title (brand) */
+
+    .navbar-default .navbar-nav > li > a {
+        color: #fff;
+        transition: 0.2s;
+    }
+
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #f0597c;
+        }
+
+.navbar-toggle {
+    border-radius: 0;
+    background-color: #F0597c;
+    border: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .flex-container {
+    align-items: center;
+}
+
+.navbar > .container-fluid {
+    position: absolute;
+    width: 100%;
+}
+
+
+.CirkelBack{
+    width:35px;
+    height:35px;
+    background-color:#fac8c4;
+    border-radius:50%;
+    text-align:center;
+    font-family: 'Montserrat', Bold;
+    font-size:25px;
+    color:white;
+    display:inline-block;
+}
+
+.ThisCirkel{
+     width:35px;
+    height:35px;
+    background-color:#f0597c;
+    border-radius:50%;
+    text-align:center;
+    font-family: 'Montserrat', Bold;
+    font-size:25px;
+    color:white;
+    display:inline-block;
+}
+.NextCirkel{
+    width:35px;
+    height:35px;
+    background-color:#ebebeb;
+    border-radius:50%;
+    text-align:center;
+    font-family: 'Montserrat', Bold;
+    font-size:25px;
+    color:white;
+    display:inline-block;
+}
+
+.Cirkels{
+    text-align: center;
+}
+
+.LastStep{
+    font-family: 'Montserrat', Bold;
+    font-size:12px;
+     color:#fac8c4;
+     
+
+}
+.ThisStep{
+    font-family: 'Montserrat', Bold;
+    font-size:12px;
+     color:#f0597c;
+     
+}
+.NextStep{
+    font-family: 'Montserrat', Bold;
+    font-size:12px;
+     color:#ebebeb;
+    
+    
+}
+.Streep{
+    display:inline-block;
+    
+    width: 2px;
+    height: 10px;
+    background-color: #ebebeb;
+
+}
+
+/*********************
+***** END navbar *****
+**********************/

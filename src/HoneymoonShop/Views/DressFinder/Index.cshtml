@@ -1,0 +1,65 @@
+﻿<!--Dressfinder landingpage-->
+@{
+    ViewData["Title"] = "Main page";
+}
+@model SuperModel
+
+
+<div class="row" id="viewContainer">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3 col-xs-12"> <!--Sidebar-->
+                @Html.Partial("CategorySelector")
+                @Html.Partial("FilterBar")
+            </div>
+            <div class="col-md-9 col-xs-12" id="rightPane"> <!--Main right pane-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="background-img">
+                            <div id="summersaleLink">
+                                <a href="/Dressfinder/browse?cat=2" alt="summersale">Bekijk de Summersale <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="images">
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <div class="col-md-4 col-sm-4 col-xs-4 dressImage">
+                            <a href="" alt="">
+                                <img class="img-responsive" src="http://www.honeymoonshop.nl/uploads/cache/wallpaper2-honeymoonshop-16x10-1.jpg" alt="top-images" />
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="spacer col-md-12 col-sm-12 col-xs-12" id="newCollection"><span class="text-uppercase">Nieuwe collectie</span></div>
+                </div>
+                <div class="row">
+                    @foreach (HoneymoonShop.Model.DressModels.Dress Dress in Model.Dresses)
+                    {
+                        <div class="col-md-4 col-xs-12 dressItem">
+                            <a class="" href="/Dress?DressId=@Dress.DressId">
+                                <div class="dressPictureBox">
+                                    @*<img class="dressPicture" src="@Dress.Images.ElementAt(0).DressURL" alt="">*@
+                                </div>
+                                <div class="dressTitel">@Dress.Name</div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FooterSection {
+<div class="row">
+    <div class="col-md-12" id="bottomImage">
+        <img class="img-responsive" src="http://www.honeymoonshop.nl/uploads/cache/wallpaper1-honeymoonshop-16x10-1.jpg" alt="BridePicture" />
+    </div>
+</div>
+}
+
+    

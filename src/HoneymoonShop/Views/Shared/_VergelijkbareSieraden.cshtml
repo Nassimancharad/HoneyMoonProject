@@ -1,0 +1,21 @@
+﻿@model ICollection<DressJewelry>
+
+<div class="row">
+    <div class="spacer col-md-12 col-sm-12 col-xs-12">
+        <span class="text-uppercase">Bijpassende Sieraden</span>
+    </div>
+</div>
+<div class="row jewelryGallery">
+    @foreach (var s in Model)
+    {
+        <div>
+            <img class="img-thumbnail img-responsive" src="@s.Jewelry.ImageURL" alt="Jewelry" />
+            <p class="jewelryName">@s.Jewelry.Name</p>
+        </div>
+    }
+</div>
+<div class="row buttonRow">
+    <div class="buttonColumn col-md-1">
+        <div class="btn button webshopButton">Bezoek de webshop</div>
+    </div>
+</div>

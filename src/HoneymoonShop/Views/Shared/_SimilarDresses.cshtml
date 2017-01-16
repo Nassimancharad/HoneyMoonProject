@@ -1,0 +1,23 @@
+﻿@model List<HoneymoonShop.Model.DressModels.Dress>
+
+<div class="row">
+    <div class="spacer col-md-12 col-sm-12 col-xs-12">
+        <span class="text-uppercase">Of zijn deze jurken meer iets voor jou?</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var Dress in Model)
+        {
+            <div class="col-md-3 col-xs-12 dressItem">
+                <a href="/Dress?DressId=@Dress.DressId">
+                    <div class="dressPictureBox">
+                        <img class="dressPicture" src="@Dress.GetMainImageUrl()" alt="">
+                    </div>
+                    <div class="dressTitel">@Dress.Name</div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

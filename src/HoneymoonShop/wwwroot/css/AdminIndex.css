@@ -1,0 +1,15 @@
+﻿body {
+
+}
+
+#buttonRow{
+    text-align: center;
+    margin: 10px;
+}
+
+.button {
+    width: 100%;
+    display:inline-block;
+    float:none;
+    font-size: 50px;
+}

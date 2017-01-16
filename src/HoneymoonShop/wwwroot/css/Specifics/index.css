@@ -1,0 +1,30 @@
+﻿#mainHeader {
+    background-image: url(http://www.lockhartswedding.com.c1.previewmysite.com/wp-content/uploads/2015/03/o-WEDDING-DRESS-SHOPPING-facebook.jpg);
+    height: 700px;
+}
+
+#mainHeader h1 {
+    color: white;
+}
+
+#mainHeader .navbar-default {
+    background-color:transparent;
+    border: 0px;
+    color:#FFFFFF;
+}
+
+#mainHeader .navbar-default {
+    background-color:transparent;
+    border: 0px;
+    color:#FFFFFF;
+}
+
+#mainHeader .nav li a{
+    color:#FFFFFF;
+}
+
+.horRule {
+    height: 0px;
+    background: none;
+    margin: 0px;
+}

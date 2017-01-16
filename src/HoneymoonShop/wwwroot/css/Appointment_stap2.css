@@ -1,0 +1,54 @@
+﻿#formContainer {
+    margin-right: 50px;
+}
+
+.form-control {
+    border: 2px solid #888888;
+    border: 2px solid rgba(136, 136, 136, 0.4);
+    border-radius: 0;
+}
+
+.form-group button {
+    background-color: #F0597C;
+    width: auto;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.attachment {
+    background-color: #F0597C;
+    color: white;
+    font-weight: normal;
+}
+
+.attachment h2 {
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.attachment h2 .titleIcon {
+    text-align: center;
+     vertical-align: middle; vertical-align: middle;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.attachment .selectedDate {
+    margin: auto;
+    padding: 10px 20px;
+    background-color: #ffffff #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.attachment .previousStep {
+
+}
+
+.attachment .previousStep i {
+    font-size: 22px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 10px;
+}

@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Datum Selecteren";
+}
+
+@model HoneyMoonDB.Models.Afspraak
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Display inline</title>
+
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="~/css/Kalender.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="~/css/Kalender.css">
+
+
+  
+</head>
+
+<style>
+    .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #000;
+    }
+</style>
+
+<div class="row flex-container form-container">
+    <div class="col-md-5 yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
+       
+        
+        <div class="col-md-3 Cirkels" style="text-align:center; margin-top:35px;">
+            <div class="ThisCirkel">1</div>
+            <div class="ThisStep">Datum en tijd selecteren</div>
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="Streep"></div><br />
+            <div class="NextCirkel">2</div>
+            <div class="NextStep">Gegevens invullen</div>
+            <div class="Streep"></div><br />
+            <div class="NextCirkel">3</div>
+            <div class="NextStep">Gegevens controleren</div>
+        </div>
+        <div class="col-md-9 FormGegevens" style="margin-top:30px;">
+            <h4>Stap 1, Datum en tijd selecteren</h4>
+            <p>Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!</p>
+            <div class="openingstijden" style="padding-bottom:10px">
+                <span>Openingstijden:</span>
+                <table>
+                    <tr>
+                        <td>MA</td>
+                        <td class="tijden">12:00-17:30</td>
+                    </tr>
+                    <tr>
+                        <td>DI-VR</td>
+                        <td class="tijden">09:30-17:30</td>
+                    </tr>
+                    <tr>
+                        <td>ZA</td>
+                        <td class="tijden">09:30-18:00</td>
+                    </tr>
+                    <tr>
+                        <td>ZO</td>
+                        <td class="tijden">11:00-17:00</td>
+                    </tr>
+                </table>
+            </div>
+            <p>*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.<p>
+        </div>
+        </div>
+
+    <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
+        <div class="controle-scherm-gegevens" style="color: white;">
+            <div class="Titel" style="display:flex">
+
+                <div style="background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
+                background-size: 100% 100%;
+                height: 15px;
+                width: 15px;
+                margin-top: 11px;
+                margin-right:5px;
+                ">
+
+
+                </div>
+                <h4>Selecteer een datum:</h4>
+
+            </div>
+
+
+
+
+            <div id="calendar"></div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+                $('#calendar').datepicker({
+                    inline: true,
+                    firstDay: 1,
+                    showOtherMonths: true,
+                    dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
+                    minDate: 0,
+
+                    onSelect: function () {
+                        var months = [ "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December" ];
+                        var daynaam = ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'];
+                        var dayName = daynaam[$("#calendar").datepicker('getDate').getDay()];
+                        var day = $("#calendar").datepicker('getDate').getDate();
+                        var month = months[$("#calendar").datepicker('getDate').getMonth() + 1];
+                        var year = $("#calendar").datepicker('getDate').getFullYear();
+                        var fullDate = day + "-" + month + "-" + year;
+                        localStorage.setItem("fullDate", fullDate);
+                        localStorage.setItem("dagnaam", dayName);
+                        localStorage.setItem("day", day);
+                        localStorage.setItem("month", month);
+                        localStorage.setItem("year", year);
+                       
+                    }
+                });
+            </script>
+
+            <a href="TijdSelecteren">
+                <div class="volgende" style="display:flex; padding-top: 40px;">
+                    <div class="nextArrow" style="background-image :url(http://oi65.tinypic.com/2yuzmro.jpg);
+                        background-size: 100% 100%;
+                        bottom: 19px;
+                        width: 50px;
+                        height: 22px;
+                        position: absolute;
+                        margin-left: 310px;
+                        margin-top: 5px;">
+                    </div>
+                    <div>
+                        <span style="bottom: 20px; right:75px; position:absolute; text-decoration:none; color: white; margin-top:20px;">Selecteer een tijd</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
+</div>

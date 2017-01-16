@@ -1,0 +1,12 @@
+﻿@model HoneymoonShop.Model.AppointmentModels.Appointment
+<div class="attachment">
+    
+    <h2><i class="fa fa-heart titleIcon" aria-hidden="true"></i>Gekozen tijd en datum:</h2>
+    <div class="selectedDate text-uppercase">
+        @($"{Model.AppointmentTime.DayOfWeek} {Model.AppointmentTime.Day} {Model.AppointmentTime.Month} {Model.AppointmentTime.Year} OM {Model.AppointmentTime.Hour}.{Model.AppointmentTime.Minute} U")
+    </div>
+    <p>Vul je persoonlijke gegevens in om de pasafspraak compleet te maken.</p>
+    <div class="previousStep">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>Terug naar stap 1 om datum te wijzigen
+    </div>
+</div>

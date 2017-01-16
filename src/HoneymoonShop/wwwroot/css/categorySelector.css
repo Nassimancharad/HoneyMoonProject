@@ -1,0 +1,12 @@
+﻿.category {
+    background-color: #FCE8E7;
+    margin: 5px 0;
+    padding: 5px 5px;
+}
+.category a {
+    color: black;
+}
+
+.activeCategory {
+    text-decoration: underline;   
+}

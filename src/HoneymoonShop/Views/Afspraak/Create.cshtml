@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model HoneyMoonDB.Models.Afspraak
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
+}
+
+<div class="row flex-container form-container">
+    <div class="col-md-5 yellowBorder">
+        <form asp-controller="Afspraak" asp-action="Create" method="post">
+            <p>
+                <label asp-for="Naam"></label>
+                <input asp-for="Naam">
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="TrouwDatum"></label>
+                <input asp-for="TrouwDatum">
+                <span asp-validation-for="TrouwDatum" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="Telefoonnummer"></label>
+                <input asp-for="Telefoonnummer">
+                <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="Email"></label>
+                <input asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </p>
+            <p>
+                <label asp-for="HerhaalEmail"></label>
+                <input asp-for="HerhaalEmail">
+                <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
+            </p>
+            <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
+            <button type="submit" class="btn-standard text-uppercase"><strong>Naar stap 3</strong></button>
+        </form>
+    </div>
+
+    <div class="col-md-5 controle-scherm yellowBorder">
+        <div class="controle-scherm-gegevens">
+            <h3>Gekozen tijd en datum:</h3>
+            <p>Vul je persoonlijke gegevens in <br> om de pasafspraak compleet te maken.</p>
+            <span class="" style="bottom: 35px; position: absolute"><img src="https://s23.postimg.org/5u22cqyez/arrow_2.png" /> Terug naar stap 1 om datum te wijzigen</span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
+</div>

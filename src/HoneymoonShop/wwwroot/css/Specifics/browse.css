@@ -1,0 +1,14 @@
+﻿.extra {
+    display: none;
+}
+
+.dressItem a div.extra{
+    color: black;
+    text-decoration: none !important;
+    font-size: 18px;
+    font-family: "Nexa Light";
+}
+
+a:any-link {
+text-decoration:none !important;
+}

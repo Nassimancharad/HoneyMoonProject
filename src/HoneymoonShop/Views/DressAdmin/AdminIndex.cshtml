@@ -1,0 +1,32 @@
+﻿@{
+
+}
+@section CustomStyle{
+    <link rel="stylesheet" href="~/css/AdminIndex.css" />
+}
+    <div class="row">
+        <div class="row" id="buttonRow">
+            <a href="@Url.Action("AddDress")">
+                <div class="button col-centered">
+                    Create
+                </div>
+            </a>
+        </div>
+
+
+        <div class="row" id="buttonRow">
+            <a href="#">
+                <div class="button col-centered">
+                    Update
+                </div>
+            </a>
+        </div>
+
+        <div class="row" id="buttonRow">
+            <a href="@Url.Action("Delete")">
+                <div class="button col-centered">
+                    Delete
+                </div>
+            </a>
+        </div>
+    </div>

@@ -1,0 +1,137 @@
+﻿@using System.Text
+@using System.Threading.Tasks
+@using HoneymoonShop.Controllers
+@model HoneymoonShop.Model.DressModels.SuperModel
+
+@functions {
+
+    public string BuildUrl(int? itemCount, int? page, int? cat, DressFinderController.Sorter sort = null)
+    {
+        StringBuilder sb = new StringBuilder("Browse?");
+        if (Model.SelectedFilter != null)
+        {
+            sb.Append(Model.SelectedFilter.GetQueryString());
+        }
+        DressFinderController.BrowseParameters clone = new DressFinderController.BrowseParameters();
+        clone.ItemCount = itemCount ?? Model.Parameters.ItemCount;
+        clone.Page = page ?? Model.Parameters.Page;
+        clone.Category = cat ?? Model.Parameters.Category;
+        if (sort != null || ViewBag.Sorter != null)
+        {
+            clone.Sort = sort?.Id ?? ViewBag.Sorter.Id;
+        }
+        sb.Append(clone.GetQueryString());
+        return sb.ToString();
+    }
+}
+
+@section CustomStyle {
+    <link rel="stylesheet" href="~/css/Specifics/browse.css" />
+}
+
+<div class="row" id="viewContainer">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3 col-xs-12">
+                <!--Sidebar-->
+                @Html.Partial("CategorySelector")
+                @Html.Partial("FilterBar")
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <!--Main right pane-->
+                <div class="row">
+                    <div class="row" id="pageTop">
+                        <!--Sorting bar-->
+                        <div class="col-md-offset-8 col-xs-6">
+                            <div class="dropdown">
+                                <span>Sorteer op:</span>
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                    @{
+
+
+                                        if (ViewBag.Sorter != null)
+                                        {
+                                            @ViewBag.Sorter.Name
+                                        }
+                                        else
+                                        {
+                                            @: maak een keuze
+                                        }
+                                    }
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @{
+                                        foreach (DressFinderController.Sorter s in ViewBag.Sorters)
+                                        {
+                                            <li><a href="@BuildUrl(null, 1, null, s)">@s.Name</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dresses">
+                        @foreach (HoneymoonShop.Model.DressModels.Dress Dress in Model.Dresses)
+                        {                          
+                            <div class="col-md-4 col-xs-12 dressItem">
+                                <a class="" href="/Dress?DressId=@Dress.DressId">
+                                    <div class="dressPictureBox">
+                                        <img class="dressPicture" src="@Dress.GetMainImageUrl()" alt="">
+                                    </div>
+                                    <div class="dressTitel">@Dress.Name</div>
+                                    <div class="extra">artikel nr. @Dress.DressId</div>
+                                    <div class="extra">
+                                    @*@foreach (Enum value in Enum.GetValues(typeof(Color)))
+                                    {
+                                        if (Dress.Colors.HasFlag(value))
+                                        {
+                                            <a href="#" class="@value.ToString() circle"></a>
+                                        }*@
+                                    }</div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="pageNav">
+                <div class="col-md-4 col-md-offset-3 col-xs-12">
+                    <div class="dropdown">
+                        <span>Aantal tonen: </span>
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                            @Model.Parameters.ItemCount
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="@BuildUrl(12, 1, null)">12</a></li>
+                            <li><a href="@BuildUrl(24, 1, null)">24</a></li>
+                            <li><a href="@BuildUrl(48, 1, null)">48</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-3 col-xs-12">
+                    <a class="inactivePage" href="@BuildUrl(null,  Model.Parameters.Page > 1 ? Model.Parameters.Page-1 : 1, null)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    @for (int i = Math.Max(Model.Parameters.Page - Math.Max(2, 4 - (ViewBag.PageCount - Model.Parameters.Page)), 1); i <= Math.Min(ViewBag.PageCount, Model.Parameters.Page + Math.Max(5 - Model.Parameters.Page, 2)); i++)
+                    {
+                        <a class=@(Model.Parameters.Page == i ? "activePage":"inactivePage")
+                           href="@BuildUrl(null, i, null)">@i</a>
+
+                    }
+                    @if (ViewBag.PageCount > 5 && Model.Parameters.Page < ViewBag.PageCount - 2)
+                    {
+                        <span>...</span>
+                        <a class="inactivePage" href="@BuildUrl(null, Model.Parameters.Page, null)">@Model.Parameters.Page</a>
+                    }
+
+                    <a class="inactivePage" href="@BuildUrl(null,  Model.Parameters.Page < ViewBag.PageCount ? Model.Parameters.Page+1 : ViewBag.PageCount, null)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/js/Browse.js"></script>

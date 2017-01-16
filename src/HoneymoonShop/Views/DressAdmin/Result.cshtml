@@ -1,0 +1,15 @@
+﻿@*
+    
+*@
+@model Dress
+@ViewData["Message"]
+<p>@ViewData["Error"]</p>
+<div class="row">
+    <a href="@Url.Action("")"></a>
+</div>
+@{
+    if (Model != null)
+    {
+        <p><a href="/Dress?dressid=@Model.DressId">Jurk bekijken</a></p>
+    }
+}
