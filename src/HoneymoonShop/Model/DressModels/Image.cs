@@ -9,9 +9,10 @@ namespace HoneymoonShop.Model.DressModels
 {
     public class Image
     {
-        [Key,ForeignKey("Dress")]
+        [ForeignKey("Dress")]
         public int DressId { get; set; }
         public virtual Dress Dress { get; set; }
+        [Key]
         public string DressURL { get; set; }
     }
 }

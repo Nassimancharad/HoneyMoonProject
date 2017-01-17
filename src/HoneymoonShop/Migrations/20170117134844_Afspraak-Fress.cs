@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HoneymoonShop.Migrations
 {
-    public partial class AfspraakDress : Migration
+    public partial class AfspraakFress : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,12 +45,13 @@ namespace HoneymoonShop.Migrations
                 name: "BeschikbareTijden",
                 columns: table => new
                 {
-                    tijd = table.Column<DateTime>(nullable: false),
-                    tijdID = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    tijd = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BeschikbareTijden", x => x.tijd);
+                    table.PrimaryKey("PK_BeschikbareTijden", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -97,13 +98,13 @@ namespace HoneymoonShop.Migrations
                 {
                     AfspraakId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AfspraakDatum = table.Column<DateTime>(nullable: false),
+                    AfspraakDatum = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     HerhaalEmail = table.Column<string>(nullable: true),
                     Naam = table.Column<string>(nullable: false),
                     Nieuwsbrief = table.Column<bool>(nullable: false),
                     Telefoonnummer = table.Column<int>(nullable: false),
-                    Tijd = table.Column<DateTime>(nullable: false),
+                    Tijd = table.Column<int>(nullable: false),
                     TrouwDatum = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -113,7 +114,7 @@ namespace HoneymoonShop.Migrations
                         name: "FK_Afspraak_BeschikbareTijden_Tijd",
                         column: x => x.Tijd,
                         principalTable: "BeschikbareTijden",
-                        principalColumn: "tijd",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -225,7 +226,7 @@ namespace HoneymoonShop.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Images", x => new { x.DressId, x.DressURL });
-                    table.UniqueConstraint("AK_Images_DressId", x => x.DressId);
+                    table.UniqueConstraint("AK_Images_DressURL", x => x.DressURL);
                     table.ForeignKey(
                         name: "FK_Images_Dresses_DressId",
                         column: x => x.DressId,

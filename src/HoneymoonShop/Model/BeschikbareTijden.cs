@@ -8,9 +8,9 @@ namespace HoneymoonShop.Model
 {
     public class BeschikbareTijden
     {
-        
-        public int tijdID { get; set; }
         [Key]
+        public int ID { get; set; }
+       
         public DateTime tijd { get; set; }
     }
 }

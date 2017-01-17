@@ -10,8 +10,8 @@ using HoneymoonShop.Model.DressModels;
 namespace HoneymoonShop.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20170114231443_Afspraak-Dress")]
-    partial class AfspraakDress
+    [Migration("20170117134844_Afspraak-Fress")]
+    partial class AfspraakFress
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace HoneymoonShop.Migrations
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("AfspraakDatum");
+                    b.Property<int>("AfspraakDatum");
 
                     b.Property<string>("Email")
                         .IsRequired();
@@ -38,7 +38,7 @@ namespace HoneymoonShop.Migrations
 
                     b.Property<int>("Telefoonnummer");
 
-                    b.Property<DateTime>("Tijd");
+                    b.Property<int>("Tijd");
 
                     b.Property<DateTime>("TrouwDatum");
 
@@ -91,11 +91,12 @@ namespace HoneymoonShop.Migrations
 
             modelBuilder.Entity("HoneymoonShop.Model.BeschikbareTijden", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
                     b.Property<DateTime>("tijd");
 
-                    b.Property<int>("tijdID");
-
-                    b.HasKey("tijd");
+                    b.HasKey("ID");
 
                     b.ToTable("BeschikbareTijden");
                 });
@@ -198,7 +199,7 @@ namespace HoneymoonShop.Migrations
 
                     b.HasKey("DressId", "DressURL");
 
-                    b.HasAlternateKey("DressId");
+                    b.HasAlternateKey("DressURL");
 
                     b.ToTable("Images");
                 });

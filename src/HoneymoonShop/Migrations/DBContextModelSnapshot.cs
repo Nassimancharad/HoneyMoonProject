@@ -23,7 +23,7 @@ namespace HoneymoonShop.Migrations
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("AfspraakDatum");
+                    b.Property<int>("AfspraakDatum");
 
                     b.Property<string>("Email")
                         .IsRequired();
@@ -37,7 +37,7 @@ namespace HoneymoonShop.Migrations
 
                     b.Property<int>("Telefoonnummer");
 
-                    b.Property<DateTime>("Tijd");
+                    b.Property<int>("Tijd");
 
                     b.Property<DateTime>("TrouwDatum");
 
@@ -90,11 +90,12 @@ namespace HoneymoonShop.Migrations
 
             modelBuilder.Entity("HoneymoonShop.Model.BeschikbareTijden", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
                     b.Property<DateTime>("tijd");
 
-                    b.Property<int>("tijdID");
-
-                    b.HasKey("tijd");
+                    b.HasKey("ID");
 
                     b.ToTable("BeschikbareTijden");
                 });
@@ -197,7 +198,7 @@ namespace HoneymoonShop.Migrations
 
                     b.HasKey("DressId", "DressURL");
 
-                    b.HasAlternateKey("DressId");
+                    b.HasAlternateKey("DressURL");
 
                     b.ToTable("Images");
                 });

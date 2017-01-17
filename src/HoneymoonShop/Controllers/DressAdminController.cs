@@ -113,9 +113,18 @@ namespace HoneymoonShop.Controllers {
                 newDress.BrandName = model.brand;
                 _context.Dresses.Add(newDress);
                 _context.SaveChanges();
-                foreach (string url in model.PictureURLS) {
-                    _context.Images.Add(new Image() { DressId = newDress.DressId, DressURL = url });
+
+
+
+                foreach(string link in model.PictureURLS)
+                {
+                    _context.Images.Add(new Image() { DressURL = link, DressId = newDress.DressId });
                 }
+                //foreach (string url in model.PictureURLS) {
+                   
+                //   _context.Images.Add(new Image() {
+                //       DressId = newDress.DressId, DressURL = url });
+                //}
                 //_context.DressCategories.Add(new DressCategory()
                 //{
                 //    DressId = newDress.DressId,

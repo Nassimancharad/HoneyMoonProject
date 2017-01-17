@@ -162,7 +162,7 @@ namespace HoneyMoonDB.Controllers {
                 TrouwDatum = DateTime.Parse(HttpContext.Session.GetString("TrouwDatum")),
                 Telefoonnummer = (int)HttpContext.Session.GetInt32("TelNr"),
                 Email = HttpContext.Session.GetString("Email"),
-                AfspraakDatum = DateTime.Parse(HttpContext.Session.GetString("AfspraakDatum"))
+                AfspraakDatum = int.Parse(HttpContext.Session.GetString("AfspraakDatum"))
                 
             };
             
