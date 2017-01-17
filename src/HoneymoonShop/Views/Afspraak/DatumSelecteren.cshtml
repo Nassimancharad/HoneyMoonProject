@@ -127,12 +127,18 @@
                         localStorage.setItem("day", day);
                         localStorage.setItem("month", month);
                         localStorage.setItem("year", year);
-                       
+                        getElementById("datGeselecteerdeDatum").value = fullDate();
                     }
                 });
             </script>
 
-            <a href="TijdSelecteren">
+            <form action="/Afspraak/DatumSelecteren" name="frmGeselecteerdeDatum" method="post">
+
+                <input type="hidden" name="datGeselecteerdeDatum" id="datGeselecteerdeDatum" />
+
+            </form>
+
+            <a href="JavaScript:getElementByName('frmGeselecteerdeDatum').submit()">
                 <div class="volgende" style="display:flex; padding-top: 40px;">
                     <div class="nextArrow" style="background-image :url(http://oi65.tinypic.com/2yuzmro.jpg);
                         background-size: 100% 100%;

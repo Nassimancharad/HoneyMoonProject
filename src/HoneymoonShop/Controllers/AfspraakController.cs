@@ -50,12 +50,9 @@ namespace HoneyMoonDB.Controllers {
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail,AfspraakDatum")] Afspraak afspraak)
-        {
+        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail,AfspraakDatum")] Afspraak afspraak) {
 
             if (ModelState.IsValid)
             {

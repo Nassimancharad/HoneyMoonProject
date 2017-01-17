@@ -1,0 +1,96 @@
+﻿@model HoneymoonShop.Model.DressModels.NewDress
+
+<h1>Voeg een jurk toe</h1>
+<form asp-action="Create" method="post">
+
+    <div class="container admin-login-container">
+        <div class="row ">
+
+            <div class="col-sm-6 zelfInvullen">
+                @ViewData["Name"]
+                <div class="form-group">
+                    <label asp-for="dress.Name">Naam</label>
+                    <input asp-for="dress.Name" class="form-control" />
+                    <span asp-validation-for="dress.Name"> Voer een geldige naam in.</span>
+                </div>
+
+                @ViewData["PriceIndication"]
+                <div class="form-group">
+                    <label asp-for="dress.PriceIndication">Prijsindicatie</label>
+                    <input asp-for="dress.PriceIndication" class="form-control" />
+                    <span asp-validation-for="dress.PriceIndication"> De prijs moet groter zijn dan 0</span>
+                </div>
+
+                @ViewData["Description"]
+                <div class="form-group">
+                    <label asp-for="dress.Description">Beschrijving</label>
+                    <input asp-for="dress.Description" class="form-control" />
+                    <span asp-validation-for="dress.Description">Voer een geldige beschrijving in.</span>
+                </div>
+
+                @ViewData["PictureURLS"]
+                <div class="form-group">
+                    <label asp-for="PictureURLS">Foto URL 1</label>
+                    <input name="PictureURLS" class="form-control" />
+                    <span asp-validation-for="PictureURLS"> Er moet minimaal 1 afbeedling zijn</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PictureURLS">Foto URL 2</label>
+                    <input name="PictureURLS" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PictureURLS">Foto URL 3</label>
+                    <input name="PictureURLS" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-sm-6 selectOpties">
+                @ViewData["Brand"]
+                <div class="form-group">
+                    <label asp-for="dress.BrandName">Merk</label>
+                    <select name="brand">
+                        <option value="" hidden="hidden">Selecteer een merk</option>
+                        @foreach (Brand b in Model.Brands) {
+                            <option value="@b.Name">@b.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="brand">Selecteer een merk</span>
+                </div>
+
+                @ViewData["Silhouettes"]
+                <div class="form-group">
+                    <label asp-for="dress.Properties">Silhouette</label>
+                    <select name="silhouettes">
+                        <option value="" hidden="hidden">Selecteer een silhouet</option>
+                        @foreach (Property p in Model.Silhouettes) {
+                            <option value="@p.PropertyId">@p.Name</option>
+                        }
+                    </select>
+                </div>
+
+                @ViewData["Styles"]
+                <div class="form-group">
+                    <label asp-for="dress.Properties">Stijl jurk</label>
+                    @Html.EditorFor(x => x.Styles)
+                </div>
+
+                @ViewData["Necklines"]
+                <div class="form-group">
+                    <label asp-for="dress.Properties">Neklijn</label>
+                    @Html.EditorFor(x => x.Necklines)
+                </div>
+
+                @ViewData["Colors"]
+                <div class="form-group">
+                    <label asp-for="dress.Colors">Kleur</label>
+                    @Html.EditorFor(x => x.Colors)
+                    <span asp-validation-for="dress.Colors"> Er moet een kleur gekozen zijn.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="text-uppercase form-control">Voeg toe</button>
+    </div>
+</form>

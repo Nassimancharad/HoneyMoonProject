@@ -8,6 +8,7 @@ using HoneymoonShop.Model.DressModels;
 using HoneymoonShop.Model;
 using Microsoft.EntityFrameworkCore;
 using HoneymoonShop.Model.DressModels.FilterMenu;
+using HoneyMoonDB.Controllers;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -72,6 +73,10 @@ namespace HoneymoonShop.Controllers
             public override string ToString()
             {
                 return this.GetQueryString();
+            }
+
+            public static implicit operator BrowseParameters(BruidController.BrowseParameters v) {
+                throw new NotImplementedException();
             }
         }
 
