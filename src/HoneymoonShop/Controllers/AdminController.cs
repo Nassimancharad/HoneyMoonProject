@@ -27,7 +27,6 @@ namespace HoneyMoonDB.Controllers {
 
         // GET: /<controller>/
         public IActionResult Overview() {
-
             return View();
         }
 
@@ -116,14 +115,17 @@ namespace HoneyMoonDB.Controllers {
                 newDress.BrandName = model.brand;
                 _context.Dresses.Add(newDress);
                 _context.SaveChanges();
+
                 foreach (string url in model.PictureURLS) {
                     _context.Images.Add(new Image() { DressId = newDress.DressId, DressURL = url });
                 }
+
                 //_context.DressCategories.Add(new DressCategory()
                 //{
                 //    DressId = newDress.DressId,
                 //    CategoryId = 1
                 //});
+
                 foreach (int propertie in Styles) {
                     _context.DressProperties.Add(new DressProperty() {
                         DressId = newDress.DressId,
@@ -150,9 +152,31 @@ namespace HoneyMoonDB.Controllers {
             return View("Result", newDress);
         }
 
-        private T ReadFlags<T>() {
-            throw new NotImplementedException();
+        public T ReadFlags<T>() {
+            int result = 0;
+            Type type = typeof(T);
+            try {
+                foreach (T val in Enum.GetValues(typeof(T))) {
+                    int i = 0;
+                    if (type.Equals(Color.Ivory)) {
+                        i = 0;
+                    } else if (type.Equals(Color.IvoryColor)) {
+                        i = 1;
+                    } else if (type.Equals(Color.Color)) {
+                        i = 2;
+                    }
+                    string attrName = "Colors[" + i + "].color";
+                    if (Request.Form[attrName].Count > 0) {
+                        result = Convert.ToInt32(result) | Convert.ToInt32(val);
+                    }
+                }
+            } catch (Exception) {
+                result = 0;
+            }
+
+            return (T)Enum.ToObject(type, result);
         }
+
     }
 
 }

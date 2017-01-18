@@ -1,47 +1,33 @@
 ﻿@model HoneymoonShop.Model.DressModels.NewDress
 
 <h1>Voeg een jurk toe</h1>
+
 <form asp-action="Create" method="post">
-
     <div class="container admin-login-container">
-        <div class="row ">
-
+        <div class="row">
             <div class="col-sm-6 zelfInvullen">
+
                 @ViewData["Name"]
                 <div class="form-group">
                     <label asp-for="dress.Name">Naam</label>
                     <input asp-for="dress.Name" class="form-control" />
-                    <span asp-validation-for="dress.Name"> Voer een geldige naam in.</span>
+                    <span asp-validation-for="dress.Name"></span>
                 </div>
 
                 @ViewData["PriceIndication"]
                 <div class="form-group">
                     <label asp-for="dress.PriceIndication">Prijsindicatie</label>
                     <input asp-for="dress.PriceIndication" class="form-control" />
-                    <span asp-validation-for="dress.PriceIndication"> De prijs moet groter zijn dan 0</span>
+                    <span asp-validation-for="dress.PriceIndication"></span>
                 </div>
 
                 @ViewData["Description"]
                 <div class="form-group">
                     <label asp-for="dress.Description">Beschrijving</label>
-                    <input asp-for="dress.Description" class="form-control" />
-                    <span asp-validation-for="dress.Description">Voer een geldige beschrijving in.</span>
+                    <input asp-for="dress.Description" class="form-control" style="height: 250px" />
+                    <span asp-validation-for="dress.Description"></span>
                 </div>
 
-                @ViewData["PictureURLS"]
-                <div class="form-group">
-                    <label asp-for="PictureURLS">Foto URL 1</label>
-                    <input name="PictureURLS" class="form-control" />
-                    <span asp-validation-for="PictureURLS"> Er moet minimaal 1 afbeedling zijn</span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="PictureURLS">Foto URL 2</label>
-                    <input name="PictureURLS" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label asp-for="PictureURLS">Foto URL 3</label>
-                    <input name="PictureURLS" class="form-control" />
-                </div>
             </div>
 
             <div class="col-sm-6 selectOpties">
@@ -54,14 +40,14 @@
                             <option value="@b.Name">@b.Name</option>
                         }
                     </select>
-                    <span asp-validation-for="brand">Selecteer een merk</span>
+                    <span asp-validation-for="brand"></span>
                 </div>
 
                 @ViewData["Silhouettes"]
                 <div class="form-group">
                     <label asp-for="dress.Properties">Silhouette</label>
                     <select name="silhouettes">
-                        <option value="" hidden="hidden">Selecteer een silhouet</option>
+                        <option value="" hidden="hidden">Selecteer een silhouette</option>
                         @foreach (Property p in Model.Silhouettes) {
                             <option value="@p.PropertyId">@p.Name</option>
                         }
@@ -84,9 +70,52 @@
                 <div class="form-group">
                     <label asp-for="dress.Colors">Kleur</label>
                     @Html.EditorFor(x => x.Colors)
-                    <span asp-validation-for="dress.Colors"> Er moet een kleur gekozen zijn.</span>
+                    <span asp-validation-for="dress.Colors"></span>
                 </div>
             </div>
+
+            <div class="col-md-12">
+
+                <div class="col-md-3">
+
+                    @ViewData["PictureURLS"]
+                    <div class="form-group">
+                        <label asp-for="PictureURLS">Foto URL 1</label>
+                        <input name="PictureURLS" class="form-control" />
+                        <span asp-validation-for="PictureURLS"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    @ViewData["PictureURLS"]
+                    <div class="form-group">
+                        <label asp-for="PictureURLS">Foto URL 2</label>
+                        <input name="PictureURLS" class="form-control" />
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    @ViewData["PictureURLS"]
+                    <div class="form-group">
+                        <label asp-for="PictureURLS">Foto URL 3</label>
+                        <input name="PictureURLS" class="form-control" />
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    @ViewData["PictureURLS"]
+                    <div class="form-group">
+                        <label asp-for="PictureURLS">Foto URL 4</label>
+                        <input name="PictureURLS" class="form-control" />
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
 

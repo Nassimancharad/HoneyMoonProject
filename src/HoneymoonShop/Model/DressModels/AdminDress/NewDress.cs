@@ -22,7 +22,7 @@ namespace HoneymoonShop.Model.DressModels
         public List<CheckBoxItemColor> Colors { get; set; } = new List<CheckBoxItemColor>();
         [Required]
        
-        public List<String> PictureURLS { get; set; } = new List<String>();
+        public List<String> PictureURLS { get; set; }
         [Required]
         public String brand { get; set; }
         [Required]
