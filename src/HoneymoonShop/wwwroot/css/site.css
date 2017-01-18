@@ -723,7 +723,7 @@ input[type=checkbox] {
 
 
 body {
-    background: #FCE8E7;
+    background-color:white;
     font-family: 'Nexa Light', sans-serif;
 }
 
@@ -1417,8 +1417,16 @@ input[type=checkbox] {
     margin-top: -2px;
 }
 
+
+
+.navbar-default {
+    background:inherit;
+    border:none;
+    
+}
+
 #filterBtn {
-    width: 20%;
+    width: 30%;
     margin-top: 20px; 
     text-align: center;
 }

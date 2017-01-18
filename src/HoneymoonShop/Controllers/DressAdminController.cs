@@ -131,10 +131,7 @@ namespace HoneymoonShop.Controllers
 
             try
             {
-                newDress.Colors = ReadFlags<Color>();
-                newDress.BrandName = model.brand;
-                _context.Dresses.Add(newDress);
-                _context.SaveChanges();
+              
 
                 foreach( string url in model.PictureURLS) {
                        
@@ -166,6 +163,10 @@ namespace HoneymoonShop.Controllers
                     DressId = newDress.DressId,
                     PropertyId = model.silhouettes
                 });
+                newDress.Colors = ReadFlags<Color>();
+                newDress.BrandName = model.brand;
+                _context.Dresses.Add(newDress);
+                _context.SaveChanges();
                 _context.SaveChanges();
             }
             catch (SqlException e)
