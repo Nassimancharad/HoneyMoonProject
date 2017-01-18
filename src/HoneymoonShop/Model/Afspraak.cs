@@ -6,10 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HoneyMoonDB.Models {
+namespace HoneyMoonDB.Models
+{
 
     [Table("Afspraak")]
-    public class Afspraak {
+    public class Afspraak
+    {
 
         [Key]
         public int AfspraakId { get; set; }
@@ -42,11 +44,19 @@ namespace HoneyMoonDB.Models {
         public string HerhaalEmail { get; set; }
 
         public bool Nieuwsbrief { get; set; }
+
         public DateTime AfspraakDatum { get; set; }
-        public int Tijd { get; set; }
+
         [ForeignKey("Tijd")]
-        public BeschikbareTijden tijdFK { get; set; }
-       
-    }    
+        public virtual BeschikbareTijden Tijd_FK { get; set; }
+
+    }
+
+    public class AfspraakVM
+    {
+
+        public List<BeschikbareTijden> beschikbareTijden { get; set; }
+
+    }
 
 }

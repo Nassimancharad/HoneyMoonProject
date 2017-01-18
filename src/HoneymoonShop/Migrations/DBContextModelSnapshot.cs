@@ -18,6 +18,18 @@ namespace HoneymoonShop.Migrations
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BeschikbareTijden", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<TimeSpan>("tijd");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("BeschikbareTijden");
+                });
+
             modelBuilder.Entity("HoneyMoonDB.Models.Afspraak", b =>
                 {
                     b.Property<int>("AfspraakId")
@@ -37,7 +49,7 @@ namespace HoneymoonShop.Migrations
 
                     b.Property<int>("Telefoonnummer");
 
-                    b.Property<int>("Tijd");
+                    b.Property<int?>("Tijd");
 
                     b.Property<DateTime>("TrouwDatum");
 
@@ -86,18 +98,6 @@ namespace HoneymoonShop.Migrations
                     b.HasKey("AppointmentId");
 
                     b.ToTable("Appointments");
-                });
-
-            modelBuilder.Entity("HoneymoonShop.Model.BeschikbareTijden", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("tijd");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("BeschikbareTijden");
                 });
 
             modelBuilder.Entity("HoneymoonShop.Model.DressModels.Brand", b =>
@@ -233,10 +233,9 @@ namespace HoneymoonShop.Migrations
 
             modelBuilder.Entity("HoneyMoonDB.Models.Afspraak", b =>
                 {
-                    b.HasOne("HoneymoonShop.Model.BeschikbareTijden", "tijdFK")
+                    b.HasOne("BeschikbareTijden", "Tijd_FK")
                         .WithMany()
-                        .HasForeignKey("Tijd")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Tijd");
                 });
 
             modelBuilder.Entity("HoneymoonShop.Model.DressModels.Dress", b =>

@@ -82,12 +82,12 @@
                                     <div class="dressTitel">@Dress.Name</div>
                                     <div class="extra">artikel nr. @Dress.DressId</div>
                                     <div class="extra">
-                                    @*@foreach (Enum value in Enum.GetValues(typeof(Color)))
+                                    @foreach (Enum value in Enum.GetValues(typeof(Color)))
                                     {
                                         if (Dress.Colors.HasFlag(value))
                                         {
                                             <a href="#" class="@value.ToString() circle"></a>
-                                        }*@
+                                        }
                                     }</div>
                                 </a>
                             </div>
