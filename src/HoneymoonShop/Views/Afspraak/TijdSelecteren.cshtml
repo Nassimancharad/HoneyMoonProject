@@ -1,7 +1,9 @@
-﻿@{
+﻿@model HoneyMoonDB.Models.AfspraakVM
+
+@{
     ViewData["Title"] = "Tijd Selecteren";
 }
-@model HoneyMoonDB.Models.Afspraak
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -81,8 +83,6 @@
                 margin-top: 11px;
                 margin-right:5px;
                 ">
-
-
                 </div>
                 <h4>Selecteer een tijdstip:</h4>
 
@@ -93,18 +93,14 @@
                  font-size: medium;
                  background-color: rgb(242, 115, 144);
                  padding: 5px;
-                 color: white;
-                 ">
+                 color: white; ">
 
-                
                     <div>
                         <span id="AfspraakDagNaam"> </span>
                         <span id="AfspraakDag"> </span>
                         <span id="AfspraakMaand"></span>
                         <span id="AfspraakYear"></span>
-                        <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next">
-                           
-                        </a>
+                        <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next" />
                     </div>
                     <script>
                         window.onload = function () {
@@ -116,16 +112,17 @@
                             document.getElementById('AfspraakDag').innerText = hiddenDateDay;
                             document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
                             document.getElementById('AfspraakYear').innerText = hiddenDateYear;
-
-                          
                         }
 
                     </script>
-                
-                @*<span class="ui-datepicker-day">15</span>
-                    <span class="ui-datepicker-month">January</span>
-                    &nbsp;
-                    <span class="ui-datepicker-year">2017</span>*@
+
+
+                <div>
+                    @foreach (var a in Model.beschikbareTijden) {
+                        @*<input type="radio" value="@a.ID" />@a.tijd.ToString(@"hh\:mm")*@
+                        <input asp-for="@a.ID" type="radio" value="@a.ID" /> @a.tijd.ToString(@"hh\:mm");
+                    }
+                </div>
             </div>
 
             <a href="DatumSelecteren">

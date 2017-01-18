@@ -35,7 +35,7 @@
 </style>
 
 <div class="row flex-container form-container">
-    <div class="col-md-5 yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
+    <div class="col-md-5 yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1)">
        
         
         <div class="col-md-3 Cirkels" style="text-align:center; margin-top:35px;">
@@ -81,7 +81,7 @@
         </div>
         </div>
 
-    <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1">
+    <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1)">
         <div class="controle-scherm-gegevens" style="color: white;">
             <div class="Titel" style="display:flex">
 
@@ -98,9 +98,6 @@
                 <h4>Selecteer een datum:</h4>
 
             </div>
-
-
-
 
             <div id="calendar"></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -119,27 +116,35 @@
                         var daynaam = ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'];
                         var dayName = daynaam[$("#calendar").datepicker('getDate').getDay()];
                         var day = $("#calendar").datepicker('getDate').getDate();
-                        var month = months[$("#calendar").datepicker('getDate').getMonth() + 1];
+                        var month = months[$("#calendar").datepicker('getDate').getMonth()];
                         var year = $("#calendar").datepicker('getDate').getFullYear();
                         var fullDate = day + "-" + month + "-" + year;
+
                         localStorage.setItem("fullDate", fullDate);
                         localStorage.setItem("dagnaam", dayName);
                         localStorage.setItem("day", day);
                         localStorage.setItem("month", month);
                         localStorage.setItem("year", year);
-                       
+
+                        document.getElementById("datGeselecteerdeDatum").value = fullDate;
                     }
                 });
             </script>
 
-            <a href="TijdSelecteren">
+            <form action="/Afspraak/TijdSelecteren" name="frmGeselecteerdeDatum" method="post">
+
+                <input type="hidden" name="datGeselecteerdeDatum" id="datGeselecteerdeDatum" />
+
+            </form>
+
+            <a href="JavaScript:document.getElementsByName('frmGeselecteerdeDatum')[0].submit()">
                 <div class="volgende" style="display:flex; padding-top: 40px;">
                     <div class="nextArrow" style="background-image :url(http://oi65.tinypic.com/2yuzmro.jpg);
                         background-size: 100% 100%;
-                        bottom: 19px;
-                        width: 50px;
-                        height: 22px;
-                        position: absolute;
+                    bottom: 19px;
+                    width: 50px;
+                    height: 22px;
+                    position: absolute;
                         margin-left: 310px;
                         margin-top: 5px;">
                     </div>

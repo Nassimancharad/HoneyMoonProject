@@ -50,12 +50,9 @@ namespace HoneyMoonDB.Controllers {
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail,AfspraakDatum")] Afspraak afspraak)
-        {
+        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail,AfspraakDatum")] Afspraak afspraak) {
 
             if (ModelState.IsValid)
             {
@@ -136,7 +133,7 @@ namespace HoneyMoonDB.Controllers {
             await HoneyMoonDb.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
+        
         public bool AfspraakExists(int id) {
             return HoneyMoonDb.Afspraak.Any(e => e.AfspraakId == id);
         }
@@ -145,22 +142,30 @@ namespace HoneyMoonDB.Controllers {
             return View();
         }
         
-        public IActionResult DatumSelecteren()
-        {
+        public IActionResult DatumSelecteren() {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult TijdSelecteren(string datGeselecteerdeDatum) { 
 
+            DateTime dt = datGeselecteerdeDatum != null ? DateTime.Parse(datGeselecteerdeDatum).Date : DateTime.Now.Date;
+            var tijden = HoneyMoonDb.BeschikbareTijden.ToList();
+            foreach (var afspraak in HoneyMoonDb.Afspraak) {
+                if (afspraak.AfspraakDatum.Date.CompareTo(dt) == 0) {
+                    tijden.Remove(afspraak.Tijd_FK);
+                }
+            }
 
-        public IActionResult TijdSelecteren() {
-            return View();
+            AfspraakVM vm = new AfspraakVM();
+            vm.beschikbareTijden = tijden;
+
+            return View(vm);
         }
-
      
         public IActionResult GegevensBevestigen(Afspraak afspraak) {
 
-            afspraak = new Afspraak()
-            {
+            afspraak = new Afspraak() {
                 Naam = HttpContext.Session.GetString("Naam"),
                 TrouwDatum = DateTime.Parse(HttpContext.Session.GetString("TrouwDatum")),
                 Telefoonnummer = (int)HttpContext.Session.GetInt32("TelNr"),

@@ -8,8 +8,8 @@
 }
 
 .button {
-    width: 100%;
+    width: 50px !important;
     display:inline-block;
     float:none;
-    font-size: 50px;
+    font-size: 10px;
 }
