@@ -142,7 +142,6 @@ namespace HoneyMoonDB.Controllers {
             return View();
         }
         
-       // [HttpPost]
         public IActionResult DatumSelecteren() {
             return View();
         }

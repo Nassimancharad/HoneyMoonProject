@@ -29,8 +29,7 @@ namespace HoneymoonShop.Controllers {
             //List<Brand> brands = _context.Brands.ToList();
             //SuperModel model = new SuperModel(properties, brands);
 
-            if (!model.redirected)
-            {
+            if (!model.redirected) {
                 List<Property> properties = _context.Properties.ToList();
                 List<Brand> brands = _context.Brands.ToList();
                 model = new NewDress();
@@ -116,20 +115,19 @@ namespace HoneymoonShop.Controllers {
 
 
 
-                foreach(string link in model.PictureURLS)
-                {
+                foreach(string link in model.PictureURLS) {
                     _context.Images.Add(new Image() { DressURL = link, DressId = newDress.DressId });
                 }
-                //foreach (string url in model.PictureURLS) {
+                foreach (string url in model.PictureURLS) {
                    
-                //   _context.Images.Add(new Image() {
-                //       DressId = newDress.DressId, DressURL = url });
-                //}
-                //_context.DressCategories.Add(new DressCategory()
-                //{
-                //    DressId = newDress.DressId,
-                //    CategoryId = 1
-                //});
+                   _context.Images.Add(new Image() {
+                       DressId = newDress.DressId, DressURL = url });
+                }
+                _context.DressCategories.Add(new DressCategory()
+                {
+                    DressId = newDress.DressId,
+                    CategoryId = 1
+                });
                 foreach (int propertie in Styles)
                 {
                     _context.DressProperties.Add(new DressProperty()
