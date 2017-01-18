@@ -10,8 +10,8 @@ using HoneymoonShop.Model.DressModels;
 namespace HoneymoonShop.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20170117134844_Afspraak-Fress")]
-    partial class AfspraakFress
+    [Migration("20170117153856_Afspraak-Dress")]
+    partial class AfspraakDress
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace HoneymoonShop.Migrations
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AfspraakDatum");
+                    b.Property<DateTime>("AfspraakDatum");
 
                     b.Property<string>("Email")
                         .IsRequired();
@@ -198,8 +198,6 @@ namespace HoneymoonShop.Migrations
                     b.Property<string>("DressURL");
 
                     b.HasKey("DressId", "DressURL");
-
-                    b.HasAlternateKey("DressURL");
 
                     b.ToTable("Images");
                 });

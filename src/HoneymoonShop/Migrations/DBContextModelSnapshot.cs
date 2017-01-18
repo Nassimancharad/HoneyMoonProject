@@ -23,7 +23,7 @@ namespace HoneymoonShop.Migrations
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AfspraakDatum");
+                    b.Property<DateTime>("AfspraakDatum");
 
                     b.Property<string>("Email")
                         .IsRequired();
@@ -197,8 +197,6 @@ namespace HoneymoonShop.Migrations
                     b.Property<string>("DressURL");
 
                     b.HasKey("DressId", "DressURL");
-
-                    b.HasAlternateKey("DressURL");
 
                     b.ToTable("Images");
                 });

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HoneymoonShop.Migrations
 {
-    public partial class AfspraakFress : Migration
+    public partial class AfspraakDress : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,7 +98,7 @@ namespace HoneymoonShop.Migrations
                 {
                     AfspraakId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AfspraakDatum = table.Column<int>(nullable: false),
+                    AfspraakDatum = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     HerhaalEmail = table.Column<string>(nullable: true),
                     Naam = table.Column<string>(nullable: false),
@@ -226,7 +226,6 @@ namespace HoneymoonShop.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Images", x => new { x.DressId, x.DressURL });
-                    table.UniqueConstraint("AK_Images_DressURL", x => x.DressURL);
                     table.ForeignKey(
                         name: "FK_Images_Dresses_DressId",
                         column: x => x.DressId,

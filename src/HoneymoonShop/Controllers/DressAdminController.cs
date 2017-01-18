@@ -46,11 +46,11 @@ namespace HoneymoonShop.Controllers
 
             return View("Create", model);
         }
-        
+
         public IActionResult AddDress(NewDress model)
         {
             Boolean problems = false;
-            if(model.dress.Name.Length < 2)
+            if (model.dress.Name.Length < 2)
             {
                 ViewData["Name"] = "De naam is te kort.";
                 problems = true;
@@ -60,7 +60,7 @@ namespace HoneymoonShop.Controllers
                 ViewData["Description"] = "De beschrijving is te kort.";
                 problems = true;
             }
-            if(model.brand == "")
+            if (model.brand == "")
             {
                 ViewData["Brand"] = "Er is geen merk gekozen.";
                 problems = true;
@@ -70,13 +70,19 @@ namespace HoneymoonShop.Controllers
                 ViewData["Silhouettes"] = "Er is geen silhouet gekozen.";
                 problems = true;
             }
-            if(model.PictureURLS.Count() < 1){
+            if (model.PictureURLS.Count() < 1)
+            {
                 ViewData["PictureURLS"] = "Er moet minimaal 1 url meegegeven worden.";
                 problems = true;
-            } else{
-                foreach(String picture in model.PictureURLS){
-                    foreach (String pictureUrl in model.PictureURLS){
-                        if(picture == pictureUrl){
+            }
+            else
+            {
+                foreach (String picture in model.PictureURLS)
+                {
+                    foreach (String pictureUrl in model.PictureURLS)
+                    {
+                        if (picture == pictureUrl)
+                        {
                             ViewData["PictureURLS"] = "Er zijn url's die hetzelfde zijn als een andere opgegeven URL. Dit is niet teogestaan.";
                             problems = true;
                         }
@@ -104,7 +110,8 @@ namespace HoneymoonShop.Controllers
                 problems = true;
             }
 
-            if (problems){
+            if (problems)
+            {
                 model.redirected = true;
                 return View("Create", model);
             }
@@ -117,7 +124,7 @@ namespace HoneymoonShop.Controllers
         public IActionResult Create(NewDress model)
         {
             Dress newDress = model.dress;
-            
+
             List<int> Styles = model.Necklines.Where(x => x.IsChecked).Select(x => x.ID).ToList();
             List<int> Necklines = model.Styles.Where(x => x.IsChecked).Select(x => x.ID).ToList();
             List<Color> Colors = model.Colors.Where(x => x.IsChecked).Select(x => x.color).ToList();
@@ -129,17 +136,10 @@ namespace HoneymoonShop.Controllers
                 _context.Dresses.Add(newDress);
                 _context.SaveChanges();
 
-
-
-                foreach(string link in model.PictureURLS)
-                {
-                    _context.Images.Add(new Image() { DressURL = link, DressId = newDress.DressId });
-                }
-                //foreach (string url in model.PictureURLS) {
-                   
-                //   _context.Images.Add(new Image() {
-                //       DressId = newDress.DressId, DressURL = url });
-                //}
+                foreach( string url in model.PictureURLS) {
+                       
+                        _context.Images.Add(new Image() { DressId = newDress.DressId, DressURL = url }); }
+                
                 //_context.DressCategories.Add(new DressCategory()
                 //{
                 //    DressId = newDress.DressId,
@@ -152,7 +152,7 @@ namespace HoneymoonShop.Controllers
                         DressId = newDress.DressId,
                         PropertyId = propertie
                     });
-                }                    
+                }
                 foreach (int propertie in Necklines)
                 {
                     _context.DressProperties.Add(new DressProperty()
@@ -168,7 +168,7 @@ namespace HoneymoonShop.Controllers
                 });
                 _context.SaveChanges();
             }
-           catch (SqlException e)
+            catch (SqlException e)
             {
                 ViewData["Message"] = "Jurk kon niet worden toegevoegd:";
                 ViewData["Error"] = e.InnerException.Message;
@@ -186,11 +186,12 @@ namespace HoneymoonShop.Controllers
             {
                 foreach (T val in Enum.GetValues(typeof(T)))
                 {
-                    int i=0;
-                    if(type.Equals(Color.Ivory))
+                    int i = 0;
+                    if (type.Equals(Color.Ivory))
                     {
                         i = 0;
-                    } else if (type.Equals(Color.IvoryColor))
+                    }
+                    else if (type.Equals(Color.IvoryColor))
                     {
                         i = 1;
                     }
@@ -198,7 +199,7 @@ namespace HoneymoonShop.Controllers
                     {
                         i = 2;
                     }
-                    string attrName = "Colors["+i+"].color";
+                    string attrName = "Colors[" + i + "].color";
                     if (Request.Form[attrName].Count > 0)
                     {
                         result = Convert.ToInt32(result) | Convert.ToInt32(val);

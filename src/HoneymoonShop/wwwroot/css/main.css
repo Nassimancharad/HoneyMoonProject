@@ -38,6 +38,13 @@
     box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1);
 
 }
+.HomeFoto{
+    background-image: url(http://www.bruidsmodenederland.nl/wp-content/uploads/2015/10/gekleurde-trouwjurk.jpg);
+    background-size:100%;
+    height: 700px;
+    width: 100%;
+    margin-top: -80px;
+}
 .row {
     margin-bottom: 25px;
 }

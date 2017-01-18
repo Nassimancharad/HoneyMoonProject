@@ -42,10 +42,8 @@ namespace HoneyMoonDB.Models {
         public string HerhaalEmail { get; set; }
 
         public bool Nieuwsbrief { get; set; }
-
+        public DateTime AfspraakDatum { get; set; }
         public int Tijd { get; set; }
-        
-        public int AfspraakDatum { get; set; }
         [ForeignKey("Tijd")]
         public BeschikbareTijden tijdFK { get; set; }
        

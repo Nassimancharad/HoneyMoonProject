@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using HoneymoonShop.Model.DressModels.FilterMenu;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,6 +21,7 @@ namespace HoneymoonShop.Model.DressModels
         public List<Property> Silhouettes { get; set; } = new List<Property>();
         public List<CheckBoxItemColor> Colors { get; set; } = new List<CheckBoxItemColor>();
         [Required]
+       
         public List<String> PictureURLS { get; set; } = new List<String>();
         [Required]
         public String brand { get; set; }
