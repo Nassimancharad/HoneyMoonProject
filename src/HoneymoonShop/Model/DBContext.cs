@@ -52,6 +52,8 @@ namespace HoneymoonShop.Model
         public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Afspraak> Datum { get; set; }
         public DbSet<Afspraak> Tijden { get; set; }
+        public DbSet<BeschikbareTijden> BeschikbareTijden { get; set; }
+
 
 
         public bool areDressesPresent()

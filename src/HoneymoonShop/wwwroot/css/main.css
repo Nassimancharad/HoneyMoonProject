@@ -31,13 +31,45 @@
 ***  BEGIN general ***
 **********************/
 
-*{
+* {
     font-family: 'Montserrat', sans-serif;
 }
-.col-md-4 controle-scherm yellowBorder{
-    box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1);
 
+.col-md-4 controle-scherm yellowBorder {
+    box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1);
 }
+
+.BruideGomCenter {
+    width: 238px;
+    height: 72px;
+    border-style: solid ;
+    border-width: 5px;
+    border-color: white;
+    font-size: 25PX;
+    color: white;
+    letter-spacing: 5px;
+   
+}
+
+.BruidCenter {
+    width: 238px;
+    height: 72px;
+    background-color: #f0597c;
+    float: right;
+    font-size: 25PX;
+    color: white;
+    letter-spacing: 2px;
+    text-align:center;
+}
+
+.HomeFoto {
+    background-image: url(http://www.bruidsmodenederland.nl/wp-content/uploads/2015/10/gekleurde-trouwjurk.jpg);
+    background-size: 100%;
+    height: 700px;
+    width: 100%;
+    margin-top: -80px;
+}
+
 .row {
     margin-bottom: 25px;
 }
@@ -56,8 +88,8 @@ body {
 }
 
 .row {
-    margin-left:0px;
-    margin-right:0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .container {
@@ -80,6 +112,7 @@ body {
     font-size: 8px;
     vertical-align: super;
 }
+
 .merk {
     font-size: 20px;
     font-family: 'Libre Baskerville', serif;
@@ -97,21 +130,21 @@ body {
     font-size: 12px;
     cursor: pointer;
     transition: 0.2s;
-    margin-bottom:7px;
+    margin-bottom: 7px;
     padding: 7px;
 }
 
-.btn-standard:hover {
-    background-color: white;
-    color: #F0597c;
-    transition: 0.2s;
-}
+    .btn-standard:hover {
+        background-color: white;
+        color: #F0597c;
+        transition: 0.2s;
+    }
 
-td { 
+td {
     font-weight: bold;
 }
 
-.tijden{
+.tijden {
     padding-left: 10px;
 }
 /*********************
@@ -127,15 +160,15 @@ td {
     margin-bottom: 0;
 }
 
-.header a {
-    color: #000;
-    text-decoration: none;
-}
+    .header a {
+        color: #000;
+        text-decoration: none;
+    }
 
-.header a:hover {
-    color: #F0597c;
-    transition: 0.1s;
-}
+        .header a:hover {
+            color: #F0597c;
+            transition: 0.1s;
+        }
 
 .flex-header {
     align-items: center;
@@ -253,11 +286,9 @@ form p input {
 
 .controle-scherm {
     background-color: #f0597c;
-   
 }
 
 .controle-scherm-gegevens {
-   
 }
 /*********************
 * END AfspraakMaken *
@@ -367,72 +398,69 @@ EIND    ONBEKEND
 }
 
 
-.CirkelBack{
-    width:35px;
-    height:35px;
-    background-color:#fac8c4;
-    border-radius:50%;
-    text-align:center;
+.CirkelBack {
+    width: 35px;
+    height: 35px;
+    background-color: #fac8c4;
+    border-radius: 50%;
+    text-align: center;
     font-family: 'Montserrat', Bold;
-    font-size:25px;
-    color:white;
-    display:inline-block;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
 }
 
-.ThisCirkel{
-     width:35px;
-    height:35px;
-    background-color:#f0597c;
-    border-radius:50%;
-    text-align:center;
+.ThisCirkel {
+    width: 35px;
+    height: 35px;
+    background-color: #f0597c;
+    border-radius: 50%;
+    text-align: center;
     font-family: 'Montserrat', Bold;
-    font-size:25px;
-    color:white;
-    display:inline-block;
-}
-.NextCirkel{
-    width:35px;
-    height:35px;
-    background-color:#ebebeb;
-    border-radius:50%;
-    text-align:center;
-    font-family: 'Montserrat', Bold;
-    font-size:25px;
-    color:white;
-    display:inline-block;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
 }
 
-.Cirkels{
+.NextCirkel {
+    width: 35px;
+    height: 35px;
+    background-color: #ebebeb;
+    border-radius: 50%;
+    text-align: center;
+    font-family: 'Montserrat', Bold;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+}
+
+.Cirkels {
     text-align: center;
 }
 
-.LastStep{
+.LastStep {
     font-family: 'Montserrat', Bold;
-    font-size:12px;
-     color:#fac8c4;
-     
+    font-size: 12px;
+    color: #fac8c4;
+}
 
-}
-.ThisStep{
+.ThisStep {
     font-family: 'Montserrat', Bold;
-    font-size:12px;
-     color:#f0597c;
-     
+    font-size: 12px;
+    color: #f0597c;
 }
-.NextStep{
+
+.NextStep {
     font-family: 'Montserrat', Bold;
-    font-size:12px;
-     color:#ebebeb;
-    
-    
+    font-size: 12px;
+    color: #ebebeb;
 }
-.Streep{
-    display:inline-block;
-    
+
+.Streep {
+    display: inline-block;
     width: 2px;
     height: 10px;
     background-color: #ebebeb;
-
 }
 
 /*********************

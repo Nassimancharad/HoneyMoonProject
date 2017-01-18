@@ -5,10 +5,23 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HoneymoonShop.Migrations
 {
-    public partial class AfspraakFress : Migration
+    public partial class DressAfspraak : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "BeschikbareTijden",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    tijd = table.Column<TimeSpan>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BeschikbareTijden", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Admins",
                 columns: table => new
@@ -39,19 +52,6 @@ namespace HoneymoonShop.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Appointments", x => x.AppointmentId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BeschikbareTijden",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    tijd = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BeschikbareTijden", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -98,13 +98,13 @@ namespace HoneymoonShop.Migrations
                 {
                     AfspraakId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AfspraakDatum = table.Column<int>(nullable: false),
+                    AfspraakDatum = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     HerhaalEmail = table.Column<string>(nullable: true),
                     Naam = table.Column<string>(nullable: false),
                     Nieuwsbrief = table.Column<bool>(nullable: false),
                     Telefoonnummer = table.Column<int>(nullable: false),
-                    Tijd = table.Column<int>(nullable: false),
+                    Tijd = table.Column<int>(nullable: true),
                     TrouwDatum = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -115,7 +115,7 @@ namespace HoneymoonShop.Migrations
                         column: x => x.Tijd,
                         principalTable: "BeschikbareTijden",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,7 +226,6 @@ namespace HoneymoonShop.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Images", x => new { x.DressId, x.DressURL });
-                    table.UniqueConstraint("AK_Images_DressURL", x => x.DressURL);
                     table.ForeignKey(
                         name: "FK_Images_Dresses_DressId",
                         column: x => x.DressId,

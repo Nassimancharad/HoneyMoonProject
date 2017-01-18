@@ -10,8 +10,8 @@ using HoneymoonShop.Model.DressModels;
 namespace HoneymoonShop.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20170117134844_Afspraak-Fress")]
-    partial class AfspraakFress
+    [Migration("20170118131442_Dress-Afspraak")]
+    partial class DressAfspraak
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,12 +19,24 @@ namespace HoneymoonShop.Migrations
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BeschikbareTijden", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<TimeSpan>("tijd");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("BeschikbareTijden");
+                });
+
             modelBuilder.Entity("HoneyMoonDB.Models.Afspraak", b =>
                 {
                     b.Property<int>("AfspraakId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AfspraakDatum");
+                    b.Property<DateTime>("AfspraakDatum");
 
                     b.Property<string>("Email")
                         .IsRequired();
@@ -38,7 +50,7 @@ namespace HoneymoonShop.Migrations
 
                     b.Property<int>("Telefoonnummer");
 
-                    b.Property<int>("Tijd");
+                    b.Property<int?>("Tijd");
 
                     b.Property<DateTime>("TrouwDatum");
 
@@ -87,18 +99,6 @@ namespace HoneymoonShop.Migrations
                     b.HasKey("AppointmentId");
 
                     b.ToTable("Appointments");
-                });
-
-            modelBuilder.Entity("HoneymoonShop.Model.BeschikbareTijden", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("tijd");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("BeschikbareTijden");
                 });
 
             modelBuilder.Entity("HoneymoonShop.Model.DressModels.Brand", b =>
@@ -199,8 +199,6 @@ namespace HoneymoonShop.Migrations
 
                     b.HasKey("DressId", "DressURL");
 
-                    b.HasAlternateKey("DressURL");
-
                     b.ToTable("Images");
                 });
 
@@ -236,10 +234,9 @@ namespace HoneymoonShop.Migrations
 
             modelBuilder.Entity("HoneyMoonDB.Models.Afspraak", b =>
                 {
-                    b.HasOne("HoneymoonShop.Model.BeschikbareTijden", "tijdFK")
+                    b.HasOne("BeschikbareTijden", "Tijd_FK")
                         .WithMany()
-                        .HasForeignKey("Tijd")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Tijd");
                 });
 
             modelBuilder.Entity("HoneymoonShop.Model.DressModels.Dress", b =>

@@ -12,7 +12,6 @@ namespace HoneymoonShop.Model.DressModels
         [ForeignKey("Dress")]
         public int DressId { get; set; }
         public virtual Dress Dress { get; set; }
-        [Key]
         public string DressURL { get; set; }
     }
 }
