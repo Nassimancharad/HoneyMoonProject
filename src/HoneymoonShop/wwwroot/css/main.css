@@ -61,13 +61,19 @@
     letter-spacing: 2px;
     text-align:center;
 }
+.navbar-default .navbar-nav > li > a {
+    color:black;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #333;
+}
 
 .HomeFoto {
     background-image: url(http://www.bruidsmodenederland.nl/wp-content/uploads/2015/10/gekleurde-trouwjurk.jpg);
     background-size: 100%;
     height: 700px;
     width: 100%;
-    margin-top: -80px;
+    margin-top: -75px;
 }
 
 .row {
@@ -75,7 +81,7 @@
 }
 
 body {
-    background-color: rgb(252, 232, 231);
+    background-color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -466,3 +472,7 @@ EIND    ONBEKEND
 /*********************
 ***** END navbar *****
 **********************/
+
+.navbar-default .navbar-nav > li > a {
+    color: black;
+}
