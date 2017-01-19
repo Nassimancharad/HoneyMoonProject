@@ -370,7 +370,7 @@ EIND    ONBEKEND
 
     /* BEGIN navbar title (brand) */
     .navbar-default .navbar-brand {
-        color: #fff;
+        color: black;
         font-family: 'Libre Baskerville', serif;
         font-size: 30px;
     }
