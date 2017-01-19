@@ -2,6 +2,34 @@
 
 <h1>Voeg een jurk toe</h1>
 
+<head>
+    <style>
+    
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .add-btn {
+        width: 250px;
+        padding: 10px 18px;
+        background-color: #f44336;
+        font-size: 18px;
+    }
+
+    .add-btn:hover {
+        background: #DF4D42;
+    }
+
+    </style>
+
+</head>
+
 <form asp-action="Create" method="post">
     <div class="container admin-login-container">
         <div class="row">
@@ -104,22 +132,12 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
-
-                    @ViewData["PictureURLS"]
-                    <div class="form-group">
-                        <label asp-for="PictureURLS">Foto URL 4</label>
-                        <input name="PictureURLS" class="form-control" />
-                    </div>
-
-                </div>
-
             </div>
 
         </div>
     </div>
 
-    <div class="form-group">
-        <button type="submit" class="text-uppercase form-control">Voeg toe</button>
+    <div class="form-group  text-center">
+        <button type="submit" class="add-btn text-uppercase">Voeg toe</button>
     </div>
 </form>

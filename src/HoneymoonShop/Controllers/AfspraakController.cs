@@ -55,11 +55,9 @@ namespace HoneyMoonDB.Controllers {
         [ValidateAntiForgeryToken]
         public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail, AfspraakDatum, Tijd")] Afspraak afspraak, BeschikbareTijden tijden) {
             
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 //HoneyMoonDb.Add(afspraak);
                 //HoneyMoonDb.SaveChanges();
-                
 
                 HttpContext.Session.SetString("Naam", afspraak.Naam);
                 HttpContext.Session.SetString("TrouwDatum", afspraak.TrouwDatum.ToString());
@@ -73,6 +71,7 @@ namespace HoneyMoonDB.Controllers {
             
             return View(afspraak);
         }
+
         // GET: Afspraak/Edit/5
         public async Task<IActionResult> Edit(int? id) {
 
@@ -152,9 +151,9 @@ namespace HoneyMoonDB.Controllers {
         }
 
         [HttpPost]
-        public IActionResult TijdSelecteren(string datGeselecteerdeDatum) { 
+        public IActionResult TijdSelecteren(string datum) { 
 
-            DateTime dt = datGeselecteerdeDatum != null ? DateTime.Parse(datGeselecteerdeDatum).Date : DateTime.Now.Date;
+            DateTime dt = datum != null ? DateTime.Parse(datum).Date : DateTime.Now.Date;
             var tijden = HoneyMoonDb.BeschikbareTijden.ToList();
             foreach (var afspraak in HoneyMoonDb.Afspraak) {
                 if (afspraak.AfspraakDatum.Date.CompareTo(dt) == 0) {
@@ -178,9 +177,8 @@ namespace HoneyMoonDB.Controllers {
                 Telefoonnummer = (int)HttpContext.Session.GetInt32("TelNr"),
                 Email = HttpContext.Session.GetString("Email"),
                 AfspraakDatum = DateTime.Parse(HttpContext.Session.GetString("AfspraakDatum")),
-                Tijd = (int)HttpContext.Session.GetInt32("Tijd")
-                //Tijd_FK = new BeschikbareTijden() { ID = (int) HttpContext.Session.GetInt32("ID"),
-                //                                   tijd = TimeSpan.Parse(HttpContext.Session.GetString("Tijd"))}
+                Tijd = (int)HttpContext.Session.GetInt32("Tijd"),
+                Tijd_FK = HoneyMoonDb.BeschikbareTijden.Where(a => a.ID == (int)HttpContext.Session.GetInt32("Tijd")).First()
             };
             
             return View(afspraak);

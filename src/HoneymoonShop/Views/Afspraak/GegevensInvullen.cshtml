@@ -1,13 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Gegevens invullen";
-    
+
 }
 
 @model HoneyMoonDB.Models.Afspraak
 
 @*@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
 
 <style>
     .navbar-default .navbar-nav > li > a {
@@ -24,59 +24,53 @@
 <div class="row flex-container form-container">
 
     <div class="col-md-5 " style="-webkit-box-shadow: -1px 1px 10px; box-shadow:1px 1px 10px rgba(136, 136, 136, 1);">
-        
+
         <div class="col-md-3 Cirkels" style="text-align:center; margin-top:35px;">
-            <div class="CirkelBack" >1</div>
+            <div class="CirkelBack">1</div>
             <div class="LastStep">Datum en tijd selecteren</div>
             <div class="Streep"></div><br />
             <div class="ThisCirkel">2</div>
             <div class="ThisStep">Gegevens invullen</div>
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
+            @for (int i = 0; i < 6; i++) {
+                <div class="Streep"></div><br />
+            }
             <div class="NextCirkel">3</div>
             <div class="NextStep">Gegevens controleren</div>
         </div>
         <div class="col-md-9 FormGegevens" style="margin-top: 30px;">
             <h4>Stap 3, Gegevens invullen</h4>
-            
-         <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
-            <p>
-                <label asp-for="Naam"></label>
-                <input asp-for="Naam">
-                <span asp-validation-for="Naam" class="text-danger"></span>
-            </p>
-            <p>
-                <label asp-for="TrouwDatum"></label>
-                <input asp-for="TrouwDatum">
-                <span asp-validation-for="TrouwDatum" class="text-danger"></span>
-            </p>
-            <p>
-                <label asp-for="Telefoonnummer"></label>
-                <input asp-for="Telefoonnummer">
-                <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
-            </p>
-            <p>
-                <label asp-for="Email"></label>
-                <input asp-for="Email">
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </p>
-            <p>
-                <label asp-for="HerhaalEmail"></label>
-                <input asp-for="HerhaalEmail">
-                <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
-            </p>
-            <p>
-                <input asp-for="AfspraakDatum" type="text" />
-                <input asp-for="Tijd" type="text" />
-            </p>
-         
-            <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
-            <button type="submit" class="btn-standard text-uppercase" style="margin-bottom: 25px"><strong>Naar stap 3</strong></button>
-        </form>
+
+            <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
+                <input type="hidden" asp-for="Tijd">
+                <p>
+                    <label asp-for="Naam"></label>
+                    <input asp-for="Naam">
+                    <span asp-validation-for="Naam" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="TrouwDatum"></label>
+                    <input asp-for="TrouwDatum">
+                    <span asp-validation-for="TrouwDatum" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Telefoonnummer"></label>
+                    <input asp-for="Telefoonnummer">
+                    <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="HerhaalEmail"></label>
+                    <input asp-for="HerhaalEmail">
+                    <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
+                </p>
+
+                <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
+                <button type="submit" class="btn-standard text-uppercase" style="margin-bottom: 25px"><strong>Naar stap 3</strong></button>
+            </form>
         </div>
     </div>
 
@@ -98,10 +92,8 @@
 
             </div>
             <div class="ui-datepicker-title" style="
-                
                  margin-top: 20px;
                  margin-right: 35px;
-               
                  margin-left: 35px;
                  width: 290px;
                  text-align: center;
@@ -131,25 +123,22 @@
                             document.getElementById('AfspraakDag').innerText = hiddenDateDay;
                             document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
                             document.getElementById('AfspraakYear').innerText = hiddenDateYear;
-                            var hiddenDate = localStorage.getItem("fullDate");
-                            document.getElementById('AfspraakDatum').value = hiddenDate;
+                            //var hiddenDate = localStorage.getItem("fullDate");
+                            //document.getElementById('AfspraakDatum').value = hiddenDate;
                             var tijd2 = localStorage.getItem("tijd");
-                            //alert(tijd2);
-                            document.getElementById('AfspraakTijdTitel').innerText = tijd2;
+                            var tijdTitel = localStorage.getItem("tijdTitel");
                             document.getElementById('Tijd').value = tijd2;
+                            document.getElementById('AfspraakTijdTitel').innerText = tijdTitel;
                         }
 
                     </script>
                 </form>
-                @*<span class="ui-datepicker-day">15</span>
-                <span class="ui-datepicker-month">January</span>&nbsp;
-                <span class="ui-datepicker-year">2017</span>*@
             </div>
             <div style="font-size: 15px;margin-top:10px; margin-left:40px;">
-            <p>Vul je persoonlijke gegevens in <br> om de pasafspraak compleet te maken.</p>
-                </div>
+                <p>Vul je persoonlijke gegevens in <br> om de pasafspraak compleet te maken.</p>
+            </div>
             <a href="DatumSelecteren">
-              
+
                 <div class="Back" style="display:flex;">
                     <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg);
     background-size: 100% 100%;
@@ -167,10 +156,7 @@
             </a>
         </div>
     </div>
-    </div>
-
-
-
+</div>
 
 <div class="row">
     <img class="img-responsive" src="https://s27.postimg.org/6mzijy2oz/banner_2.png" alt="first image up">
