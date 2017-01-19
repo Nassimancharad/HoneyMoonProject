@@ -70,7 +70,8 @@
                 <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
             </p>
             <p>
-                <input asp-for="AfspraakDatum" type="hidden">
+                <input asp-for="AfspraakDatum" type="text" />
+                <input asp-for="Tijd_FK" type="text" />
             </p>
          
             <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
@@ -114,7 +115,8 @@
                         <span id="AfspraakDagNaam"> </span>
                         <span id="AfspraakDag"> </span>
                         <span id="AfspraakMaand"></span>
-                        <span id="AfspraakYear"></span>
+                        <span id="AfspraakYear"></span> om
+                        <span id="AfspraakTijdTitel"></span> u
                         <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next">
 
                         </a>
@@ -131,8 +133,10 @@
                             document.getElementById('AfspraakYear').innerText = hiddenDateYear;
                             var hiddenDate = localStorage.getItem("fullDate");
                             document.getElementById('AfspraakDatum').value = hiddenDate;
-                            
-
+                            var tijd2 = localStorage.getItem("tijd");
+                            //alert(tijd2);
+                            document.getElementById('AfspraakTijdTitel').innerText = tijd2;
+                            document.getElementById('Tijd_FK').value = tijd2;
                         }
 
                     </script>

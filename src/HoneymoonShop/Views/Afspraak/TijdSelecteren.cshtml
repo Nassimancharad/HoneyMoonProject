@@ -17,6 +17,11 @@
         .navbar-default .navbar-brand {
             color: #000;
         }
+
+        input[type="radio"]{
+
+        }
+
     </style>
 </head>
 <div class="row flex-container form-container">
@@ -100,7 +105,6 @@
                         <span id="AfspraakDag"> </span>
                         <span id="AfspraakMaand"></span>
                         <span id="AfspraakYear"></span>
-                        <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next" />
                     </div>
                     <script>
                         window.onload = function () {
@@ -117,13 +121,39 @@
                     </script>
 
 
-                <div>
-                    @foreach (var a in Model.beschikbareTijden) {
-                        @*<input type="radio" value="@a.ID" />@a.tijd.ToString(@"hh\:mm")*@
-                        <input asp-for="@a.ID" type="radio" value="@a.ID" /> @a.tijd.ToString(@"hh\:mm");
-                    }
-                </div>
+                
             </div>
+
+            <div>
+                <form action="/Afspraak/GegevensInvullen" name="frmGeselecteerdeTijd" id="myform" method="post">
+                    <table>
+                        @foreach (var a in Model.beschikbareTijden)
+                        {
+                            <tr>
+                                <td>
+                                    <input asp-for="@a.ID" type="radio" value="@a.ID" id="radiobutton" /> 
+                                    <label for="radiobutton" id="radiotijd">@a.tijd.ToString(@"hh\:mm")</label>  
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </form>
+                <script>
+                    
+                   var tijd = $('input[name=a.ID]:checked', '#myform').val();
+                    
+                   $('#myform input').on('change', function () {
+                       tijd = $('input[name=a.ID]:checked', '#myform').val();
+                       localStorage.setItem("tijd", tijd);
+                   });
+                   
+                    
+                </script>
+                @*<a href="JavaScript:document.getElementsByName('frmGeselecteerdeTijd')[0].submit()">stap2</a>*@
+
+            </div>
+
+
 
             <a href="DatumSelecteren">
                 <div class="Back" style="display:flex;">
