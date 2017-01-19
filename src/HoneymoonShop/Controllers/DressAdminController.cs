@@ -131,12 +131,13 @@ namespace HoneymoonShop.Controllers
 
             try
             {
-              
+                _context.Dresses.Add(newDress);
+                
 
-                foreach( string url in model.PictureURLS) {
+                foreach ( string url in model.PictureURLS) {
                        
                         _context.Images.Add(new Image() { DressId = newDress.DressId, DressURL = url }); }
-                
+                        
                 //_context.DressCategories.Add(new DressCategory()
                 //{
                 //    DressId = newDress.DressId,
@@ -165,7 +166,7 @@ namespace HoneymoonShop.Controllers
                 });
                 newDress.Colors = ReadFlags<Color>();
                 newDress.BrandName = model.brand;
-                _context.Dresses.Add(newDress);
+               
                 _context.SaveChanges();
                 _context.SaveChanges();
             }
