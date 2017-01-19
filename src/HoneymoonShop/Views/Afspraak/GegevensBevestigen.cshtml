@@ -19,13 +19,25 @@
 
 
 <div class="row flex-container form-container">
-    <div class="col-md-4 yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
-        <h4>Stap 3, Gegevens controleren</h4>
-        <p>Controleer al je gegevens voor je pasafspraak bij HoneymoonShop aan Korte Hoogstraat 4, te Rotterdam</p>
+    <div class="col-md-5 yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
+        <div class="col-md-3 Cirkels" style="text-align:center; margin-top:35px;">
+            <div class="CirkelBack">1</div>
+            <div class="LastStep">Datum en tijd selecteren</div>
+            <div class="Streep"></div><br />
+            <div class="CirkelBack">2</div>
+            <div class="LastStep">Gegevens invullen</div>
+            <div class="Streep"></div><br />
+            <div class="ThisCirkel">3</div>
+            <div class="ThisStep">Gegevens controleren</div>
+        </div>
+        <div style="margin-top:30px;">
+            <h4>Stap 3, Gegevens controleren</h4>
+            <p>Controleer al je gegevens voor je pasafspraak bij HoneymoonShop aan Korte Hoogstraat 4, te Rotterdam</p>
 
-        <form action="AfspraakVoltooid">
-            <button type="submit" class="btn-standard text-uppercase" style="width:200px;margin-bottom: 180px; margin-top: 20px;"><strong>Afspraak bevestigen</strong></button>
-        </form>
+            <form action="AfspraakVoltooid">
+                <button type="submit" class="btn-standard text-uppercase" style="width:200px;margin-bottom: 180px; margin-top: 20px;"><strong>Afspraak bevestigen</strong></button>
+            </form>
+        </div>
     </div>
 
     <div class="col-md-5 controle-scherm yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
@@ -61,40 +73,40 @@
                         <label asp-for="Telefoonnummer">Telefoon:</label>
                     </div>
                     <div>
-                        <label asp-for="Email">E-mail:</label> 
+                        <label asp-for="Email">E-mail:</label>
                     </div>
                     <div>
-                        <label asp-for="AfspraakDatum"></label>:  
+                        <label asp-for="AfspraakDatum"></label>:
                     </div>
                     <div>
-                        <label asp-for="Tijd_FK.ID"></label>:
+                        <label asp-for="Tijd_FK.ID">Tijd</label>:
                     </div>
 
                 </div>
 
                 <div class="col-md-6">
-                    <div >
-                        <label>@Model.Naam</label> 
+                    <div>
+                        <label>@Model.Naam</label>
                     </div>
                     <div>
                         <label>@Model.TrouwDatum.ToString("dd/MM/yyyy")</label>
-</div>
+                    </div>
                     <div>
                         <label> @Model.Telefoonnummer</label>
-</div>
+                    </div>
                     <div>
                         <label>@Model.Email</label>
-</div>
+                    </div>
                     <div>
                         <label> @Model.AfspraakDatum.ToString("dd/MM/yyyy")</label>
-</div>
+                    </div>
                     <div>
-                        <label>@Model.Tijd</label>
-</div>
+                        <label>@Model.Tijd_FK.tijd.ToString(@"hh\:mm")</label>
+                    </div>
                 </div>
-                
-              
-                
+
+
+
             </div>
             <div class="col-md-12" style="bottom:20px;font-size:13px; position:absolute; text-decoration:none; color: white">
                 <a href="GegevensInvullen">
