@@ -11,19 +11,16 @@ using System.Data.SqlClient;
 
 namespace HoneymoonShop.Controllers
 {
-    public class DressAdminController : Controller
-    {
+    public class DressAdminController : Controller {
         readonly DBContext _context;
         NewDress model = new NewDress();
 
-        public DressAdminController(DBContext context)
-        {
+        public DressAdminController(DBContext context) {
             this._context = context;
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
-        {
+        public IActionResult Index() {
             return View("AdminIndex");
         }
 
@@ -47,8 +44,7 @@ namespace HoneymoonShop.Controllers
             return View("Create", model);
         }
 
-        public IActionResult AddDress(NewDress model)
-        {
+        public IActionResult AddDress(NewDress model) {
             Boolean problems = false;
             if (model.dress.Name.Length < 2)
             {
