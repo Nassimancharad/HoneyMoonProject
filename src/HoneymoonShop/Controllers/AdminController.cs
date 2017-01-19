@@ -48,7 +48,7 @@ namespace HoneyMoonDB.Controllers {
             return View("Create", model);
         }
 
-        public IActionResult AddDress(NewDress model) {
+        public IActionResult Catch (NewDress model) {
             Boolean problems = false;
             if (model.dress.Name.Length < 2) {
                 ViewData["Name"] = "Naam is te kort";

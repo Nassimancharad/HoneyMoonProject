@@ -119,9 +119,6 @@
                         }
 
                     </script>
-
-
-                
             </div>
 
             <div>
@@ -131,7 +128,7 @@
                         {
                             <tr>
                                 <td>
-                                    <input asp-for="@a.ID" type="radio" value="@a.ID" id="radiobutton" /> 
+                                    <input asp-for="@a.ID" type="radio" value="@a.tijd.ToString(@"hh\:mm")" id="@a.ID" /> 
                                     <label for="radiobutton" id="radiotijd">@a.tijd.ToString(@"hh\:mm")</label>  
                                 </td>
                             </tr>
@@ -139,15 +136,17 @@
                     </table>
                 </form>
                 <script>
-                    
-                   var tijd = $('input[name=a.ID]:checked', '#myform').val();
-                    
+                   var tijd = $('input[name=a.ID]:checked', '#myform').attr('id');
+                   var tijdTitel = $('input[name=a.ID]:checked', '#myform').val();
+
                    $('#myform input').on('change', function () {
-                       tijd = $('input[name=a.ID]:checked', '#myform').val();
+                       tijd = $('input[name=a.ID]:checked', '#myform').attr('id');
+                       tijdTitel = $('input[name=a.ID]:checked', '#myform').val();
                        localStorage.setItem("tijd", tijd);
+                       localStorage.setItem("tijdTitel", tijdTitel);
                    });
-                   
-                    
+
+
                 </script>
                 @*<a href="JavaScript:document.getElementsByName('frmGeselecteerdeTijd')[0].submit()">stap2</a>*@
 
