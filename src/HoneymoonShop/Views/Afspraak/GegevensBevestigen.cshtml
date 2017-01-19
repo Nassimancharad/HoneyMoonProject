@@ -3,6 +3,8 @@
 }
 
 @model HoneyMoonDB.Models.Afspraak
+@using HoneyMoonDB.Models
+
 
 <style>
     .navbar-default .navbar-nav > li > a {
@@ -26,7 +28,7 @@
         </form>
     </div>
 
-    <div class="col-md-4 controle-scherm yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
+    <div class="col-md-5 controle-scherm yellowBorder" style=" margin-bottom: 140px;-webkit-box-shadow: 1px 1px 10px;box-shadow:1px 1px 10px rgba(136, 136, 136, 1;">
         <div class="controle-scherm-gegevens" style="color: white;">
             <div class="Titel" style="color:white; display:flex; margin-top:15px;">
 
@@ -87,9 +89,7 @@
                         @Model.AfspraakDatum.ToString("dd/MM/yyyy")
                     </div>
                     <div>
-                        @Model.Tijd_FK
-                        @Model.Tijd_FK.ID
-                        @Model.Tijd_FK.tijd
+                       @Model.Tijd
                     </div>
                 </div>
                 

@@ -49,6 +49,7 @@ namespace HoneyMoonDB.Models
 
         [ForeignKey("Tijd")]
         public virtual BeschikbareTijden Tijd_FK { get; set; }
+        public int Tijd { get; set; }
 
     }
 
