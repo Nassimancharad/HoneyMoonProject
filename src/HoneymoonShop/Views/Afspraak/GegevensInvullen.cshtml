@@ -71,7 +71,7 @@
             </p>
             <p>
                 <input asp-for="AfspraakDatum" type="text" />
-                <input asp-for="Tijd_FK" type="text" />
+                <input asp-for="Tijd" type="text" />
             </p>
          
             <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
@@ -136,7 +136,7 @@
                             var tijd2 = localStorage.getItem("tijd");
                             //alert(tijd2);
                             document.getElementById('AfspraakTijdTitel').innerText = tijd2;
-                            document.getElementById('Tijd_FK').value = tijd2;
+                            document.getElementById('Tijd').value = tijd2;
                         }
 
                     </script>

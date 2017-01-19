@@ -53,7 +53,7 @@ namespace HoneyMoonDB.Controllers {
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail, AfspraakDatum, Tijd_FK")] Afspraak afspraak, BeschikbareTijden tijden) {
+        public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail, AfspraakDatum, Tijd")] Afspraak afspraak, BeschikbareTijden tijden) {
             
             if (ModelState.IsValid)
             {
@@ -66,8 +66,8 @@ namespace HoneyMoonDB.Controllers {
                 HttpContext.Session.SetInt32("TelNr", afspraak.Telefoonnummer);
                 HttpContext.Session.SetString("Email", afspraak.Email);
                 HttpContext.Session.SetString("AfspraakDatum", afspraak.AfspraakDatum.ToString());
-                HttpContext.Session.SetInt32("ID", tijden.ID);
-                HttpContext.Session.SetString("Tijd", tijden.tijd.ToString());
+                
+                HttpContext.Session.SetInt32("Tijd",afspraak.Tijd);
                 return RedirectToAction("GegevensBevestigen");
             }
             
@@ -170,11 +170,7 @@ namespace HoneyMoonDB.Controllers {
 
         [HttpGet]
         public IActionResult GegevensBevestigen() {
-            BeschikbareTijden tijden = new BeschikbareTijden()
-            {
-                ID = (int)HttpContext.Session.GetInt32("ID"),
-                tijd = TimeSpan.Parse(HttpContext.Session.GetString("Tijd"))
-            };
+         
 
             Afspraak afspraak = new Afspraak() {
                 Naam = HttpContext.Session.GetString("Naam"),
@@ -182,7 +178,7 @@ namespace HoneyMoonDB.Controllers {
                 Telefoonnummer = (int)HttpContext.Session.GetInt32("TelNr"),
                 Email = HttpContext.Session.GetString("Email"),
                 AfspraakDatum = DateTime.Parse(HttpContext.Session.GetString("AfspraakDatum")),
-                Tijd_FK = tijden
+                Tijd = (int)HttpContext.Session.GetInt32("Tijd")
                 //Tijd_FK = new BeschikbareTijden() { ID = (int) HttpContext.Session.GetInt32("ID"),
                 //                                   tijd = TimeSpan.Parse(HttpContext.Session.GetString("Tijd"))}
             };
