@@ -64,6 +64,10 @@
                     <div>
                         <label asp-for="AfspraakDatum"></label>:  
                     </div>
+                    <div>
+                        <label asp-for="Tijd_FK.ID"></label>:
+                    </div>
+
                 </div>
 
                 <div class="col-md-6">
@@ -81,6 +85,11 @@
                     </div>
                     <div>
                         @Model.AfspraakDatum.ToString("dd/MM/yyyy")
+                    </div>
+                    <div>
+                        @Model.Tijd_FK
+                        @Model.Tijd_FK.ID
+                        @Model.Tijd_FK.tijd
                     </div>
                 </div>
                 
