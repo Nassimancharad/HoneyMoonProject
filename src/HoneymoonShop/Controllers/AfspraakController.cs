@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using System.Reflection;
 using HoneymoonShop.Model;
+using MimeKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using System.Net;
 
 namespace HoneyMoonDB.Controllers
 {
@@ -223,20 +227,47 @@ namespace HoneyMoonDB.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult GegevensBevestigen(Afspraak a)
+        public async Task<IActionResult> GegevensBevestigen(Afspraak model, AfspraakVM vm)
         {
+
 
             if (ModelState.IsValid)
             {
-                HoneyMoonDb.Afspraak.Add(a);
-                HoneyMoonDb.SaveChanges();
+                var tijd = model.Tijd_FK.tijd.ToString(@"hh\:mm");
+                var body = "<p>Email van: {0} ({1})</p><p>Trouwdatum: {2}</p><p>TelNr: {3}</p><p>Uw afspraak is op {4} om {5}";
+                var message = new MimeMessage();
+                message.To.Add(new MailboxAddress(model.Naam, model.Email));
+                message.From.Add(new MailboxAddress("hhshms4", "hhshms4@gmail.com"));
+                message.Subject = "Honeymoon afspraak bevestiging";
+                message.Body = new TextPart("html") { Text = string.Format(body, model.Naam, model.Email, model.TrouwDatum.ToString("dd/MM/yyyy"), model.Telefoonnummer, model.AfspraakDatum.ToString("dd/MM/yyyy"), tijd) };
 
-                return RedirectToAction("AfspraakVoltooid");
+                using (var smtp = new SmtpClient())
+                {
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "hhshms4@gmail.com",  // replace with valid value
+                        Password = "Asdfghjkl"  // replace with valid value
+                    };
+                    //smtp.LocalDomain = “domain.com”;
+                    // check your smtp server setting and amend accordingly:
+                    await smtp.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
+                    await smtp.AuthenticateAsync(credential);
+                    await smtp.SendAsync(message).ConfigureAwait(false);
+                    await smtp.DisconnectAsync(true).ConfigureAwait(false);
+                    return RedirectToAction("AfspraakVoltooid");
+                }
             }
-         
+            return View(model);
 
+            //if (ModelState.IsValid)
+            //{
+            //    HoneyMoonDb.Afspraak.Add(model);
+            //    HoneyMoonDb.SaveChanges();
 
-            return View(a);
+            //    return RedirectToAction("AfspraakVoltooid");
+            //}
+
+            //return View(model);
         }
 
         public IActionResult AfspraakVoltooid()
