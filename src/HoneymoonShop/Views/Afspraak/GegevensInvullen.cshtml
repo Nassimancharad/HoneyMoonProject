@@ -20,7 +20,12 @@
 </style>
 
 
+<div class="row">
+    <div class="AfspraakBanner">
 
+    </div>
+
+</div>
 <div class="row flex-container form-container">
 
     <div class="col-md-5 " style="-webkit-box-shadow: -1px 1px 10px; box-shadow:1px 1px 10px rgba(136, 136, 136, 1);">
@@ -42,6 +47,7 @@
 
             <form asp-controller="Afspraak" asp-action="GegevensInvullen" method="post">
                 <input type="hidden" asp-for="Tijd">
+                <input type="hidden" asp-for="AfspraakDatum">
                 <p>
                     <label asp-for="Naam"></label>
                     <input asp-for="Naam">
@@ -68,7 +74,7 @@
                     <span asp-validation-for="HerhaalEmail" class="text-danger"></span>
                 </p>
 
-                <input type="checkbox" name="subscription" value="Bike"> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
+                <input asp-for="Nieuwsbrief" style="visibility:visible;" /> Ja, ik wil me graag aanmelden voor de inspirende nieuwsbrief van de HoneyMoon Shop<br><br>
                 <button type="submit" class="btn-standard text-uppercase" style="margin-bottom: 25px"><strong>Naar stap 3</strong></button>
             </form>
         </div>
@@ -129,6 +135,8 @@
                             var tijdTitel = localStorage.getItem("tijdTitel");
                             document.getElementById('Tijd').value = tijd2;
                             document.getElementById('AfspraakTijdTitel').innerText = tijdTitel;
+                            var hiddenDateNr = localStorage.getItem("fullDateNr");
+                            document.getElementById('AfspraakDatum').value = hiddenDateNr;
                         }
 
                     </script>

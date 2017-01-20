@@ -62,7 +62,12 @@
 
 </head>
 
+<div class="row">
+    <div class="AfspraakBanner">
 
+    </div>
+
+</div>
 <div class="row flex-container form-container">
     <div class="col-md-5" style="box-shadow: -1px 1px 10px 0px rgba(136, 136, 136, 1)">
        
@@ -111,35 +116,40 @@
         <h4>Selecteer een datum:</h4>
 
         <div id="calendar"></div>
-
+      
         <script>
-            $('#calendar').datepicker({
-                inline: true,
-                firstDay: 1,
-                showOtherMonths: true,
-                dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
-                minDate: 0,
+                $('#calendar').datepicker({
+                    inline: true,
+                    firstDay: 1,
+                    showOtherMonths: true,
+                    dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
+                    minDate: 0,
 
-                onSelect: function () {
-                    var months = [ "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December" ];
-                    var daynaam = ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'];
-                    var dayName = daynaam[$("#calendar").datepicker('getDate').getDay()];
-                    var day = $("#calendar").datepicker('getDate').getDate();
-                    var month = months[$("#calendar").datepicker('getDate').getMonth()];
-                    var year = $("#calendar").datepicker('getDate').getFullYear();
-                    var fullDate = day + "-" + month + "-" + year;
+                    onSelect: function () {
+                        var months = [ "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December" ];
+                        var daynaam = ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'];
+                        var dayName = daynaam[$("#calendar").datepicker('getDate').getDay()];
+                        var day = $("#calendar").datepicker('getDate').getDate();
+                        var month = months[$("#calendar").datepicker('getDate').getMonth()];
+                        var monthgetal = $("#calendar").datepicker('getDate').getMonth() + 1;
+                        var year = $("#calendar").datepicker('getDate').getFullYear();
+                        var fullDate = day + "-" + month + "-" + year;
+                        var fullDateNr = day + "-" + monthgetal + "-" + year;
 
-                    localStorage.setItem("fullDate", fullDate);
-                    localStorage.setItem("dagnaam", dayName);
-                    localStorage.setItem("day", day);
-                    localStorage.setItem("month", month);
-                    localStorage.setItem("year", year);
+                        localStorage.setItem("fullDate", fullDate);
+                        localStorage.setItem("dagnaam", dayName);
+                        localStorage.setItem("day", day);
+                        localStorage.setItem("month", month);
+                        localStorage.setItem("year", year);
+                        localStorage.setItem("fullDateNr", fullDateNr);
 
-                    document.getElementById("datGeselecteerdeDatum").value = fullDate;
-                }
-            });
-        </script>
+                        document.getElementById("datGeselecteerdeDatum").value = fullDate;
+                    }
+                });
+        </script>       
+            
+  
 
         <form action="/Afspraak/TijdSelecteren" name="frmGeselecteerdeDatum" method="post">
             <input type="hidden" name="datGeselecteerdeDatum" id="datGeselecteerdeDatum" />
