@@ -2,7 +2,7 @@
     ViewData["Title"] = "Datum Selecteren";
 }
 
-@model HoneyMoonDB.Models.Afspraak
+@model HoneyMoonDB.Models.AfspraakVM
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -147,8 +147,8 @@
                         document.getElementById("datGeselecteerdeDatum").value = fullDate;
                     }
                 });
-        </script>       
-            
+        </script>  
+   
   
 
         <form action="/Afspraak/TijdSelecteren" name="frmGeselecteerdeDatum" method="post">

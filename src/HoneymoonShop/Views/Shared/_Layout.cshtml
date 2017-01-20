@@ -3,6 +3,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="902549693692-mbdtfq944jgnssb53uvqg21n152ohnff.apps.googleusercontent.com">
     <environment names="Staging,Production">
         asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
         asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
@@ -61,6 +63,20 @@
             <div class="col-md-1 yellowBorder">
                 <a asp-action="Index" asp-controller="DressFinder"><strong>Webshop</strong></a>
             </div>
+            <div class="col-md-2 yellowBorder">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+            <div class="col-md-0.5 yellowBorder">
+                <div> <a href="#" onclick="signOut();">Sign out</a></div>
+                <script>
+                    function signOut() {
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.signOut().then(function () {
+                            console.log('User signed out.');
+                        });
+                    }
+                </script>
+            </div>
             <div class="col-md-2 col-md-offset-6 text-right yellowBorder">
                 <strong>T</strong> (010) 4126143
             </div>
@@ -68,6 +84,15 @@
                 <strong>Wat zoek je?</strong>
             </div>
         </div>
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Name: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail());
+            }
+        </script>
         <!-- END HEADER -->
         <!-- BEGIN NAVBAR -->
         <div class="row">
