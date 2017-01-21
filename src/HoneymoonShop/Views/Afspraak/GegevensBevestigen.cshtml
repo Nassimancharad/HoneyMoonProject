@@ -92,7 +92,6 @@
                             document.getElementById('AfspraakYear').innerText = hiddenDateYear;
                             var tijdTitel = localStorage.getItem("tijdTitel");
                             document.getElementById('AfspraakTijdTitel').innerText = tijdTitel;
-                            document.getElementById('Tijd_FK.tijd').value = tijdTitel;
 
                         }
 
@@ -132,10 +131,8 @@
                     <div>
                         @Model.Email
                     </div>
-                    
 
                     <form asp-controller="Afspraak" asp-action="GegevensBevestigen" method="post" name="frmBevestigen">
-                        <input type="hidden" asp-for="Tijd_FK.tijd"/>
                         <input type="hidden" asp-for="Tijd" />
                         <input type="hidden" asp-for="AfspraakDatum" />
                         <input type="hidden" asp-for="Nieuwsbrief" />
