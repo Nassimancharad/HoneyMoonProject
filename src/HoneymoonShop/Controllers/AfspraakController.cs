@@ -171,10 +171,33 @@ namespace HoneyMoonDB.Controllers
             return View();
         }
 
-        public IActionResult DatumSelecteren()
-        {
-            return View();
+      public IActionResult DatumSelecteren() {
+    var tijden = HoneyMoonDb.BeschikbareTijden.ToList();
+
+    //         Key       Value
+    Dictionary<DateTime, bool[]> used = new Dictionary<DateTime, bool[]>();
+    foreach (var afspraak in HoneyMoonDb.Afspraak) {
+        if (!used.ContainsKey(afspraak.AfspraakDatum.Date)) {
+            used[afspraak.AfspraakDatum.Date] = new bool[tijden.Count()];
         }
+
+        //    Date                        Time (boolean)
+        used[afspraak.AfspraakDatum.Date][tijden.IndexOf(afspraak.Tijd_FK)] = true;
+    }
+
+    List<string> list = new List<string>();
+    foreach (var item in used) {
+        if (tijden.Count() == item.Value.Where(a => a).Count())
+            list.Add(item.Key.Date.ToString("dd-MM-yyyy"));
+    }
+
+    AfspraakVM vm = new AfspraakVM();
+    vm.UitgeschakeldeDatum = list;
+
+    // Geef de datum terug die geen tijden hebben.
+    return View(vm);
+}
+
 
         [HttpPost]
         public IActionResult TijdSelecteren(string datGeselecteerdeDatum)

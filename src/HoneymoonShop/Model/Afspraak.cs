@@ -52,11 +52,11 @@ namespace HoneyMoonDB.Models
         public int Tijd { get; set; }
 
     }
-
     public class AfspraakVM
     {
 
         public List<BeschikbareTijden> beschikbareTijden { get; set; }
+        public List<string> UitgeschakeldeDatum { get; set; }
 
     }
 
