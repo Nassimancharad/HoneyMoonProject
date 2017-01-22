@@ -64,9 +64,7 @@ namespace HoneyMoonDB.Controllers
         public IActionResult GegevensInvullen([Bind("AfspraakId,Email,Naam,Telefoonnummer,TrouwDatum,HerhaalEmail, AfspraakDatum, Tijd, Nieuwsbrief")] Afspraak afspraak, BeschikbareTijden tijden)
         {
 
-            if (ModelState.IsValid)
-            {
-                //HoneyMoonDb.Add(afspraak);
+          //HoneyMoonDb.Add(afspraak);
                 //HoneyMoonDb.SaveChanges();
 
                 HttpContext.Session.SetString("Naam", afspraak.Naam);
@@ -78,9 +76,7 @@ namespace HoneyMoonDB.Controllers
                 HttpContext.Session.SetString("Nieuwsbrief", afspraak.Nieuwsbrief.ToString());
                 HttpContext.Session.SetInt32("Tijd", afspraak.Tijd);
                 return RedirectToAction("GegevensBevestigen");
-            }
-
-            return View(afspraak);
+         
         }
 
         // GET: Afspraak/Edit/5
