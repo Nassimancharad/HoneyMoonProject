@@ -43,7 +43,7 @@
                     <span type="submit" class="btn-standard text-uppercase" style="width:200px;margin-bottom: 180px; margin-top: 20px;"><strong>Afspraak bevestigen</strong></span>
                 </div>
             </a>
-            
+
         </div>
     </div>
 
@@ -81,19 +81,19 @@
                     <span id="AfspraakTijdTitel"></span> u
                 </div>
                 <script>
-                        window.onload = function () {
-                            var AfspraakDagNaam = localStorage.getItem("dagnaam");
-                            var hiddenDateDay = localStorage.getItem("day");
-                            var hiddenDateMonth = localStorage.getItem("month");
-                            var hiddenDateYear = localStorage.getItem("year");
-                            document.getElementById('AfspraakDagNaam').innerText = AfspraakDagNaam;
-                            document.getElementById('AfspraakDag').innerText = hiddenDateDay;
-                            document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
-                            document.getElementById('AfspraakYear').innerText = hiddenDateYear;
-                            var tijdTitel = localStorage.getItem("tijdTitel");
-                            document.getElementById('AfspraakTijdTitel').innerText = tijdTitel;
+                    window.onload = function () {
+                        var AfspraakDagNaam = localStorage.getItem("dagnaam");
+                        var hiddenDateDay = localStorage.getItem("day");
+                        var hiddenDateMonth = localStorage.getItem("month");
+                        var hiddenDateYear = localStorage.getItem("year");
+                        document.getElementById('AfspraakDagNaam').innerText = AfspraakDagNaam;
+                        document.getElementById('AfspraakDag').innerText = hiddenDateDay;
+                        document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
+                        document.getElementById('AfspraakYear').innerText = hiddenDateYear;
+                        var tijdTitel = localStorage.getItem("tijdTitel");
+                        document.getElementById('AfspraakTijdTitel').innerText = tijdTitel;
 
-                        }
+                    }
 
                 </script>
             </div>
@@ -120,16 +120,16 @@
                 <div class="col-md-6">
 
                     <div>
-                        @Model.Naam
+                        <label>Model.Naam</label>@
                     </div>
                     <div>
-                        @Model.TrouwDatum.ToString("dd/MM/yyyy")
+                        <label> @Model.TrouwDatum.ToString("dd/MM/yyyy")</label>@
                     </div>
                     <div>
-                        @Model.Telefoonnummer
+                        <label>@Model.Telefoonnummer</label>@
                     </div>
                     <div>
-                        @Model.Email
+                        <label>@Model.Email</label>@
                     </div>
 
                     <form asp-controller="Afspraak" asp-action="GegevensBevestigen" method="post" name="frmBevestigen">
