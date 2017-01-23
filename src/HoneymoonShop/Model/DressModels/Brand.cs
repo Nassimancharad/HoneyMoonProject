@@ -11,6 +11,6 @@ namespace HoneymoonShop.Model.DressModels
         [Key]
         public string Name { get; set; }
         public virtual ICollection<Dress> Dresses { get; set; }
-     
+        public virtual ICollection<Jewelry> Sieraden { get; set; }
     }
 }

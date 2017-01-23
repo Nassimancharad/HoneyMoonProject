@@ -10,7 +10,7 @@ namespace HoneyMoonDB.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: /<Index>/
+        // GET: /<controller>/
         public IActionResult Index() {
             return View();
         }

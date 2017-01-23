@@ -168,12 +168,12 @@
                 </table>
             </form>
             <script>
-                $('#myform input').on('change', function () {
-                    tijd = $('input[name=a.ID]:checked', '#myform').attr('id');
-                    tijdTitel = $('input[name=a.ID]:checked', '#myform').val();
-                    localStorage.setItem("tijd", tijd);
-                    localStorage.setItem("tijdTitel", tijdTitel);
-                });
+        $('#myform input').on('change', function () {
+            tijd = $('input[name=a.ID]:checked', '#myform').attr('id');
+            tijdTitel = $('input[name=a.ID]:checked', '#myform').val();
+            localStorage.setItem("tijd", tijd);
+            localStorage.setItem("tijdTitel", tijdTitel);
+        });
             </script>
         </div>
 

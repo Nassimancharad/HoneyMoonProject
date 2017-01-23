@@ -92,11 +92,13 @@
                 margin-right:5px;
                 ">
 
+
                 </div>
                 <h4>Gekozen tijd en datum:</h4>
 
             </div>
-            <div class="ui-datepicker-title" style="margin-top: 20px;
+            <div class="ui-datepicker-title" style="
+                 margin-top: 20px;
                  margin-right: 35px;
                  margin-left: 35px;
                  width: 290px;
@@ -104,8 +106,8 @@
                  font-size: medium;
                  background-color: rgb(242, 115, 144);
                  padding: 5px;
-                 color: white; ">
-
+                 color: white;
+                 ">
                 <form asp-controller="Afspraak" asp-action="DatumSelecteren" method="post">
                     <div>
                         <span id="AfspraakDagNaam"> </span>
@@ -127,6 +129,8 @@
                             document.getElementById('AfspraakDag').innerText = hiddenDateDay;
                             document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
                             document.getElementById('AfspraakYear').innerText = hiddenDateYear;
+                            //var hiddenDate = localStorage.getItem("fullDate");
+                            //document.getElementById('AfspraakDatum').value = hiddenDate;
                             var tijd2 = localStorage.getItem("tijd");
                             var tijdTitel = localStorage.getItem("tijdTitel");
                             document.getElementById('Tijd').value = tijd2;
