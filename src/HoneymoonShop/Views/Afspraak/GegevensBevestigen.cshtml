@@ -59,7 +59,6 @@
                 margin-right:5px;
                 ">
 
-
                 </div>
                 <h4>Controleer je gegevens:</h4>
 
@@ -92,12 +91,11 @@
                         document.getElementById('AfspraakYear').innerText = hiddenDateYear;
                         var tijdTitel = localStorage.getItem("tijdTitel");
                         document.getElementById('AfspraakTijdTitel').innerText = tijdTitel;
-
+                        //document.getElementById('Tijd_FK.tijd').value = tijdTitel;
                     }
 
                 </script>
             </div>
-
 
             <br>
             <div class="col-md-12">
@@ -134,6 +132,7 @@
 
                     <form asp-controller="Afspraak" asp-action="GegevensBevestigen" method="post" name="frmBevestigen">
                         <input type="hidden" asp-for="Tijd" />
+                        @*<input type="hidden" asp-for="Tijd_FK.tijd" />*@
                         <input type="hidden" asp-for="AfspraakDatum" />
                         <input type="hidden" asp-for="Nieuwsbrief" />
                         <p>
@@ -153,26 +152,21 @@
                         </p>
                     </form>
                 </div>
-
-
-
             </div>
+
             <div class="col-md-12" style="bottom:20px; font-size:13px; position:absolute; text-decoration:none; color: white">
                 <a href="GegevensInvullen">
                     <div class="Back" style="display:flex;">
                         <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg);
-    background-size: 100% 100%;
-   bottom: 20px;
-    width: 50px;
-    height: 22px;
-   ">
-
+                            background-size: 100% 100%;
+                            bottom: 20px;
+                            width: 50px;
+                            height: 22px; ">
                         </div>
                         <div class"backText">
                             <span style="font-size:13px;margin-left:10px; text-decoration:none; color: white;">Terug naar stap 2 om je gegevens te wijzigen</span>
                         </div>
                     </div>
-
                 </a>
             </div>
 

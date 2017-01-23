@@ -113,10 +113,11 @@
 
         <div id="calendar"></div>
         <script>
+            // Sla alle datums die in de model zijn op in een array
             var array = @Html.Raw(Json.Serialize(Model.UitgeschakeldeDatum));
 
             $('#calendar').datepicker({
-                    inline: true,
+                inline: true,
                 firstDay: 1,
                 showOtherMonths: true,
                 dayNamesMin: ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'],
@@ -128,8 +129,8 @@
                 },
 
                 onSelect: function () {
-                    var months = [ "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December" ];
+                    var months = [ "Januari", "Februari", "Maart", "April", "Mei", "Juni",
+                    "Juli", "Augustus", "September", "Oktober", "November", "December" ];
                     var daynaam = ['Zo', 'Ma', 'Di', 'Woe', 'Do', 'Vr', 'Za'];
                     var dayName = daynaam[$("#calendar").datepicker('getDate').getDay()];
                     var day = $("#calendar").datepicker('getDate').getDate();
