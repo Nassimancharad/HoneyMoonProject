@@ -18,15 +18,11 @@
     <link rel="stylesheet" href="~/css/bootstrap-slider.css" />
     <link rel="stylesheet" href="~/css/categorySelector.css" />
     <link rel="stylesheet" href="~/css/main.css">
-   
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link href="~/fonts/Nexa Bold.otf" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-        <link rel="stylesheet" href="~/css/site.css" />
-   
-
-
-
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="~/fonts/Nexa Bold.otf" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+  
 
     @RenderSection("CustomStyle", false)
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
@@ -67,12 +63,15 @@
         <script>
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();
-                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('ID: ' + profile.getId());
                 console.log('Name: ' + profile.getName());
                 console.log('Image URL: ' + profile.getImageUrl());
                 console.log('Email: ' + profile.getEmail());
             }
         </script>
+
+       
+
         <!-- END HEADER -->
         <!-- BEGIN NAVBAR -->
         <div class="row">
@@ -98,16 +97,15 @@
                             <li><a asp-action="Index" asp-controller="Home"><strong>Home</strong></a></li>
                             <li><a asp-action="Index" asp-controller="DressFinder"><strong>Bruid</strong></a></li>
                             <li><a asp-action="Index" asp-controller="Bruidegom"><strong>Bruidegom</strong></a></li>
-                            <li><a asp-action="Index" asp-controller="Winkel"><strong>De winkel</strong></a></li>
+                            <li><a asp-action="#" asp-controller="#"><strong>De winkel</strong></a></li>
                             <li><a asp-action="Index" asp-controller="Blog"><strong>Blog</strong></a></li>
                             <li><a asp-action="Index" asp-controller="Contact"><strong>Contact</strong></a></li>
                             <li>
                                 <button onclick="location.href='@Url.Action("AfspraakMaken", "Afspraak")'" type="button" class="btn-standard text-uppercase"><strong>Afspraak maken</strong></button>
                             </li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-                <!--<img class="img-responsive testImage" src="https://www.placehold.it/1400x800" alt="Image behind navbar" />-->
+                    </div>
+                </div>
                 <img class="img-responsive testImage" src="@ViewBag.NavBarBG" />
             </nav>
         </div>
