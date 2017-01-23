@@ -8,61 +8,129 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="~/css/Kalender.css">
-    
+
     <style>
-        .navbar-default .navbar-nav > li > a {
-            color: #000;
-        }
+    .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
 
-        .navbar-default .navbar-brand {
-            color: #000;
-        }
+    .navbar-default .navbar-brand {
+        color: #000;
+    }
 
-        input[type="radio"]{
+    input[type="radio"]{
 
-        }
+    }
+
+    .FormGegevens {
+        margin-top:30px;
+    }
+
+    .openingstijden {
+        padding-bottom:10px;
+    }
+
+    .controle-scherm {
+        box-shadow: 1px 1px 10px 0px #888888;
+    }
+
+    .controle-scherm-gegevens {
+        color: white;
+    }
+
+    .ui-datepicker-title {
+        margin: auto;
+        width: 290px;
+        text-align: center;
+        font-size: medium;
+        background-color: rgb(242, 115, 144);
+        padding: 5px;
+
+    }
+
+    .Back {
+        display:flex;
+    }
+
+    .backArrow{
+        background-image :url(http://oi64.tinypic.com/72t2jt.jpg);
+        background-size: 100% 100%;
+        bottom: 20px;
+        width: 50px;
+        height: 22px;
+        position:absolute;
+    }
+
+    .backText {
+        bottom: 20px;
+        margin-left:60px; 
+        position:absolute; 
+        text-decoration:none; 
+        color: white;
+    }
 
     </style>
-</head>
-<div class="row flex-container form-container">
-    <div class="col-md-5 yellowBorder" style="box-shadow: -1px 1px 10px 0px #888888">
 
-      
+    <script>
+        window.onload = function () {
+            var AfspraakDagNaam = localStorage.getItem("dagnaam");
+            var hiddenDateDay = localStorage.getItem("day");
+            var hiddenDateMonth = localStorage.getItem("month");
+            var hiddenDateYear = localStorage.getItem("year");
+            document.getElementById('AfspraakDagNaam').innerText = AfspraakDagNaam;
+            document.getElementById('AfspraakDag').innerText = hiddenDateDay;
+            document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
+            document.getElementById('AfspraakYear').innerText = hiddenDateYear;
+        }
+
+        var tijd = $('input[name=a.ID]:checked', '#myform').attr('id');
+        var tijdTitel = $('input[name=a.ID]:checked', '#myform').val();
+        </script>
+
+       
+</head>
+<div class="row">
+    <div class="AfspraakBanner">
+
+    </div>
+
+</div>
+<div class="row flex-container form-container">
+    <div class="col-md-5" style="box-shadow: -1px 1px 10px 0px #888888">
+
         <div class="col-md-3 Cirkels" style="text-align:center; margin-top:30px;">
             <div class="ThisCirkel">1</div>
             <div class="ThisStep">Datum en tijd selecteren</div>
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
-            <div class="Streep"></div><br />
+            @for(int i = 0; i < 6; i++) {
+                <div class="Streep"></div><br />
+            }
             <div class="NextCirkel">2</div>
             <div class="NextStep">Gegevens invullen</div>
             <div class="Streep"></div><br />
             <div class="NextCirkel">3</div>
             <div class="NextStep">Gegevens controleren</div>
         </div>
-        <div class="col-md-9 FormGegevens" style="margin-top:30px;">
+
+        <div class="col-md-9 FormGegevens">
             <h4>Stap 1, Datum en tijd selecteren</h4>
             <p>Selecteer eerst een datum en vervolgens een tijdstip wanneer je wilt komen passen!</p>
-            <div class="openingstijden" style="padding-bottom:10px">
+            <div class="openingstijden">
                 <span>Openingstijden:</span>
-                <table>
+                <table class="text-uppercase">
                     <tr>
-                        <td>MA</td>
+                        <td>ma</td>
                         <td class="tijden">12:00-17:30</td>
                     </tr>
                     <tr>
-                        <td>DI-VR</td>
+                        <td>di-vr</td>
                         <td class="tijden">09:30-17:30</td>
                     </tr>
                     <tr>
-                        <td>ZA</td>
+                        <td>za</td>
                         <td class="tijden">09:30-18:00</td>
                     </tr>
                     <tr>
-                        <td>ZO</td>
+                        <td>zo</td>
                         <td class="tijden">11:00-17:00</td>
                     </tr>
                 </table>
@@ -74,107 +142,46 @@
                 </div>
             </a>
         </div>
-        </div>
-
-    <div class="col-md-4 controle-scherm yellowBorder" style="box-shadow: 1px 1px 10px 0px #888888">
-
-        <div class="controle-scherm-gegevens">
-            <div class="Titel" style="color:white; display:flex;">
-
-                <div style="background-image: url(http://www.iconsdb.com/icons/preview/white/heart-49-xxl.png);
-                background-size: 100% 100%;
-                height: 15px;
-                width: 15px;
-                margin-top: 11px;
-                margin-right:5px;
-                ">
-                </div>
-                <h4>Selecteer een tijdstip:</h4>
-
-            </div>
-            <div class="ui-datepicker-title" style="margin: auto;
-                 width: 290px;
-                 text-align: center;
-                 font-size: medium;
-                 background-color: rgb(242, 115, 144);
-                 padding: 5px;
-                 color: white; ">
-
-                    <div>
-                        <span id="AfspraakDagNaam"> </span>
-                        <span id="AfspraakDag"> </span>
-                        <span id="AfspraakMaand"></span>
-                        <span id="AfspraakYear"></span>
-                    </div>
-                    <script>
-                        window.onload = function () {
-                            var AfspraakDagNaam = localStorage.getItem("dagnaam");
-                            var hiddenDateDay = localStorage.getItem("day");
-                            var hiddenDateMonth = localStorage.getItem("month");
-                            var hiddenDateYear = localStorage.getItem("year");
-                            document.getElementById('AfspraakDagNaam').innerText = AfspraakDagNaam;
-                            document.getElementById('AfspraakDag').innerText = hiddenDateDay;
-                            document.getElementById('AfspraakMaand').innerText = hiddenDateMonth;
-                            document.getElementById('AfspraakYear').innerText = hiddenDateYear;
-                        }
-
-                    </script>
-
-
-                
-            </div>
-
-            <div>
-                <form action="/Afspraak/GegevensInvullen" name="frmGeselecteerdeTijd" id="myform" method="post">
-                    <table>
-                        @foreach (var a in Model.beschikbareTijden)
-                        {
-                            <tr>
-                                <td>
-                                    <input asp-for="@a.ID" type="radio" value="@a.ID" id="radiobutton" /> 
-                                    <label for="radiobutton" id="radiotijd">@a.tijd.ToString(@"hh\:mm")</label>  
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                </form>
-                <script>
-                    
-                   var tijd = $('input[name=a.ID]:checked', '#myform').val();
-                    
-                   $('#myform input').on('change', function () {
-                       tijd = $('input[name=a.ID]:checked', '#myform').val();
-                       localStorage.setItem("tijd", tijd);
-                   });
-                   
-                    
-                </script>
-                @*<a href="JavaScript:document.getElementsByName('frmGeselecteerdeTijd')[0].submit()">stap2</a>*@
-
-            </div>
-
-
-
-            <a href="DatumSelecteren">
-                <div class="Back" style="display:flex;">
-                    <div class="backArrow" style="background-image :url(http://oi64.tinypic.com/72t2jt.jpg);
-                        background-size: 100% 100%;
-                       bottom: 20px;
-                        width: 50px;
-                        height: 22px;
-                        position:absolute">
-
-                    </div>
-                    <div class"backText">
-                        <span style="bottom: 20px;margin-left:60px; position:absolute; text-decoration:none; color: white;">Terug naar datum wijzigen</span>
-                    </div>
-                </div>
-
-            </a>
-        </div>
     </div>
 
+    <div class="col-md-4 controle-scherm controle-scherm-gegevens">
+        <h4>Selecteer een tijdstip:</h4>
+        <div class="ui-datepicker-title">
+            <span id="AfspraakDagNaam"> </span>
+            <span id="AfspraakDag"> </span>
+            <span id="AfspraakMaand"></span>
+            <span id="AfspraakYear"></span>
+        </div>
 
+        <div>
+            <form action="/Afspraak/GegevensInvullen" name="frmGeselecteerdeTijd" id="myform" method="post">
+
+                <table>
+                    @foreach (var a in Model.beschikbareTijden) {
+                    <tr>
+                        <td>
+                            <input asp-for="@a.ID" type="radio" value="@a.tijd.ToString(@"hh\:mm")" id="@a.ID" />
+                            <label for="radiobutton" id="radiotijd">@a.tijd.ToString(@"hh\:mm")</label>
+                        </td>
+                    </tr>
+                    }
+                </table>
+            </form>
+            <script>
+                $('#myform input').on('change', function () {
+                    tijd = $('input[name=a.ID]:checked', '#myform').attr('id');
+                    tijdTitel = $('input[name=a.ID]:checked', '#myform').val();
+                    localStorage.setItem("tijd", tijd);
+                    localStorage.setItem("tijdTitel", tijdTitel);
+                });
+            </script>
+        </div>
+
+        <a href="DatumSelecteren" class="Back">
+            <span class="backArrow"></span>
+            <span class="backText">Terug naar datum wijzigen</span>
+        </a>
+    </div>
 </div>
 
 <div class="row">

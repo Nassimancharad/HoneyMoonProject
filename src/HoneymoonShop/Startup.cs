@@ -48,6 +48,7 @@ namespace HoneyMoonDB {
 
             var connection = @"Data Source=honeymoonproject.database.windows.net;Initial Catalog=HoneyMoonShop;Integrated Security=False;User ID=nvssxm;Password=N@ssim1998;Connect Timeout=15;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<DBContext>(options => options.UseSqlServer(connection));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddDefaultTokenProviders();
 
@@ -57,6 +58,7 @@ namespace HoneyMoonDB {
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

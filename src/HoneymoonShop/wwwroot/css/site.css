@@ -598,7 +598,7 @@ a:active {
 
 label{
     font-size: 14px;
-    font-family: arial;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #priceSlider {
@@ -1305,10 +1305,7 @@ a:active {
   
 }
 
-label{
-    font-size: 14px;
-    font-family: arial;
-}
+
 
 #priceSlider {
     width:100%;

@@ -1,8 +1,11 @@
-﻿@using System.Collections.Generic
+﻿@using Microsoft.AspNetCore.Identity
+@using HoneyMoonDB.Models
 @using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Http.Authentication
-@model LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using HoneyMoonDB.Models.AccountViewModels
+@model LoginViewModel
 
 @{
     ViewData["Title"] = "Log in";
